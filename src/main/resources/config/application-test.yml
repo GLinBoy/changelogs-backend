@@ -1,0 +1,4 @@
+spring:
+  connfig:
+     activate:
+        on-profile: test

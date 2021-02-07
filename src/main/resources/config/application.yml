@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: dev
+  liquibase:
+    change-log: classpath:config/liquibase/master.xml
+    enabled: false
+
+application:
+  name: ChangeLogs
+  description: Share your Application chabges to your users
+  version: 0.0.1-SNAPSHOT
+  license: GNU GPLv3
+  License-url: 
+  github-url: 
