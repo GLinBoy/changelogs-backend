@@ -10,5 +10,5 @@ application:
   description: Share your Application chabges to your users
   version: 0.0.1-SNAPSHOT
   license: GNU GPLv3
-  License-url: 
-  github-url: 
+  License-url: https://github.com/GLinBoy/changelogs-backend/blob/main/LICENSE.md
+  github-url: https://github.com/GLinBoy/changelogs-backend
