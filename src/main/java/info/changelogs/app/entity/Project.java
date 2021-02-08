@@ -55,4 +55,8 @@ public class Project extends Auditable{
 	
 	@OneToMany(mappedBy = "project", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	Set<ProjectMeta> metas;
+	
+	
+	@OneToMany(mappedBy = "project", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	Set<Contact> contacts;
 }
