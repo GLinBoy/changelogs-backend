@@ -1,17 +1,17 @@
 package info.changelogs.app.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.FieldNameConstants;
+import lombok.EqualsAndHashCode;
 
 @Data
-@Builder
-@FieldNameConstants
-@AllArgsConstructor
-@NoArgsConstructor
-public class MetaData {
+@MappedSuperclass
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@EqualsAndHashCode(callSuper = true)
+public abstract class MetaData extends BaseEntity {
 	private String key;
-    private String value;
+	private String value;
 }
