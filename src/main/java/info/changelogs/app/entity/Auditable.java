@@ -40,6 +40,6 @@ public abstract class Auditable extends BaseEntity {
 
 	@Version
 	@Column(name = "VERSION", nullable = false)
-	private Long version;
+	private Integer version;
 
 }
