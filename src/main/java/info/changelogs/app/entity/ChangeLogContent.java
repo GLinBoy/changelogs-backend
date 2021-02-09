@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,4 +30,8 @@ public class ChangeLogContent extends Auditable {
 	
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String content;
+	
+	@ManyToOne
+	@JoinColumn(name = "CHANGELOG_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_CHANGELOG_CONTENT"))
+	private ChangeLog changeLog;
 }

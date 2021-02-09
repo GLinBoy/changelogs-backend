@@ -57,4 +57,7 @@ public class ChangeLog extends Auditable {
 	
 	@OneToMany(mappedBy = "changeLog", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	Set<ChangeLogMeta> metas;
+	
+	@OneToMany(mappedBy = "changeLog", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	Set<ChangeLogContent> contents;
 }
