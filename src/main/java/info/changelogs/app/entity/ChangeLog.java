@@ -1,8 +1,12 @@
 package info.changelogs.app.entity;
 
 import java.time.Instant;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,4 +30,7 @@ public class ChangeLog extends Auditable {
 	private String contact;
 	private Boolean forceUpdate;
 	private String platform;
+	
+	@OneToMany(mappedBy = "changeLog", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	Set<ChangeLogMeta> metas;
 }
