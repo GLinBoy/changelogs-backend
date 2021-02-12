@@ -41,6 +41,7 @@ public abstract class GenericServiceImpl<T extends BaseDTO, E extends BaseEntity
 	@Transactional
 	public T save(T t) {
 		E e = mapper.map(t, clazzE);
+		e.setIsActive(Boolean.TRUE);
 		return mapper.map(repository.save(e), clazzT);
 	}
 	
@@ -48,7 +49,11 @@ public abstract class GenericServiceImpl<T extends BaseDTO, E extends BaseEntity
 	@Transactional
 	public List<T> saveAll(List<T> list) {
 		List<E> collect = list.stream()
-				.map(t -> mapper.map(t, clazzE)).collect(Collectors.toList());
+				.map(t -> {
+					E e = mapper.map(t, clazzE);
+					e.setIsActive(Boolean.TRUE);
+					return e;
+				}).collect(Collectors.toList());
 		return repository.saveAll(collect).stream()
 				.map(e -> mapper.map(e, clazzT)).collect(Collectors.toList());
 	}
