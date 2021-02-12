@@ -4,6 +4,9 @@ spring:
   liquibase:
     change-log: classpath:config/liquibase/master.xml
     enabled: false
+server:
+  servlet:
+    context-path: "/api/v1"
 
 application:
   name: ChangeLogs
