@@ -18,16 +18,14 @@ import org.springframework.web.server.ResponseStatusException;
 
 import info.changelogs.app.dto.BaseDTO;
 import info.changelogs.app.service.GenericServiceApi;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public abstract class GenericController<T extends BaseDTO, S extends GenericServiceApi<T>> {
 
 	private final ResourceBundle messages = PropertyResourceBundle.getBundle("i18n/messages");
 
-	private S service;
-
-	public GenericController(S service) {
-		this.service = service;
-	}
+	protected final S service;
 
 	@GetMapping
 	public ResponseEntity<Page<T>> getAll(Pageable pageable) {
