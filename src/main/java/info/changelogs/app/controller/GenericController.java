@@ -1,11 +1,15 @@
 package info.changelogs.app.controller;
 
+import java.net.URI;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,9 +44,11 @@ public abstract class GenericController<T extends BaseDTO, S extends GenericServ
 	}
 
 	@PostMapping
-	public ResponseEntity<T> save(@Validated @RequestBody T entity) {
+	public ResponseEntity<T> save(@Validated @RequestBody T entity, HttpServletRequest request) {
 		T savedEntity = service.save(entity);
-		return ResponseEntity.ok().body(savedEntity);
+		String path = request.getRequestURI();
+		URI location = URI.create(String.format("%s/%s", path, savedEntity.getId()));
+		return ResponseEntity.created(location).contentType(MediaType.APPLICATION_JSON).body(savedEntity);
 	}
 
 	@PutMapping
