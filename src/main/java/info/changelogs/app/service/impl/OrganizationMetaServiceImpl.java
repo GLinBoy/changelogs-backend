@@ -14,7 +14,7 @@ public class OrganizationMetaServiceImpl
 	implements OrganizationMetaServiceApi {
 
 	public OrganizationMetaServiceImpl(OrganizationMetaRepository repository, ModelMapper mapper) {
-		super(repository, mapper);
+		super(repository, mapper, OrganizationMetaDTO.class, OrganizationMeta.class);
 	}
 
 }

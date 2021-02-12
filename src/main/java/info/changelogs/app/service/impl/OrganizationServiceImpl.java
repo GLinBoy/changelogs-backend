@@ -14,7 +14,7 @@ public class OrganizationServiceImpl
 	implements OrganizationServiceApi {
 
 	public OrganizationServiceImpl(OrganizationRepository repository, ModelMapper mapper) {
-		super(repository, mapper);
+		super(repository, mapper, OrganizationDTO.class, Organization.class);
 	}
 
 }

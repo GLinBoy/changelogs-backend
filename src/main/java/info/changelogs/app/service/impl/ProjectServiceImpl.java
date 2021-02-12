@@ -14,7 +14,7 @@ public class ProjectServiceImpl
 	implements ProjectServiceApi {
 
 	public ProjectServiceImpl(ProjectRepository repository, ModelMapper mapper) {
-		super(repository, mapper);
+		super(repository, mapper, ProjectDTO.class, Project.class);
 	}
 
 }

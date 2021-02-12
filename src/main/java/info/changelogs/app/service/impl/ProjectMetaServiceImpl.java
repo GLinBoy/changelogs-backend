@@ -14,7 +14,7 @@ public class ProjectMetaServiceImpl
 	implements ProjectMetaServiceApi {
 
 	public ProjectMetaServiceImpl(ProjectMetaRepository repository, ModelMapper mapper) {
-		super(repository, mapper);
+		super(repository, mapper, ProjectMetaDTO.class, ProjectMeta.class);
 	}
 
 }

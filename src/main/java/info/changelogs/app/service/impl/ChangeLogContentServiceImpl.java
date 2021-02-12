@@ -14,7 +14,7 @@ public class ChangeLogContentServiceImpl
 	implements ChangeLogContentServiceApi {
 
 	public ChangeLogContentServiceImpl(ChangeLogContentRepository repository, ModelMapper mapper) {
-		super(repository, mapper);
+		super(repository, mapper, ChangeLogContentDTO.class, ChangeLogContent.class);
 	}
 
 }

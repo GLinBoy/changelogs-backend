@@ -14,7 +14,7 @@ public class ContactServiceImpl
 	implements ContactServiceApi {
 
 	public ContactServiceImpl(ContactRepository repository, ModelMapper mapper) {
-		super(repository, mapper);
+		super(repository, mapper, ContactDTO.class, Contact.class);
 	}
 
 }

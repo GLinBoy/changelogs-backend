@@ -17,20 +17,25 @@ import org.springframework.web.server.ResponseStatusException;
 import info.changelogs.app.dto.BaseDTO;
 import info.changelogs.app.entity.BaseEntity;
 import info.changelogs.app.service.GenericServiceApi;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 public abstract class GenericServiceImpl<T extends BaseDTO, E extends BaseEntity, S extends JpaRepository<E, Long>>
 		implements GenericServiceApi<T> {
+
+	private final Class<T> clazzT;
+	private final  Class<E> clazzE;
 
 	protected final ResourceBundle messages = PropertyResourceBundle.getBundle("i18n/messages");
 
 	protected final S repository;
 	
 	private final ModelMapper mapper;
-	
-	private Class<T> clazzT;
-	private Class<E> clazzE;
+
+	GenericServiceImpl(S repository, ModelMapper mapper, Class<T> clazzT, Class<E> clazzE) {
+		this.clazzT = clazzT;
+		this.clazzE = clazzE;
+		this.repository = repository;
+		this.mapper = mapper;
+	}
 
 	@Override
 	@Transactional

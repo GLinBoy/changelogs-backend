@@ -14,7 +14,7 @@ public class ChangeLogMetaServiceImpl
 	implements ChangeLogMetaServiceApi {
 
 	public ChangeLogMetaServiceImpl(ChangeLogMetaRepository repository, ModelMapper mapper) {
-		super(repository, mapper);
+		super(repository, mapper, ChangeLogMetaDTO.class, ChangeLogMeta.class);
 	}
 
 }
