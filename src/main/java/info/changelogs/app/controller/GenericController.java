@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springdoc.core.converters.models.PageableAsQueryParam;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import info.changelogs.app.dto.BaseDTO;
 import info.changelogs.app.service.GenericServiceApi;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -32,7 +34,8 @@ public abstract class GenericController<T extends BaseDTO, S extends GenericServ
 	protected final S service;
 
 	@GetMapping
-	public ResponseEntity<Page<T>> getAll(Pageable pageable) {
+	@PageableAsQueryParam
+	public ResponseEntity<Page<T>> getAll(@Parameter(hidden = true) Pageable pageable) {
 		Page<T> page = service.getAll(pageable);
 		return ResponseEntity.ok().body(page);
 	}
