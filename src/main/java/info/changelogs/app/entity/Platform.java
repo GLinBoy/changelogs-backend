@@ -6,5 +6,9 @@ public enum Platform {
     ANDROID,
     IOS,
     CLIENT,
-    MOBILE
+    MOBILE,
+    WEAR,
+    CAR,
+    TV,
+    IOT
 }
