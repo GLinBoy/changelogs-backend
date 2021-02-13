@@ -14,9 +14,9 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public abstract class MetaData extends BaseEntity {
 	
-	@Column(length = 128, unique = true, nullable = false)
+	@Column(name = "KEY", length = 128, nullable = false)
 	private String key;
 	
-	@Column(length = 128, unique = true, nullable = false)
+	@Column(name = "VALUE", length = 128, nullable = false)
 	private String value;
 }

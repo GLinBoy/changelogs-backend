@@ -10,6 +10,8 @@ import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,10 +27,17 @@ import lombok.experimental.FieldNameConstants;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@Table(uniqueConstraints = {
+		@UniqueConstraint(name = "UNQ_PROJECT_NAME", columnNames ={"NAME"}),
+		@UniqueConstraint(name = "UNQ_PROJECT_TITLE", columnNames ={"TITLE"})
+})
 public class Project extends Auditable{
 	
-	@Column(length = 128, unique = true, nullable = false)
+	@Column(name = "NAME", length = 128, nullable = false)
 	private String name;
+	
+	@Column(name = "TITLE", length = 128, nullable = false)
+	private String title;
 	
 	@Column(columnDefinition = "text")
 	private String about;
@@ -47,13 +56,13 @@ public class Project extends Auditable{
 	
 	private Boolean publicAccess;
 	
-	@Column(length = 128, unique = true, nullable = false)
+	@Column(length = 128)
 	private String website;
 	
-	@Column(length = 128, unique = true, nullable = false)
-	private String readmeLink;
+	@Column(length = 32)
+	private String license;
 	
-	@Column(length = 128, unique = true, nullable = false)
+	@Column(length = 128)
 	private String licenseLink;
 	
 	@ManyToOne

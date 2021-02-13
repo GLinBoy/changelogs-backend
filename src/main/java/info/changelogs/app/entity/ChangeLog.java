@@ -13,6 +13,8 @@ import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,12 +30,16 @@ import lombok.experimental.FieldNameConstants;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@Table(uniqueConstraints = {
+		@UniqueConstraint(name = "UNQ_CHANGELOG_VERSION", columnNames ={"VERSION_NO", "PLATFORM", "PROJECT_ID"}),
+		@UniqueConstraint(name = "UNQ_CHANGELOG_BUILD", columnNames = {"BUILD_VERSION", "PLATFORM", "PROJECT_ID"})
+})
 public class ChangeLog extends Auditable {
 	
-	@Column(length = 32, unique = true, nullable = false)
+	@Column(name = "VERSION_NO", length = 32, nullable = false)
 	private String versionNo;
 	
-	@Column(length = 32, unique = true)
+	@Column(name = "BUILD_VERSION", length = 32)
 	private String buildVersion;
 	
 	@Column(nullable = false)
@@ -48,7 +54,7 @@ public class ChangeLog extends Auditable {
 	private Boolean forceUpdate;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(length = 8, nullable = false)
+	@Column(name = "PLATFORM", length = 8, nullable = false)
 	private Platform platform;
 	
 	@ManyToOne

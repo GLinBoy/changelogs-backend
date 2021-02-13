@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +21,9 @@ import lombok.experimental.FieldNameConstants;
 @NoArgsConstructor
 @FieldNameConstants
 @EqualsAndHashCode(callSuper = true)
+@Table(uniqueConstraints = {
+		@UniqueConstraint(name = "UNQ_ORGANIZATION_META", columnNames ={"KEY", "ORGANIZATION_ID"})
+})
 public class OrganizationMeta extends MetaData {
 	
 	@ManyToOne

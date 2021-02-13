@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,15 +24,20 @@ import lombok.experimental.FieldNameConstants;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@Table(uniqueConstraints = {
+		@UniqueConstraint(name = "UNQ_ORGANIZATION_NAME", columnNames ={"NAME"}),
+		@UniqueConstraint(name = "UNQ_ORGANIZATION_TITLE", columnNames = {"TITLE"}),
+		@UniqueConstraint(name = "UNQ_ORGANIZATION_EMAIL", columnNames = {"EMAIL"})
+})
 public class Organization extends Auditable {
 	
-	@Column(length = 128, unique = true, nullable = false)
+	@Column(name = "NAME", length = 128, nullable = false)
 	private String name;
 	
-	@Column(length = 128, unique = true, nullable = false)
+	@Column(name = "TITLE", length = 128, nullable = false)
 	private String title;
 	
-	@Column(length = 64, unique = true, nullable = false)
+	@Column(name = "EMAIL", length = 64, nullable = false)
 	private String email;
 	
 	@OneToMany(mappedBy = "organization", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
