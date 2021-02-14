@@ -4,12 +4,12 @@ A simple application to manage a common requirement in our application developme
 
 ### NOTE 1: This Application is under development, and isn't ready for production purpose.
 
-### NOTE 2: This is back-end part, there is another git repository include front/administration for this. I will update this part and will add its url, as soon as possible.
+### NOTE 2: You can find front part in this repository: https://github.com/GLinBoy/changelogs-frontend
 
 ## Summary
 
   - [Getting Started](#getting-started)
-  - [Runing the tests](#running-the-tests)
+  - [Running the tests](#running-the-tests)
   - [Deployment](#deployment)
   - [Built With](#built-with)
   - [Contributing](#contributing)
@@ -26,15 +26,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 ChangeLogs needs only Java 15 and Maven to run or build; The project also include Maven wrapper but you can use local Maven too;
 
-#### Runing from the source
+#### Running from the source
 
 1. clone the project on your system:
 
-    git clone https://github.com/GLinBoy/ChangeLogs.git
+    git clone https://github.com/GLinBoy/changelogs-backend.git
 
 2. go to the ChangeLogs directory
 
-    cd ChangeLogs
+    cd changelogs-backend
 
 3. Run application with Maven or use Maven Wrapper:
 
