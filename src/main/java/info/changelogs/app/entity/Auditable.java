@@ -24,11 +24,11 @@ public abstract class Auditable extends BaseEntity {
 
 	@CreatedBy
 	@Column(name = "CREATED_BY", updatable = false, nullable = false)
-	private Long createdBy;
+	private String createdBy;
 
 	@LastModifiedBy
 	@Column(name = "EDITED_BY", nullable = false)
-	private Long editedBy;
+	private String editedBy;
 
 	@CreatedDate
 	@Column(name = "CREATED_ON", updatable = false, nullable = false)

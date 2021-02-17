@@ -12,16 +12,16 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class AuditingConfig {
 
 	@Bean
-	public AuditorAware<Long> auditorProvider() {
+	public AuditorAware<String> auditorProvider() {
 		return new SpringSecurityAuditAwareImpl();
 	}
 }
 
-class SpringSecurityAuditAwareImpl implements AuditorAware<Long> {
+class SpringSecurityAuditAwareImpl implements AuditorAware<String> {
 
 	@Override
 	// TODO This method must be update after adding Spring Security
-	public Optional<Long> getCurrentAuditor() {
-		return Optional.of(1L);
+	public Optional<String> getCurrentAuditor() {
+		return Optional.of("anonymous");
 	}
 }
