@@ -28,7 +28,7 @@ public abstract class GenericServiceImpl<T extends BaseDTO, E extends BaseEntity
 
 	protected final S repository;
 	
-	private final ModelMapper mapper;
+	protected final ModelMapper mapper;
 
 	GenericServiceImpl(S repository, ModelMapper mapper, Class<T> clazzT, Class<E> clazzE) {
 		this.clazzT = clazzT;
