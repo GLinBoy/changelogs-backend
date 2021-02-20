@@ -1,6 +1,7 @@
 package info.changelogs.app.controller;
 
 import java.net.URI;
+import java.util.List;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springdoc.core.converters.models.PageableAsQueryParam;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import info.changelogs.app.dto.BaseDTO;
 import info.changelogs.app.service.GenericServiceApi;
+import info.changelogs.app.util.PaginationUtil;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 
@@ -35,9 +38,10 @@ public abstract class GenericController<T extends BaseDTO, S extends GenericServ
 
 	@GetMapping
 	@PageableAsQueryParam
-	public ResponseEntity<Page<T>> getAll(@Parameter(hidden = true) Pageable pageable) {
+	public ResponseEntity<List<T>> getAll(@Parameter(hidden = true) Pageable pageable, HttpServletRequest request) {
 		Page<T> page = service.getAll(pageable);
-		return ResponseEntity.ok().body(page);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, request.getRequestURI());
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
 	}
 
 	@GetMapping("/{id}")
@@ -49,8 +53,7 @@ public abstract class GenericController<T extends BaseDTO, S extends GenericServ
 	@PostMapping
 	public ResponseEntity<T> save(@Validated @RequestBody T entity, HttpServletRequest request) {
 		T savedEntity = service.save(entity);
-		String path = request.getRequestURI();
-		URI location = URI.create(String.format("%s/%s", path, savedEntity.getId()));
+		URI location = URI.create(String.format("%s/%s", request.getRequestURI(), savedEntity.getId()));
 		return ResponseEntity.created(location).contentType(MediaType.APPLICATION_JSON).body(savedEntity);
 	}
 
