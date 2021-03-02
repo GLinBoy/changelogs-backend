@@ -4,10 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
+import info.changelogs.app.util.ApplicationInformation;
 import info.changelogs.app.util.ApplicationProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties({ ApplicationProperties.class })
+@EnableConfigurationProperties({ ApplicationProperties.class, ApplicationInformation.class })
 public class ChangeLogsApplication {
 
 	public static void main(String[] args) {
