@@ -8,10 +8,11 @@ server:
   servlet:
     context-path: "/api/v1"
 
-application:
-  name: ChangeLogs
-  description: Share your Application chabges to your users
-  version: 0.0.1-SNAPSHOT
-  license: GNU GPLv3
-  License-url: https://github.com/GLinBoy/changelogs-backend/blob/main/LICENSE.md
-  github-url: https://github.com/GLinBoy/changelogs-backend
+info:
+  app:
+    name: ChangeLogs
+    description: Share your application chabges to your users
+    version: 0.0.1-SNAPSHOT
+    license: GNU GPLv3
+    license-url: https://github.com/GLinBoy/changelogs-backend/blob/main/LICENSE.md
+    github-url: https://github.com/GLinBoy/changelogs-backend
