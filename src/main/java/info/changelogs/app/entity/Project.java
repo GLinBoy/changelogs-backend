@@ -48,9 +48,6 @@ public class Project extends Auditable{
 	@Column(length = 128, nullable = false)
 	private String owner;
 	
-	@Column(length = 128, nullable = false)
-	private String ownerEmail;
-	
 	private Boolean publicAccess;
 	
 	@Column(length = 128)
