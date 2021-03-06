@@ -45,9 +45,6 @@ public class Project extends Auditable{
 	@Column(columnDefinition = "text")
 	private String logo;
 	
-	@Column(length = 32)
-	private String logoType;
-	
 	@Column(length = 128, nullable = false)
 	private String owner;
 	

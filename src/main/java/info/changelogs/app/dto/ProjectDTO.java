@@ -18,7 +18,6 @@ public class ProjectDTO extends BaseDTO{
 	private String name;
 	private String about;
 	private String logo;
-	private String logoType;
 	private String owner;
 	private String ownerEmail;
 	private Boolean publicAccess;
