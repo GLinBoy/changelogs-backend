@@ -16,6 +16,7 @@ import lombok.experimental.FieldNameConstants;
 public class ProjectDTO extends BaseDTO{
 	
 	private String name;
+	private String title;
 	private String about;
 	private String logo;
 	private String owner;
