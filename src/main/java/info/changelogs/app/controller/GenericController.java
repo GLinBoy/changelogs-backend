@@ -15,7 +15,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -59,7 +58,7 @@ public abstract class GenericController<T extends BaseDTO, S extends GenericServ
 	}
 
 	@PutMapping
-	public ResponseEntity<T> update(@Validated @RequestBody T entity) {
+	public ResponseEntity<T> update(@Valid @RequestBody T entity) {
 		if (entity.getId() == null) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messages.getString("common.error.empty.id"));
 		}
