@@ -31,10 +31,10 @@ import lombok.experimental.FieldNameConstants;
 })
 public class Organization extends Auditable {
 	
-	@Column(name = "NAME", length = 128, nullable = false)
+	@Column(name = "NAME", length = 32, nullable = false)
 	private String name;
 	
-	@Column(name = "TITLE", length = 128, nullable = false)
+	@Column(name = "TITLE", length = 32, nullable = false)
 	private String title;
 	
 	@Column(name = "EMAIL", length = 64, nullable = false)
