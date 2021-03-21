@@ -6,6 +6,7 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springdoc.core.converters.models.PageableAsQueryParam;
 import org.springframework.data.domain.Page;
@@ -32,7 +33,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public abstract class GenericController<T extends BaseDTO, S extends GenericServiceApi<T>> {
 
-	private final ResourceBundle messages = PropertyResourceBundle.getBundle("i18n/messages");
+	protected final ResourceBundle messages = PropertyResourceBundle.getBundle("i18n/messages");
 
 	protected final S service;
 
@@ -51,7 +52,7 @@ public abstract class GenericController<T extends BaseDTO, S extends GenericServ
 	}
 
 	@PostMapping
-	public ResponseEntity<T> save(@Validated @RequestBody T entity, HttpServletRequest request) {
+	public ResponseEntity<T> save(@Valid @RequestBody T entity, HttpServletRequest request) {
 		T savedEntity = service.save(entity);
 		URI location = URI.create(String.format("%s/%s", request.getRequestURI(), savedEntity.getId()));
 		return ResponseEntity.created(location).contentType(MediaType.APPLICATION_JSON).body(savedEntity);
@@ -60,7 +61,7 @@ public abstract class GenericController<T extends BaseDTO, S extends GenericServ
 	@PutMapping
 	public ResponseEntity<T> update(@Validated @RequestBody T entity) {
 		if (entity.getId() == null) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messages.getString("common.error.invalid.id"));
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, messages.getString("common.error.empty.id"));
 		}
 		T updatedEntity = service.update(entity);
 		return ResponseEntity.ok().body(updatedEntity);
