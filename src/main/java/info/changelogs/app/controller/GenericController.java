@@ -1,6 +1,7 @@
 package info.changelogs.app.controller;
 
 import java.net.URI;
+import java.util.Arrays;
 import java.util.List;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
@@ -41,6 +42,7 @@ public abstract class GenericController<T extends BaseDTO, S extends GenericServ
 	public ResponseEntity<List<T>> getAll(@Parameter(hidden = true) Pageable pageable, HttpServletRequest request) {
 		Page<T> page = service.getAll(pageable);
 		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, request.getRequestURI());
+		headers.setAccessControlExposeHeaders(Arrays.asList(HttpHeaders.LINK, "X-Total-Count"));
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
 	}
 
