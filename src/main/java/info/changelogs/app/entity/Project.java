@@ -28,8 +28,8 @@ import lombok.experimental.FieldNameConstants;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(uniqueConstraints = {
-		@UniqueConstraint(name = "UNQ_PROJECT_NAME", columnNames ={"NAME"}),
-		@UniqueConstraint(name = "UNQ_PROJECT_TITLE", columnNames ={"TITLE"})
+		@UniqueConstraint(name = "UNQ_PROJECT_NAME", columnNames ={"NAME", "OWNER"}),
+		@UniqueConstraint(name = "UNQ_PROJECT_TITLE", columnNames ={"TITLE", "OWNER"})
 })
 public class Project extends Auditable{
 	
@@ -45,7 +45,7 @@ public class Project extends Auditable{
 	@Column(columnDefinition = "text")
 	private String logo;
 	
-	@Column(length = 128, nullable = false)
+	@Column(name="OWNER", length = 128, nullable = false)
 	private String owner;
 	
 	private Boolean publicAccess;
