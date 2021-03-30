@@ -48,7 +48,7 @@ public class ChangeLog extends Auditable {
 	@Column(length = 128, nullable = false)
 	private String publisher;
 	
-	@Column(length = 128, nullable = false)
+	@Column(length = 64, nullable = false)
 	private String contact;
 	
 	private Boolean forceUpdate;
