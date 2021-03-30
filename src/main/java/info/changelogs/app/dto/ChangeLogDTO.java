@@ -2,6 +2,10 @@ package info.changelogs.app.dto;
 
 import java.time.Instant;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import info.changelogs.app.entity.Platform;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,13 +22,32 @@ import lombok.experimental.FieldNameConstants;
 @EqualsAndHashCode(callSuper = true)
 public class ChangeLogDTO extends BaseDTO {
 
+	@Size(max = 32)
+	@NotBlank(message = "Version number is mandatory")
 	private String versionNo;
+	
+	@Size(max = 32)
 	private String buildVersion;
+	
+	@NotBlank(message = "Release date is mandatory")
 	private Instant releaseDate;
+	
+	@Size(max = 128)
+	@NotBlank(message = "Publisher is mandatory")
 	private String publisher;
+	
+	@Email(regexp = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")
+	@Size(min = 8, max = 64)
+	@NotBlank(message = "Contact is mandatory")
 	private String contact;
+	
+	@NotBlank(message = "Force update is mandatory")
 	private Boolean forceUpdate;
+
+	@NotBlank(message = "Platform is mandatory")
 	private Platform platform;
+	
+	@NotBlank(message = "Name is mandatory")
 	private Long projectId;
 
 }
