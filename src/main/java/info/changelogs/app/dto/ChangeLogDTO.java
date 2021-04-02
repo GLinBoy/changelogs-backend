@@ -4,6 +4,7 @@ import java.time.Instant;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import info.changelogs.app.entity.Platform;
@@ -29,7 +30,7 @@ public class ChangeLogDTO extends BaseDTO {
 	@Size(max = 32)
 	private String buildVersion;
 	
-	@NotBlank(message = "Release date is mandatory")
+	@NotNull(message = "Release date is mandatory")
 	private Instant releaseDate;
 	
 	@Size(max = 128)
@@ -41,13 +42,13 @@ public class ChangeLogDTO extends BaseDTO {
 	@NotBlank(message = "Contact is mandatory")
 	private String contact;
 	
-	@NotBlank(message = "Force update is mandatory")
+	@NotNull(message = "Force update is mandatory")
 	private Boolean forceUpdate;
 
-	@NotBlank(message = "Platform is mandatory")
+	@NotNull(message = "Platform is mandatory")
 	private Platform platform;
 	
-	@NotBlank(message = "Name is mandatory")
+	@NotNull(message = "Project is mandatory")
 	private Long projectId;
 
 }
