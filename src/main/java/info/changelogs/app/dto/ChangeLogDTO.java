@@ -1,6 +1,7 @@
 package info.changelogs.app.dto;
 
 import java.time.Instant;
+import java.util.Set;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -51,4 +52,5 @@ public class ChangeLogDTO extends BaseDTO {
 	@NotNull(message = "Project is mandatory")
 	private Long projectId;
 
+	Set<ChangeLogContentDTO> contents;
 }

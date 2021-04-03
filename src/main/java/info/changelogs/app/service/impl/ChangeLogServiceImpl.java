@@ -30,6 +30,7 @@ public class ChangeLogServiceImpl
 		ChangeLog changeLog = mapper.map(changeLogDTO, ChangeLog.class);
 		changeLog.setIsActive(Boolean.TRUE);
 		changeLog.setProject(em.getReference(Project.class, changeLogDTO.getProjectId()));
+		changeLog.getContents().forEach(c -> c.setChangeLog(changeLog));
 		return mapper.map(repository.save(changeLog), ChangeLogDTO.class);
 	}
 }
