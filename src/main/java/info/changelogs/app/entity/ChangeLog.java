@@ -29,7 +29,7 @@ import lombok.experimental.FieldNameConstants;
 @FieldNameConstants
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = "contents")
 @Table(uniqueConstraints = {
 		@UniqueConstraint(name = "UNQ_CHANGELOG_VERSION", columnNames ={"VERSION_NO", "PLATFORM", "PROJECT_ID"}),
 		@UniqueConstraint(name = "UNQ_CHANGELOG_BUILD", columnNames = {"BUILD_VERSION", "PLATFORM", "PROJECT_ID"})

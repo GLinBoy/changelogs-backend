@@ -21,7 +21,7 @@ import lombok.experimental.FieldNameConstants;
 @FieldNameConstants
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = "changeLog")
 public class ChangeLogContent extends Auditable {
 	
 	@Enumerated(EnumType.STRING)
