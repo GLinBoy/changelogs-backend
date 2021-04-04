@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Data
 @Builder
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = "changeLog")
 @Table(uniqueConstraints = {
 		@UniqueConstraint(name = "UNQ_CHANGELOG_META", columnNames ={"KEY", "CHANGELOG_ID"})
 })
