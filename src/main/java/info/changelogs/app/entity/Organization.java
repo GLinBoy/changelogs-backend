@@ -37,8 +37,23 @@ public class Organization extends Auditable {
 	@Column(name = "TITLE", length = 32, nullable = false)
 	private String title;
 	
+	@Column(name = "SLOGAN", length = 256)
+	private String slogan;
+	
+	@Column(name = "WEBSITE", length = 64)
+	private String website;
+	
 	@Column(name = "EMAIL", length = 64, nullable = false)
 	private String email;
+	
+	@Column(name = "LOCATION", length = 64)
+	private String location;
+	
+	@Column(name = "LOGO", columnDefinition = "text")
+	private String logo;
+	
+	@Column(name = "VERIFIED")
+	private Boolean verified;
 	
 	@OneToMany(mappedBy = "organization", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	Set<OrganizationMeta> metas;
