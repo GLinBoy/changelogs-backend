@@ -37,7 +37,7 @@ public class Organization extends Auditable {
 	@Column(name = "TITLE", length = 32, nullable = false)
 	private String title;
 	
-	@Column(name = "SLOGAN", length = 256)
+	@Column(name = "SLOGAN", length = 128)
 	private String slogan;
 	
 	@Column(name = "WEBSITE", length = 64)

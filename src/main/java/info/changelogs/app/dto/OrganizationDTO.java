@@ -29,7 +29,7 @@ public class OrganizationDTO extends BaseDTO {
 	@NotBlank(message = "Title is mandatory")
 	private String title;
 	
-	@Size(max = 256)
+	@Size(max = 128)
 	private String slogan;
 	
 	@URL
