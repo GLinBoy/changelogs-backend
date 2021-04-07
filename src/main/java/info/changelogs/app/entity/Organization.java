@@ -52,7 +52,7 @@ public class Organization extends Auditable {
 	@Column(name = "LOGO", columnDefinition = "text")
 	private String logo;
 	
-	@Column(name = "VERIFIED")
+	@Column(name = "VERIFIED", columnDefinition = "boolean default false")
 	private Boolean verified;
 	
 	@OneToMany(mappedBy = "organization", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
