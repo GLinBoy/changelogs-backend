@@ -3,9 +3,13 @@ package info.changelogs.app.service.impl;
 import javax.persistence.EntityManager;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import info.changelogs.app.dto.ChangeLogDTO;
+import info.changelogs.app.dto.ChangeLogDetailedDTO;
 import info.changelogs.app.entity.ChangeLog;
 import info.changelogs.app.entity.Project;
 import info.changelogs.app.repository.ChangeLogRepository;
@@ -32,5 +36,12 @@ public class ChangeLogServiceImpl
 		changeLog.setProject(em.getReference(Project.class, changeLogDTO.getProjectId()));
 		changeLog.getContents().forEach(c -> c.setChangeLog(changeLog));
 		return mapper.map(repository.save(changeLog), ChangeLogDTO.class);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Page<ChangeLogDetailedDTO> getLatest(Pageable pageable) {
+		Page<ChangeLog> page = this.repository.findAllDetailed(pageable);
+		return page.map(cl -> mapper.map(cl, ChangeLogDetailedDTO.class));
 	}
 }
