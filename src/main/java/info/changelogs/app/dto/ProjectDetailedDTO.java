@@ -26,5 +26,5 @@ public class ProjectDetailedDTO extends BaseEntity {
 	private String license;
 	private String licenseLink;
 	
-	private OrganizationDTO organizationId;
+	private OrganizationDTO organization;
 }
