@@ -12,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,6 +34,16 @@ public class ChangeLogController extends GenericController<ChangeLogDTO, ChangeL
 	@PageableAsQueryParam
 	public ResponseEntity<List<ChangeLogDetailedDTO>> getLatest(@Parameter(hidden = true) Pageable pageable, HttpServletRequest request) {
 		Page<ChangeLogDetailedDTO> page = this.service.getLatest(pageable);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, request.getRequestURI());
+		headers.setAccessControlExposeHeaders(Arrays.asList(HttpHeaders.LINK, "X-Total-Count"));
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	}
+	
+	@GetMapping("/{username}/{project_title}")
+	@PageableAsQueryParam
+	public ResponseEntity<List<ChangeLogDTO>> getProjectChangeLog(@PathVariable String username, @PathVariable("project_title") String projectTitle,
+			@Parameter(hidden = true) Pageable pageable, HttpServletRequest request) {
+		Page<ChangeLogDTO> page = this.service.getProjectChangeLog(username, projectTitle, pageable);
 		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, request.getRequestURI());
 		headers.setAccessControlExposeHeaders(Arrays.asList(HttpHeaders.LINK, "X-Total-Count"));
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);

@@ -44,4 +44,11 @@ public class ChangeLogServiceImpl
 		Page<ChangeLog> page = this.repository.findAllDetailed(pageable);
 		return page.map(cl -> mapper.map(cl, ChangeLogDetailedDTO.class));
 	}
+	
+	@Override
+	public Page<ChangeLogDTO> getProjectChangeLog(String username, String projectTitle,
+			Pageable pageable) {
+		Page<ChangeLog> page =  this.repository.findAllByUsernameAndProjectTitle(username, projectTitle, pageable);
+		return page.map(cl -> mapper.map(cl, ChangeLogDTO.class));
+	}
 }
