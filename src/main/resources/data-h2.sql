@@ -87,11 +87,11 @@ INSERT INTO public.project (id,is_active,created_by,created_on,edited_by,edited_
 
 -- Change Log Data
 INSERT INTO public.change_log (id,is_active,created_by,created_on,edited_by,edited_on,version,build_version,contact,force_update,platform,publisher,release_date,version_no,project_id) VALUES
-	 (1001,false,'epyer0','2021-02-12 12:46:45.000','bwhapham0','2021-02-08 02:42:57.000',8,'1.4.7','lbudik0@usgs.gov',true,'ANDROID','edigle0','2021-02-02 22:50:45.000','3.2',1020),
-	 (1002,true,'wschust1','2021-02-05 13:23:50.000','ldysert1','2021-02-01 09:27:39.000',9,'9.47','ehalfacree1@sitemeter.com',true,'WEAR','ptaggett1','2021-02-26 16:22:16.000','8.33',1044),
-	 (1003,false,'fdigle2','2021-02-01 19:42:28.000','cniles2','2021-02-18 14:34:39.000',7,'0.4.8','cfillimore2@wordpress.com',false,'MOBILE','eadderley2','2021-02-01 04:01:41.000','0.4.2',1005),
-	 (1004,false,'acollingworth3','2021-02-05 09:48:13.000','kharrad3','2021-02-02 10:47:37.000',6,'3.3.1','edorsay3@cornell.edu',false,'CAR','ebalogun3','2021-02-17 13:54:41.000','7.3.6',1015),
-	 (1005,false,'cbuten4','2021-02-12 04:17:43.000','plindsley4','2021-02-20 05:22:01.000',4,'0.52','mchastenet4@pagesperso-orange.fr',false,'API','aruncie4','2021-02-23 21:41:39.000','9.8.4',1042),
+	 (1001,false,'epyer0','2021-02-12 12:46:45.000','bwhapham0','2021-02-08 02:42:57.000',8,'1.4.7','lbudik0@usgs.gov',true,'ANDROID','edigle0','2021-02-02 22:50:45.000','3.2',1002),
+	 (1002,true,'wschust1','2021-02-05 13:23:50.000','ldysert1','2021-02-01 09:27:39.000',9,'9.47','ehalfacree1@sitemeter.com',true,'WEAR','ptaggett1','2021-02-26 16:22:16.000','8.33',1002),
+	 (1003,false,'fdigle2','2021-02-01 19:42:28.000','cniles2','2021-02-18 14:34:39.000',7,'0.4.8','cfillimore2@wordpress.com',false,'MOBILE','eadderley2','2021-02-01 04:01:41.000','0.4.2',1002),
+	 (1004,false,'acollingworth3','2021-02-05 09:48:13.000','kharrad3','2021-02-02 10:47:37.000',6,'3.3.1','edorsay3@cornell.edu',false,'CAR','ebalogun3','2021-02-17 13:54:41.000','7.3.6',1002),
+	 (1005,false,'cbuten4','2021-02-12 04:17:43.000','plindsley4','2021-02-20 05:22:01.000',4,'0.52','mchastenet4@pagesperso-orange.fr',false,'API','aruncie4','2021-02-23 21:41:39.000','9.8.4',1002),
 	 (1006,false,'ahaukey5','2021-02-13 20:24:46.000','lworgen5','2021-02-25 05:41:29.000',3,'1.7.8','tveregan5@github.io',true,'CLIENT','ielcock5','2021-02-26 05:34:23.000','5.92',1011),
 	 (1007,true,'oedmund6','2021-02-21 22:53:34.000','kshacklady6','2021-02-10 02:48:02.000',2,'6.4.7','rbarnson6@microsoft.com',false,'CAR','darkil6','2021-02-24 07:31:35.000','0.5.8',1049),
 	 (1008,false,'wridgway7','2021-02-14 20:41:33.000','fstigers7','2021-02-06 02:15:47.000',10,'8.61','drozet7@trellian.com',false,'TV','ntordoff7','2021-02-12 07:55:14.000','1.08',1012),
