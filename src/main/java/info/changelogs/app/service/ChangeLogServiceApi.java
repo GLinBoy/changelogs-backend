@@ -1,5 +1,7 @@
 package info.changelogs.app.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -11,5 +13,7 @@ public interface ChangeLogServiceApi extends GenericServiceApi<ChangeLogDTO> {
 	Page<ChangeLogDetailedDTO> getLatest(Pageable pageable);
 
 	Page<ChangeLogDTO> getProjectChangeLog(String username, String projectTitle, Pageable pageable);
+
+	List<ChangeLogDTO> getProjectChangeLogVersion(String username, String projectTitle, String version);
 
 }

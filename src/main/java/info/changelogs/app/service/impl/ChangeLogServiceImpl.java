@@ -1,5 +1,8 @@
 package info.changelogs.app.service.impl;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.persistence.EntityManager;
 
 import org.modelmapper.ModelMapper;
@@ -50,5 +53,12 @@ public class ChangeLogServiceImpl
 			Pageable pageable) {
 		Page<ChangeLog> page =  this.repository.findAllByUsernameAndProjectTitle(username, projectTitle, pageable);
 		return page.map(cl -> mapper.map(cl, ChangeLogDTO.class));
+	}
+
+	@Override
+	public List<ChangeLogDTO> getProjectChangeLogVersion(String username, String projectTitle, String version) {
+		List<ChangeLog> list =  this.repository.findAllByUsernameAndProjectTitleAndVersion(username, projectTitle, version);
+		return list.stream().map(cl -> mapper.map(cl, ChangeLogDTO.class))
+				.collect(Collectors.toList());
 	}
 }
