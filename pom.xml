@@ -18,7 +18,7 @@
 	<properties>
 		<java.version>16</java.version>
 		<modelmapper.version>2.4.4</modelmapper.version>
-		<springdoc.version>1.5.8</springdoc.version>
+		<springdoc.version>1.5.9</springdoc.version>
 		<problem.version>0.26.2</problem.version>
 	</properties>
 
