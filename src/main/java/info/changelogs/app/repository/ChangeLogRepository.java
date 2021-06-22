@@ -39,4 +39,14 @@ public interface ChangeLogRepository extends JpaRepository<ChangeLog, Long> {
 					+ " WHERE p.owner = ?1 AND p.title = ?2 AND p.versionNo = ?3 ")
 	List<ChangeLog> findAllByUsernameAndProjectTitleAndVersion(String username, String projectTitle, String version);
 
+	@Query(value = " SELECT cl from ChangeLog cl "
+        + " LEFT JOIN FETCH cl.contents "
+        + " LEFT JOIN FETCH cl.project p "
+        + " WHERE p.title = ?1 ",
+        countQuery = "SELECT count(cl) FROM ChangeLog cl "
+                + " LEFT JOIN cl.contents "
+                + " LEFT JOIN cl.project p "
+                + " WHERE p.title = ?1 ")
+	Page<ChangeLog> findAllByProjectTitle(String projectTitle, Pageable pageable);
+
 }

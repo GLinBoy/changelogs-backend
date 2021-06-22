@@ -13,6 +13,8 @@ public interface ChangeLogServiceApi extends GenericServiceApi<ChangeLogDTO> {
 	Page<ChangeLogDetailedDTO> getLatest(Pageable pageable);
 
 	Page<ChangeLogDTO> getProjectChangeLog(String username, String projectTitle, Pageable pageable);
+	
+	Page<ChangeLogDTO> getProjectChangeLog(String projectTitle, Pageable pageable);
 
 	List<ChangeLogDTO> getProjectChangeLogVersion(String username, String projectTitle, String version);
 
