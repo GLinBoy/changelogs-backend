@@ -39,7 +39,7 @@ public class ChangeLogController extends GenericController<ChangeLogDTO, ChangeL
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{project_title}")
+	@GetMapping("/project/{project_title}")
 	@PageableAsQueryParam
 	public ResponseEntity<List<ChangeLogDTO>> getProjectChangeLog(@PathVariable("project_title") String projectTitle,
 			@Parameter(hidden = true) Pageable pageable, HttpServletRequest request) {
