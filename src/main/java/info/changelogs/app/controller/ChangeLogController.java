@@ -49,11 +49,11 @@ public class ChangeLogController extends GenericController<ChangeLogDTO, ChangeL
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{username}/{project_title}/{version}")
-	public ResponseEntity<List<ChangeLogDTO>> getProjectChangeLogVersion(@PathVariable String username,
+	@GetMapping("/project/{project_title}/{version}")
+	public ResponseEntity<List<ChangeLogDTO>> getProjectChangeLogVersion(
 			@PathVariable("project_title") String projectTitle,
 			@PathVariable String version, HttpServletRequest request) {
-		List<ChangeLogDTO> list = this.service.getProjectChangeLogVersion(username, projectTitle, version);
+		List<ChangeLogDTO> list = this.service.getProjectChangeLogVersion(projectTitle, version);
 		return ResponseEntity.ok(list);
 	}
 
