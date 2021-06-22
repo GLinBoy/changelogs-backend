@@ -39,11 +39,11 @@ public class ChangeLogController extends GenericController<ChangeLogDTO, ChangeL
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{username}/{project_title}")
+	@GetMapping("/{project_title}")
 	@PageableAsQueryParam
-	public ResponseEntity<List<ChangeLogDTO>> getProjectChangeLog(@PathVariable String username, @PathVariable("project_title") String projectTitle,
+	public ResponseEntity<List<ChangeLogDTO>> getProjectChangeLog(@PathVariable("project_title") String projectTitle,
 			@Parameter(hidden = true) Pageable pageable, HttpServletRequest request) {
-		Page<ChangeLogDTO> page = this.service.getProjectChangeLog(username, projectTitle, pageable);
+		Page<ChangeLogDTO> page = this.service.getProjectChangeLog(projectTitle, pageable);
 		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, request.getRequestURI());
 		headers.setAccessControlExposeHeaders(Arrays.asList(HttpHeaders.LINK, "X-Total-Count"));
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
