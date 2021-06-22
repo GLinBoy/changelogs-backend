@@ -64,4 +64,10 @@ public class ChangeLogServiceImpl extends GenericServiceImpl<ChangeLogDTO, Chang
     List<ChangeLog> list = this.repository.findAllByUsernameAndProjectTitleAndVersion(username, projectTitle, version);
     return list.stream().map(cl -> mapper.map(cl, ChangeLogDTO.class)).collect(Collectors.toList());
   }
+
+  @Override
+  public List<ChangeLogDTO> getProjectChangeLogVersion(String projectTitle, String version) {
+    List<ChangeLog> list = this.repository.findAllByProjectTitleAndVersion(projectTitle, version);
+    return list.stream().map(cl -> mapper.map(cl, ChangeLogDTO.class)).collect(Collectors.toList());
+  }
 }

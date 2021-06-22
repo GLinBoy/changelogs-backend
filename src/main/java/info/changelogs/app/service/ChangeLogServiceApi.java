@@ -18,4 +18,6 @@ public interface ChangeLogServiceApi extends GenericServiceApi<ChangeLogDTO> {
 
 	List<ChangeLogDTO> getProjectChangeLogVersion(String username, String projectTitle, String version);
 
+	List<ChangeLogDTO> getProjectChangeLogVersion(String projectTitle, String version);
+
 }
