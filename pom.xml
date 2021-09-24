@@ -16,10 +16,10 @@
 	<description>An application for manage change logs </description>
 
 	<properties>
-		<java.version>16</java.version>
+		<java.version>17</java.version>
 		<modelmapper.version>2.4.4</modelmapper.version>
 		<springdoc.version>1.5.10</springdoc.version>
-		<problem.version>0.27.0</problem.version>
+		<problem.version>0.26.0</problem.version>
 	</properties>
 
 	<dependencies>
