@@ -23,3 +23,6 @@ info:
     license: GNU GPLv3
     license-url: https://github.com/GLinBoy/changelogs-backend/blob/main/LICENSE.md
     github-url: https://github.com/GLinBoy/changelogs-backend
+springdoc:
+  swagger-ui:
+    docExpansion: none
