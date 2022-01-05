@@ -8,6 +8,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.InstantDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.InstantSerializer;
+
 import info.changelogs.app.entity.Platform;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,6 +37,8 @@ public class ChangeLogDTO extends BaseDTO {
 	private String buildVersion;
 	
 	@NotNull(message = "Release date is mandatory")
+	@JsonDeserialize(using = InstantDeserializer.class)
+	@JsonSerialize(using = InstantSerializer.class)
 	private Instant releaseDate;
 	
 	@Size(max = 128)
