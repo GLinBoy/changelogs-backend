@@ -1,11 +1,30 @@
 package info.changelogs.app.controller;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+import info.changelogs.app.service.ChangeLogServiceApi;
+
+@ExtendWith(MockitoExtension.class)
 class ChangeLogControllerUnitTest {
-
+	
+	@InjectMocks
+	private ChangeLogController changeLogController;
+	
+	@Mock
+	private ChangeLogServiceApi changeLogService;
+	
+	@Test
+	void contextLoads() throws Exception {
+		assertThat(changeLogController).isNotNull();
+	}
+	
 	@Test
 	void testChangeLogController() {
 		fail("Not yet implemented");
