@@ -22,6 +22,7 @@ class ProjectRepositoryUnitTest {
 	@Test
 	void contextLoads() {
 		assertThat(projectRepository).isNotNull();
+		assertThat(projectRepository.count()).isPositive();
 	}
 
 	@Test
