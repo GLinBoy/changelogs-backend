@@ -38,4 +38,10 @@ class ProjectRepositoryUnitTest {
 		assertThat(projectOpt).isNotEmpty();
 	}
 
+	@Test
+	void testFindOneByDoesntExistTitle() {
+		Optional<Project> projectOpt = projectRepository.findOneByTitle("TEST");
+		assertThat(projectOpt).isEmpty();
+	}
+
 }
