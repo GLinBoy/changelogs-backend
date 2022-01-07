@@ -16,6 +16,7 @@ class ChangeLogRepositoryUnitTest {
 	@Test
 	void contextLoads() {
 		assertThat(changeLogRepository).isNotNull();
+		assertThat(changeLogRepository.count()).isPositive();
 	}
 
 	@Test
