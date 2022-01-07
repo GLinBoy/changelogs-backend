@@ -33,6 +33,13 @@ class ProjectRepositoryUnitTest {
 	}
 
 	@Test
+	void testFindAllNecessaryByDoesntExistUsername() {
+		Page<ProjectMinimizedDTO> projectsPage = projectRepository
+				.findAllNecessary("anonymouse_01", PageRequest.of(0, 1_000));
+		assertThat(projectsPage.getTotalElements()).isZero();
+	}
+
+	@Test
 	void testFindOneByTitle() {
 		Optional<Project> projectOpt = projectRepository.findOneByTitle("Flexidy");
 		assertThat(projectOpt).isNotEmpty();
