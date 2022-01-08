@@ -70,7 +70,11 @@ class ChangeLogRepositoryUnitTest {
 
 	@Test
 	void testFindAllByProjectTitle() {
-		fail("Not yet implemented");
+		Page<ChangeLog> page = changeLogRepository.findAllByProjectTitle("Zamit 17", pageable);
+		assertThat(page.getTotalElements()).isPositive();
+		assertThat(page.getTotalElements())
+			.isEqualTo(page.getContent().parallelStream().map(ChangeLog::getId)
+					.collect(Collectors.toSet()).size());
 	}
 
 	@Test
