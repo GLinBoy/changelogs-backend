@@ -32,12 +32,15 @@ class ChangeLogRepositoryUnitTest {
 	void testFindAllDetailed() {
 		Page<ChangeLog> page = changeLogRepository.findAllDetailed(pageable);
 		assertThat(page.getTotalElements()).isEqualTo(100);
-		assertThat(page.getContent().parallelStream()
-				.map(ChangeLog::getId).collect(Collectors.toSet()).size())
-			.isEqualTo(100);
-		assertThat(page.getContent().stream()
-				.anyMatch(cl -> cl.getContents() != null || !cl.getContents().isEmpty()))
-			.isTrue();
+		assertThat(page.getContent().parallelStream().map(ChangeLog::getId).collect(Collectors.toSet()).size())
+				.isEqualTo(100);
+		assertThat(page.getContent().stream().anyMatch(cl -> cl.getContents() != null || !cl.getContents().isEmpty()))
+				.isTrue();
+		assertThat(page.getContent().stream().anyMatch(cl -> !cl.getContents().isEmpty())).isTrue();
+		assertThat(page.getContent().stream().anyMatch(cl -> cl.getProject() == null)).isFalse();
+		assertThat(page.getContent().stream().anyMatch(
+				cl -> cl.getProject().getOrganization() != null && cl.getProject().getOrganization().getId() >= 0L))
+						.isTrue();
 	}
 
 	@Test
