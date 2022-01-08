@@ -45,7 +45,12 @@ class ChangeLogRepositoryUnitTest {
 
 	@Test
 	void testFindAllByUsernameAndProjectTitle() {
-		fail("Not yet implemented");
+		Page<ChangeLog> page = changeLogRepository.findAllByUsernameAndProjectTitle("anonymouse", "Flexidy", pageable);
+		assertThat(page.getTotalElements()).isPositive();
+		assertThat(page.getContent().parallelStream().map(ChangeLog::getId).collect(Collectors.toSet()).size())
+				.isEqualTo(page.getTotalElements());
+		assertThat(page.getContent().stream().anyMatch(cl -> !cl.getContents().isEmpty())).isTrue();
+		assertThat(page.getContent().stream().anyMatch(cl -> cl.getProject() == null)).isFalse();
 	}
 
 	@Test
