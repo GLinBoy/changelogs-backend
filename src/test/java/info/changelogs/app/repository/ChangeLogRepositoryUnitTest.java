@@ -79,7 +79,16 @@ class ChangeLogRepositoryUnitTest {
 
 	@Test
 	void testFindAllByProjectTitleAndVersion() {
-		fail("Not yet implemented");
+		List<ChangeLog> changelogs = changeLogRepository.findAllByProjectTitleAndVersion("Zamit 17", "1.98");
+		assertThat(changelogs.size()).isPositive();
+
+		/**
+		 * This line added because of
+		 * https://github.com/GLinBoy/changelogs-backend/issues/65
+		 */
+		assertThat(changelogs.size())
+				.isEqualTo(changelogs.parallelStream().map(ChangeLog::getId)
+						.collect(Collectors.toSet()).size());
 	}
 
 }
