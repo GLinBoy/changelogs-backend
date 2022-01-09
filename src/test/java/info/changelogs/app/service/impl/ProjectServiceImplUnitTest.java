@@ -34,7 +34,7 @@ class ProjectServiceImplUnitTest {
 	}
 
 	@Test
-	void contextLoads() throws Exception {
+	void contextLoads() {
 		assertThat(projectService).isNotNull();
 	}
 
