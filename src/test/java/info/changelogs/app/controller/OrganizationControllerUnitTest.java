@@ -21,7 +21,7 @@ class OrganizationControllerUnitTest {
 	private OrganizationServiceApi organizationService;
 
 	@Test
-	void contextLoads() throws Exception {
+	void contextLoads() {
 		assertThat(organizationController).isNotNull();
 	}
 
