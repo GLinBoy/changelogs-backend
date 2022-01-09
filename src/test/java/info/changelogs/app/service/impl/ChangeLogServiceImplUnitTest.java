@@ -44,11 +44,6 @@ class ChangeLogServiceImplUnitTest {
 	}
 
 	@Test
-	void testChangeLogServiceImpl() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	void testSaveChangeLogDTO() {
 		fail("Not yet implemented");
 	}
