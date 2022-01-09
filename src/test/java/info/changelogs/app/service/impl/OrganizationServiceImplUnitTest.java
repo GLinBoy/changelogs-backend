@@ -39,11 +39,6 @@ class OrganizationServiceImplUnitTest {
 	}
 
 	@Test
-	void testOrganizationServiceImpl() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	void testGetOwners() {
 		fail("Not yet implemented");
 	}
