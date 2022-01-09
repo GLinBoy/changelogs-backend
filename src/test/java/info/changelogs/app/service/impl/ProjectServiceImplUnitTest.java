@@ -39,11 +39,6 @@ class ProjectServiceImplUnitTest {
 	}
 
 	@Test
-	void testProjectServiceImpl() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	void testGetAllNecessary() {
 		fail("Not yet implemented");
 	}
