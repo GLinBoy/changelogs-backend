@@ -15,7 +15,7 @@ class HomeControllerUnitTest {
 	private HomeController homeController;
 	
 	@Test
-	void contextLoads() throws Exception {
+	void contextLoads() {
 		assertThat(homeController).isNotNull();
 	}
 	
