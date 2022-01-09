@@ -24,11 +24,6 @@ class ChangeLogControllerUnitTest {
 	void contextLoads() throws Exception {
 		assertThat(changeLogController).isNotNull();
 	}
-	
-	@Test
-	void testChangeLogController() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	void testGetLatest() {
