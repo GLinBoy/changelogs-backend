@@ -36,6 +36,13 @@ class GenericServiceImplUnitTest {
 	@Mock
 	private ModelMapper modelMapper;
 
+	private final Long DEFAULT_ID = 10001L;
+	private final String DEFAULT_NAME = "name";
+	private final String DEFAULT_TITLE = "title";
+	private final String DEFAULT_SLOGAN = "slogan";
+	private final String DEFAULT_WEBSITE_DOMAIN = "website";
+	private final String DEFAULT_LOCATION = "Tallin, Estonia";
+
 	@Test
 	void testSave() {
 		fail("Not yet implemented");
