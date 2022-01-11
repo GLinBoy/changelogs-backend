@@ -1,6 +1,5 @@
 package info.changelogs.app.dto;
 
-import info.changelogs.app.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +13,7 @@ import lombok.experimental.FieldNameConstants;
 @NoArgsConstructor
 @FieldNameConstants
 @EqualsAndHashCode(callSuper = true)
-public class ProjectDetailedDTO extends BaseEntity {
+public class ProjectDetailedDTO extends BaseDTO {
 	private String name;
 	private String title;
 	private String about;
