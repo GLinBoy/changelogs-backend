@@ -43,6 +43,17 @@ class GenericServiceImplUnitTest {
 	private final String DEFAULT_WEBSITE_DOMAIN = "website";
 	private final String DEFAULT_LOCATION = "Tallin, Estonia";
 
+	@BeforeEach
+	void setUp() {
+		modelMapper = new ModelMapper();
+		doAnswer(i -> {
+			Organization organization = (Organization)i.getArguments()[0];
+			organization.setId(DEFAULT_ID);
+			return organization;
+		}).when(organizationRepository).save(Mockito.any(Organization.class));
+		organizationService = new OrganizationServiceImpl(organizationRepository, modelMapper);
+	}
+	
 	@Test
 	void testSave() {
 		fail("Not yet implemented");
