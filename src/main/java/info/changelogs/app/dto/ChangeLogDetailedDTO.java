@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.InstantDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.InstantSerializer;
 
-import info.changelogs.app.entity.BaseEntity;
 import info.changelogs.app.entity.Platform;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +22,7 @@ import lombok.experimental.FieldNameConstants;
 @NoArgsConstructor
 @FieldNameConstants
 @EqualsAndHashCode(callSuper = true)
-public class ChangeLogDetailedDTO extends BaseEntity {
+public class ChangeLogDetailedDTO extends BaseDTO {
 
 	private String versionNo;
 	private String buildVersion;
