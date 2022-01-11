@@ -27,6 +27,15 @@ import info.changelogs.app.repository.OrganizationRepository;
 @MockitoSettings(strictness = Strictness.LENIENT)
 class GenericServiceImplUnitTest {
 
+	@InjectMocks
+	private OrganizationServiceImpl organizationService;
+
+	@Mock
+	private OrganizationRepository organizationRepository;
+
+	@Mock
+	private ModelMapper modelMapper;
+
 	@Test
 	void testSave() {
 		fail("Not yet implemented");
