@@ -72,7 +72,9 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testSave() {
-		fail("Not yet implemented");
+		OrganizationDTO organizationDTO = generateOrganizationDTO(1).get(0);
+		OrganizationDTO savedOrganizationDTO = organizationService.save(organizationDTO);
+		assertThat(savedOrganizationDTO.getId()).isEqualTo(DEFAULT_ID);
 	}
 
 	@Test
