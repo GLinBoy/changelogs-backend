@@ -105,7 +105,9 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testSaveAll() {
-		fail("Not yet implemented");
+		List<OrganizationDTO> list = generateOrganizationDTO(5);
+		list = organizationService.saveAll(list);
+		assertThat(list.parallelStream().allMatch(o -> o.getId() != null && o.getId() > 0)).isTrue();
 	}
 
 	@Test
