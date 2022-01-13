@@ -22,6 +22,20 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public abstract class Auditable extends BaseEntity {
 
+	Auditable() {
+		super();
+	}
+
+	Auditable(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
+			LocalDateTime editedOn, Integer version) {
+		super(id, isActive);
+		this.createdBy = createdBy;
+		this.editedBy = editedBy;
+		this.createdOn = createdOn;
+		this.editedOn = editedOn;
+		this.version = version;
+	}
+
 	@CreatedBy
 	@Column(name = "CREATED_BY", updatable = false, nullable = false)
 	private String createdBy;
