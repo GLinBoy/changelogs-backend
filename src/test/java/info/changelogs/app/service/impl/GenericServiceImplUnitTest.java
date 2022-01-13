@@ -117,7 +117,9 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testGetSingleById() {
-		fail("Not yet implemented");
+		OrganizationDTO organizationDTO = organizationService.getSingleById(DEFAULT_ID);
+		assertThat(organizationDTO).isNotNull();
+		assertThat(organizationDTO.getId()).isEqualTo(DEFAULT_ID);
 	}
 
 	@Test
