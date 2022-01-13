@@ -48,6 +48,7 @@ class GenericServiceImplUnitTest {
 
 	@BeforeEach
 	void setUp() {
+		List<Organization> list = generateOrganization(3);
 		modelMapper = new ModelMapper();
 		doAnswer(i -> {
 			Organization organization = (Organization)i.getArguments()[0];
