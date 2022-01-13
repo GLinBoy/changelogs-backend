@@ -3,8 +3,11 @@ package info.changelogs.app.service.impl;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.doReturn;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -65,6 +68,27 @@ class GenericServiceImplUnitTest {
 							.location(DEFAULT_LOCATION)
 							.logo(null)
 							.verified(Boolean.TRUE)
+							.build()
+				)
+				.collect(Collectors.toList());
+	}
+	
+	private List<Organization> generateOrganization(Integer number) {
+		return IntStream.range(0, number)
+				.mapToObj(i -> Organization.builder()
+						.id(DEFAULT_ID + i)
+							.name(String.format("%s_%d", DEFAULT_NAME, i))
+							.title(String.format("%s_%d", DEFAULT_TITLE, i))
+							.slogan(String.format("%s_%d", DEFAULT_SLOGAN, i))
+							.website(String.format("https://%s-%d.com", DEFAULT_WEBSITE_DOMAIN, i))
+							.email(String.format("info@%s-%d.com", DEFAULT_WEBSITE_DOMAIN, i))
+							.location(DEFAULT_LOCATION)
+							.logo(null)
+							.verified(Boolean.TRUE)
+							.createdBy("test_user")
+							.createdOn(LocalDateTime.now())
+							.editedBy("test_user")
+							.editedOn(LocalDateTime.now())
 							.build()
 				)
 				.collect(Collectors.toList());
