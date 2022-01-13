@@ -14,6 +14,15 @@ import lombok.Data;
 @MappedSuperclass
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public abstract class BaseEntity {
+
+	BaseEntity() {
+	}
+
+	BaseEntity(Long id, Boolean isActive) {
+		this.id = id;
+		this.isActive = isActive;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "ID", updatable = false, nullable = false)
