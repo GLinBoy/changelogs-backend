@@ -3,6 +3,7 @@ package info.changelogs.app.service.impl;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 
 import java.time.LocalDateTime;
@@ -21,6 +22,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import info.changelogs.app.dto.OrganizationDTO;
 import info.changelogs.app.entity.Organization;
@@ -45,10 +49,11 @@ class GenericServiceImplUnitTest {
 	private final String DEFAULT_SLOGAN = "slogan";
 	private final String DEFAULT_WEBSITE_DOMAIN = "website";
 	private final String DEFAULT_LOCATION = "Tallin, Estonia";
+	private final Integer DEFAULT_ORGANIZATION_COUNT = 3;
 
 	@BeforeEach
 	void setUp() {
-		List<Organization> list = generateOrganization(3);
+		List<Organization> list = generateOrganization(DEFAULT_ORGANIZATION_COUNT);
 		modelMapper = new ModelMapper();
 		doAnswer(i -> {
 			Organization organization = (Organization)i.getArguments()[0];
