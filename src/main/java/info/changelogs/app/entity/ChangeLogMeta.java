@@ -13,13 +13,20 @@ import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
-@Builder
 @EqualsAndHashCode(callSuper = true, exclude = "changeLog")
-@Table(uniqueConstraints = {
-		@UniqueConstraint(name = "UNQ_CHANGELOG_META", columnNames ={"KEY", "CHANGELOG_ID"})
-})
+@Table(uniqueConstraints = { @UniqueConstraint(name = "UNQ_CHANGELOG_META", columnNames = { "KEY", "CHANGELOG_ID" }) })
 public class ChangeLogMeta extends MetaData {
-	
+
+	public ChangeLogMeta() {
+		super();
+	}
+
+	@Builder
+	public ChangeLogMeta(Long id, Boolean isActive, String key, String value, ChangeLog changeLog) {
+		super(id, isActive, key, value);
+		this.changeLog = changeLog;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "CHANGELOG_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_CHANGELOG_META"))
 	private ChangeLog changeLog;
