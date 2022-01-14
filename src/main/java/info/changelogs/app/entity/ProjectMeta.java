@@ -13,12 +13,21 @@ import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
-@Builder
 @EqualsAndHashCode(callSuper = true)
 @Table(uniqueConstraints = {
 		@UniqueConstraint(name = "UNQ_PROJECT_META", columnNames ={"KEY", "PROJECT_ID"})
 })
 public class ProjectMeta extends MetaData {
+
+	public ProjectMeta() {
+		super();
+	}
+
+	@Builder
+	public ProjectMeta(Long id, Boolean isActive, String key, String value, Project project) {
+		super(id, isActive, key, value);
+		this.project = project;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "PROJECT_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_PROJECT_META"))
