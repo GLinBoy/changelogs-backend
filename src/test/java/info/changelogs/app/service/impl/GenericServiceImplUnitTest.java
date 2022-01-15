@@ -72,6 +72,7 @@ class GenericServiceImplUnitTest {
 			return organization;
 		}).when(organizationRepository).save(Mockito.any(Organization.class));
 		doReturn(Optional.of(list.get(0))).when(organizationRepository).findById(DEFAULT_ID);
+		doReturn(Long.valueOf(list.size())).when(organizationRepository).count();
 		organizationService = new OrganizationServiceImpl(organizationRepository, modelMapper);
 	}
 	
