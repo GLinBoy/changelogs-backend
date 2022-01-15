@@ -75,6 +75,13 @@ class GenericServiceImplUnitTest {
 			.when(organizationRepository).findById(DEFAULT_ID);
 		doReturn(Optional.of(list.get(0))).when(organizationRepository).findById(DEFAULT_ID);
 		doReturn(Long.valueOf(list.size())).when(organizationRepository).count();
+		doAnswer(new Answer<Void>() {
+			@Override
+			public Void answer(InvocationOnMock invocation) throws Throwable {
+				list.removeIf(o -> o.getId() == DEFAULT_ID);
+				return null;
+			}
+		}).when(organizationRepository).deleteById(DEFAULT_ID);
 		organizationService = new OrganizationServiceImpl(organizationRepository, modelMapper);
 	}
 	
