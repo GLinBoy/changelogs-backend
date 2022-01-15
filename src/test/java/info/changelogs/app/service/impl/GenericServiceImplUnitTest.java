@@ -140,7 +140,7 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testCount() {
-		fail("Not yet implemented");
+		assertThat(organizationService.count()).isEqualTo(DEFAULT_ORGANIZATION_COUNT);
 	}
 
 	@Test
