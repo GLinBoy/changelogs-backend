@@ -128,7 +128,21 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testUpdate() {
-		fail("Not yet implemented");
+		OrganizationDTO organizationDTO = organizationService.getSingleById(DEFAULT_ID);
+		organizationDTO.setName(DEFAULT_EDITED_NAME);
+		organizationDTO.setTitle(DEFAULT_EDITED_TITLE);
+		organizationDTO.setSlogan(DEFAULT_EDITED_SLOGAN);
+		organizationDTO.setWebsite(String.format("https://%s.com", DEFAULT_WEBSITE_DOMAIN));
+		organizationDTO.setEmail(String.format("info@%s.com", DEFAULT_EDITED_WEBSITE_DOMAIN));
+		organizationDTO.setLocation(DEFAULT_EDITED_LOCATION);
+		organizationService.save(organizationDTO);
+		OrganizationDTO editedOrganizationDTO = organizationService.getSingleById(DEFAULT_ID);
+		assertThat(editedOrganizationDTO.getName()).isEqualTo(DEFAULT_EDITED_NAME);
+		assertThat(editedOrganizationDTO.getTitle()).isEqualTo(DEFAULT_EDITED_TITLE);
+		assertThat(editedOrganizationDTO.getSlogan()).isEqualTo(DEFAULT_EDITED_SLOGAN);
+		assertThat(editedOrganizationDTO.getWebsite()).isEqualTo(String.format("https://%s.com", DEFAULT_WEBSITE_DOMAIN));
+		assertThat(editedOrganizationDTO.getEmail()).isEqualTo(String.format("info@%s.com", DEFAULT_EDITED_WEBSITE_DOMAIN));
+		assertThat(editedOrganizationDTO.getLocation()).isEqualTo(DEFAULT_EDITED_LOCATION);
 	}
 
 	@Test
