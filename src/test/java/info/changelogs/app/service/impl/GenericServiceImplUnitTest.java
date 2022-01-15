@@ -160,7 +160,8 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testDeleteAll() {
-		fail("Not yet implemented");
+		organizationService.deleteAll();
+		assertEquals(0, organizationService.count());
 	}
 
 }
