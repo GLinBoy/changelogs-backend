@@ -1,9 +1,9 @@
 package info.changelogs.app.service.impl;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 
 import java.time.LocalDateTime;
@@ -18,13 +18,16 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+import org.mockito.stubbing.Answer;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.server.ResponseStatusException;
 
 import info.changelogs.app.dto.OrganizationDTO;
 import info.changelogs.app.entity.Organization;
@@ -49,6 +52,13 @@ class GenericServiceImplUnitTest {
 	private final String DEFAULT_SLOGAN = "slogan";
 	private final String DEFAULT_WEBSITE_DOMAIN = "website";
 	private final String DEFAULT_LOCATION = "Tallin, Estonia";
+	
+	private final String DEFAULT_EDITED_NAME = "edited name";
+	private final String DEFAULT_EDITED_TITLE = "edited title";
+	private final String DEFAULT_EDITED_SLOGAN = "edited slogan";
+	private final String DEFAULT_EDITED_WEBSITE_DOMAIN = "edited-website";
+	private final String DEFAULT_EDITED_LOCATION = "Tartu, Estonia";
+	
 	private final Integer DEFAULT_ORGANIZATION_COUNT = 3;
 	private final Pageable pageable = PageRequest.of(0, 1_000);
 
