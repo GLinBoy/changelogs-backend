@@ -155,7 +155,12 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testDeleteSingleByReference() {
-		fail("Not yet implemented");
+		OrganizationDTO organizationDTO = organizationService.getSingleById(DEFAULT_ID);
+		organizationService.deleteSingleByReference(organizationDTO);
+		assertThat(organizationRepository.count()).isEqualTo(DEFAULT_ORGANIZATION_COUNT - 1);
+		ResponseStatusException thrown = assertThrows(ResponseStatusException.class,
+				() -> organizationService.getSingleById(DEFAULT_ID));
+		assertEquals(404, thrown.getRawStatusCode());
 	}
 
 	@Test
