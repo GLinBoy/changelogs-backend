@@ -145,7 +145,8 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testGetAll() {
-		fail("Not yet implemented");
+		Page<OrganizationDTO> all = organizationService.getAll(pageable);
+		assertThat(all.getTotalElements()).isEqualTo(DEFAULT_ORGANIZATION_COUNT);
 	}
 
 	@Test
