@@ -5,4 +5,9 @@ public interface ProjectMinimizedDTO {
 	String getName();
 	String getTitle();
 	String getOwner();
+	
+	void setId(Long id);
+	void setName(String name);
+	void setTitle(String title);
+	void setOwner(String owner);
 }
