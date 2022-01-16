@@ -150,7 +150,7 @@ class GenericServiceImplUnitTest {
 		assertThat(editedOrganizationDTO.getName()).isEqualTo(DEFAULT_EDITED_NAME);
 		assertThat(editedOrganizationDTO.getTitle()).isEqualTo(DEFAULT_EDITED_TITLE);
 		assertThat(editedOrganizationDTO.getSlogan()).isEqualTo(DEFAULT_EDITED_SLOGAN);
-		assertThat(editedOrganizationDTO.getWebsite()).isEqualTo(String.format("https://%s.com", DEFAULT_WEBSITE_DOMAIN));
+		assertThat(editedOrganizationDTO.getWebsite()).isEqualTo(String.format("https://%s.com", DEFAULT_EDITED_WEBSITE_DOMAIN));
 		assertThat(editedOrganizationDTO.getEmail()).isEqualTo(String.format("info@%s.com", DEFAULT_EDITED_WEBSITE_DOMAIN));
 		assertThat(editedOrganizationDTO.getLocation()).isEqualTo(DEFAULT_EDITED_LOCATION);
 	}
