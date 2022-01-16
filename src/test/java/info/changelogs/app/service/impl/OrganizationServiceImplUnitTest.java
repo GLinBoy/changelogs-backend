@@ -49,7 +49,11 @@ class OrganizationServiceImplUnitTest {
 
 	@Test
 	void testGetOwners() {
-		fail("Not yet implemented");
+		doReturn(generateOwnerDTO(3)).when(organizationRepository).findAllByCreatedBy(DEFAULT_USERNAME);
+		List<OwnerDTO> owners = organizationService.getOwners(DEFAULT_USERNAME);
+		assertThat(owners).isNotEmpty();
+	}
+
 	private List<OwnerDTO> generateOwnerDTO(Integer count) {
 		return IntStream.range(0, count).mapToObj(i -> {
 			ProjectionFactory factory = new SpelAwareProxyProjectionFactory();
