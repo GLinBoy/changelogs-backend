@@ -50,6 +50,15 @@ class OrganizationServiceImplUnitTest {
 	@Test
 	void testGetOwners() {
 		fail("Not yet implemented");
+	private List<OwnerDTO> generateOwnerDTO(Integer count) {
+		return IntStream.range(0, count).mapToObj(i -> {
+			ProjectionFactory factory = new SpelAwareProxyProjectionFactory();
+			OwnerDTO owner = factory.createProjection(OwnerDTO.class);
+			owner.setId(Long.valueOf(1001 + i));
+			owner.setName(String.format("%s %d", "name", i));
+			owner.setTitle(String.format("%s %d", "title", i));
+			return owner;
+		}).collect(Collectors.toList());
 	}
 
 }
