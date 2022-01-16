@@ -1,7 +1,11 @@
 package info.changelogs.app.service.impl;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.mockito.Mockito.doReturn;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +16,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.projection.ProjectionFactory;
+import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
 
+import info.changelogs.app.dto.projection.OwnerDTO;
 import info.changelogs.app.repository.OrganizationRepository;
 
 @ExtendWith(MockitoExtension.class)
@@ -27,6 +34,8 @@ class OrganizationServiceImplUnitTest {
 
 	@Mock
 	private ModelMapper modelMapper;
+
+	private final String DEFAULT_USERNAME = "test";
 
 	@BeforeEach
 	void setUp() {
