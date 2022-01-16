@@ -170,7 +170,7 @@ class GenericServiceImplUnitTest {
 	@Test
 	void testGetAll() {
 		Page<OrganizationDTO> all = organizationService.getAll(pageable);
-		assertThat(all.getTotalElements()).isEqualTo(DEFAULT_ORGANIZATION_COUNT);
+		assertThat(all.getTotalElements()).isEqualTo(Long.valueOf(DEFAULT_ORGANIZATION_COUNT));
 	}
 
 	@Test
