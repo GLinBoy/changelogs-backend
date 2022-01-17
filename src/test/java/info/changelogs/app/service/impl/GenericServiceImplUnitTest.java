@@ -165,6 +165,11 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testGetSingleById() {
+		doAnswer(i -> {
+			Long id = (Long) i.getArguments()[0];
+			return list.stream().filter(o -> o.getId().equals(id)).findAny();
+		}).when(organizationRepository).findById(Mockito.any(Long.class));
+
 		OrganizationDTO organizationDTO = organizationService.getSingleById(DEFAULT_ID);
 		assertThat(organizationDTO).isNotNull();
 		assertThat(organizationDTO.getId()).isEqualTo(DEFAULT_ID);
