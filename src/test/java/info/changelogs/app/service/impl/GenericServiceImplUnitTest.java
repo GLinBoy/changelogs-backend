@@ -51,7 +51,7 @@ class GenericServiceImplUnitTest {
 	private final String DEFAULT_SLOGAN = "slogan";
 	private final String DEFAULT_WEBSITE_DOMAIN = "website";
 	private final String DEFAULT_LOCATION = "Tallin, Estonia";
-	
+
 	private final String DEFAULT_EDITED_NAME = "edited name";
 	private final String DEFAULT_EDITED_TITLE = "edited title";
 	private final String DEFAULT_EDITED_SLOGAN = "edited slogan";
@@ -65,27 +65,13 @@ class GenericServiceImplUnitTest {
 
 	@BeforeEach
 	void setUp() {
-		List<Organization> list = generateOrganization(DEFAULT_ORGANIZATION_COUNT);
+		list = generateOrganization(DEFAULT_ORGANIZATION_COUNT);
+
 		modelMapper = new ModelMapper();
-		doAnswer(i -> {
-			Organization organization = (Organization)i.getArguments()[0];
-			organization.setId(DEFAULT_ID);
-			return organization;
-		}).when(organizationRepository).save(Mockito.any(Organization.class));
-		doReturn(list.stream().filter(o -> o.getId().equals(DEFAULT_ID)).findFirst())
-			.when(organizationRepository).findById(DEFAULT_ID);
-		doReturn(Optional.of(list.get(0))).when(organizationRepository).findById(DEFAULT_ID);
-		doReturn(Long.valueOf(list.size())).when(organizationRepository).count();
-		doAnswer(new Answer<Void>() {
-			@Override
-			public Void answer(InvocationOnMock invocation) throws Throwable {
-				list.removeIf(o -> o.getId() == DEFAULT_ID);
-				return null;
-			}
-		}).when(organizationRepository).deleteById(DEFAULT_ID);
+
 		organizationService = new OrganizationServiceImpl(organizationRepository, modelMapper);
 	}
-	
+
 	private List<OrganizationDTO> generateOrganizationDTO(Integer number) {
 		return IntStream.range(0, number)
 				.mapToObj(i -> OrganizationDTO.builder()
