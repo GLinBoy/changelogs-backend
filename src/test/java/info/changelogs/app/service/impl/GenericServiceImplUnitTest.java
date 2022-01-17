@@ -184,6 +184,8 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testGetAll() {
+		doReturn(new PageImpl<Organization>(list)).when(organizationRepository).findAll(pageable);
+		
 		Page<OrganizationDTO> all = organizationService.getAll(pageable);
 		assertThat(all.getTotalElements()).isEqualTo(Long.valueOf(DEFAULT_ORGANIZATION_COUNT));
 	}
