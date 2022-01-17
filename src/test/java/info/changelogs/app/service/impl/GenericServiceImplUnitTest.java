@@ -97,9 +97,19 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testSave() {
+		doAnswer(i -> {
+			Organization organization = (Organization) i.getArguments()[0];
+			Long lastId = list.stream().mapToLong(Organization::getId).max().orElse(0L);
+			organization.setId(lastId + 1);
+			list.add(organization);
+			return organization;
+		}).when(organizationRepository).save(Mockito.any(Organization.class));
+
 		OrganizationDTO organizationDTO = generateOrganizationDTO(1).get(0);
 		OrganizationDTO savedOrganizationDTO = organizationService.save(organizationDTO);
-		assertThat(savedOrganizationDTO.getId()).isEqualTo(DEFAULT_ID);
+		assertThat(savedOrganizationDTO.getId()).isPositive();
+		assertThat(savedOrganizationDTO.getId())
+				.isEqualByComparingTo(list.stream().mapToLong(Organization::getId).max().orElse(0L));
 	}
 
 	@Test
