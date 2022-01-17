@@ -177,6 +177,8 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testCount() {
+		doReturn(Long.valueOf(list.size())).when(organizationRepository).count();
+
 		assertThat(organizationService.count()).isEqualTo(Long.valueOf(DEFAULT_ORGANIZATION_COUNT));
 	}
 
