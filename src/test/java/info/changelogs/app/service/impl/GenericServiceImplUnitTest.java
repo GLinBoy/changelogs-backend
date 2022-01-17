@@ -7,8 +7,8 @@ import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doReturn;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -18,13 +18,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
-import org.mockito.stubbing.Answer;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.server.ResponseStatusException;
@@ -58,9 +57,11 @@ class GenericServiceImplUnitTest {
 	private final String DEFAULT_EDITED_SLOGAN = "edited slogan";
 	private final String DEFAULT_EDITED_WEBSITE_DOMAIN = "edited-website";
 	private final String DEFAULT_EDITED_LOCATION = "Tartu, Estonia";
-	
+
 	private final Integer DEFAULT_ORGANIZATION_COUNT = 3;
 	private final Pageable pageable = PageRequest.of(0, 1_000);
+
+	private List<Organization> list;
 
 	@BeforeEach
 	void setUp() {
