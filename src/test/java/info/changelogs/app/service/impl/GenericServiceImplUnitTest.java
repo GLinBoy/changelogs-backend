@@ -114,9 +114,21 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testSaveAll() {
-		List<OrganizationDTO> list = generateOrganizationDTO(5);
-		list = organizationService.saveAll(list);
-		assertThat(list.parallelStream().allMatch(o -> o.getId() != null && o.getId() > 0)).isTrue();
+		doAnswer(i -> {
+			List<Organization> organizations = (List<Organization>)(List<?>) i.getArguments()[0];
+			Long lastId = list.stream().mapToLong(Organization::getId).max().orElse(0L);
+			for(Organization o : organizations) {
+				o.setId(++lastId);
+			}
+			list.addAll(organizations);
+			return organizations;
+		}).when(organizationRepository).saveAll(Mockito.<Organization>anyIterable());
+		
+		int sizeBeforeSave = list.size();
+		List<OrganizationDTO> listForSave = generateOrganizationDTO(5);
+		listForSave = organizationService.saveAll(listForSave);
+		assertThat(list.size()).isEqualTo(sizeBeforeSave + 5);
+		assertThat(listForSave.parallelStream().allMatch(o -> o.getId() != null && o.getId() > 0)).isTrue();
 	}
 
 	@Test
