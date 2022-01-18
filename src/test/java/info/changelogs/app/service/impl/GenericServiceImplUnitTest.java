@@ -192,8 +192,15 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testDeleteSingleById() {
+		doAnswer(i -> {
+			Long id = (Long) i.getArguments()[0];
+			list.removeIf(o -> o.getId().equals(id));
+			return null;
+		}).when(organizationRepository).deleteById(Mockito.any(Long.class));
+
+		int sizeBeforeDelete = list.size();
 		organizationService.deleteSingleById(DEFAULT_ID);
-		assertThat(organizationRepository.count()).isEqualTo(DEFAULT_ORGANIZATION_COUNT - 1);
+		assertThat(list.size()).isEqualTo( sizeBeforeDelete - 1);
 		ResponseStatusException thrown = assertThrows(ResponseStatusException.class,
 				() -> organizationService.getSingleById(DEFAULT_ID));
 		assertEquals(404, thrown.getRawStatusCode());
