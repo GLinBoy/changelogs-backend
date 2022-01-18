@@ -230,8 +230,13 @@ class GenericServiceImplUnitTest {
 
 	@Test
 	void testDeleteAll() {
+		doAnswer(i -> {
+			list = Collections.emptyList();
+			return null;
+		}).when(organizationRepository).deleteAll();
+		
 		organizationService.deleteAll();
-		assertEquals(0, organizationService.count());
+		assertEquals(0, list.size());
 	}
 
 }
