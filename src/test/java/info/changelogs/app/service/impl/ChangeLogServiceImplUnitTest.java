@@ -108,6 +108,7 @@ class ChangeLogServiceImplUnitTest {
 		assertThat(savedOrganizationDTO.getId()).isPositive();
 		assertThat(savedOrganizationDTO.getId())
 				.isEqualByComparingTo(list.stream().mapToLong(ChangeLog::getId).max().orElse(0L));
+		assertThat(savedOrganizationDTO.getContents().stream().anyMatch(c -> c.getId() == null)).isFalse();
 	}
 
 	@Test
