@@ -94,7 +94,20 @@ class ChangeLogServiceImplUnitTest {
 
 	@Test
 	void testSaveChangeLogDTO() {
-		fail("Not yet implemented");
+		doAnswer(i -> {
+			ChangeLog changeLog = (ChangeLog) i.getArguments()[0];
+			Long lastId = list.stream().mapToLong(ChangeLog::getId).max().orElse(0L);
+			changeLog.setId(lastId + 1);
+			changeLog.getContents().forEach(c -> c.setId(1000L));
+			list.add(changeLog);
+			return changeLog;
+		}).when(changeLogRepository).save(Mockito.any(ChangeLog.class));
+
+		ChangeLogDTO organizationDTO = generateChangeLogDTO(1).get(0);
+		ChangeLogDTO savedOrganizationDTO = changeLogService.save(organizationDTO);
+		assertThat(savedOrganizationDTO.getId()).isPositive();
+		assertThat(savedOrganizationDTO.getId())
+				.isEqualByComparingTo(list.stream().mapToLong(ChangeLog::getId).max().orElse(0L));
 	}
 
 	@Test
