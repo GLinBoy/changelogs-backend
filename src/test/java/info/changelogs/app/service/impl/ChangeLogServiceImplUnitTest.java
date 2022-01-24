@@ -58,6 +58,14 @@ class ChangeLogServiceImplUnitTest {
 		changeLogService = new ChangeLogServiceImpl(changeLogRepository, modelMapper, em);
 	}
 
+	private List<ChangeLog> generateChangeLog(Integer counter) {
+		return IntStream.range(0, counter).mapToObj(i -> ChangeLog.builder().id(Long.valueOf(i))
+				.versionNo(String.valueOf(i)).buildVersion(String.valueOf(i)).releaseDate(Instant.now())
+				.publisher(String.format("publisher_%d", i)).contact("email@email.com").forceUpdate(Boolean.FALSE)
+				.platform(Platform.API).project(Project.builder().id(Long.valueOf(i)).build())
+				.contents(Collections.emptySet()).createdBy("admin").createdOn(LocalDateTime.now()).editedBy("admin")
+				.editedOn(LocalDateTime.now()).build()).collect(Collectors.toList());
+	}
 
 	private List<ChangeLogDTO> generateChangeLogDTO(Integer counter) {
 		return IntStream.range(0, counter)
