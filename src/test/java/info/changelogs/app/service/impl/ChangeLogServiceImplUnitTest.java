@@ -58,6 +58,14 @@ class ChangeLogServiceImplUnitTest {
 		changeLogService = new ChangeLogServiceImpl(changeLogRepository, modelMapper, em);
 	}
 
+
+	private Set<ChangeLogContentDTO> generateChangeLogContentDTO() {
+		return Set.of(
+				ChangeLogContentDTO.builder().contentType(ContentType.ADDED).content("added many features!!!").build(),
+				ChangeLogContentDTO.builder().contentType(ContentType.REMOVED).content("removed a few APIs!!!").build(),
+				ChangeLogContentDTO.builder().contentType(ContentType.FIXED).content("fixed all bugs ;-)").build());
+	}
+
 	@Test
 	void contextLoads() throws Exception {
 		assertThat(changeLogService).isNotNull();
