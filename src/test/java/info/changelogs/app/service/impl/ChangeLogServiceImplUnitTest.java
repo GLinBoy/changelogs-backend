@@ -55,6 +55,10 @@ class ChangeLogServiceImplUnitTest {
 
 	@BeforeEach
 	void setUp() {
+		list = generateChangeLog(DEFAULT_CHANGELOG_COUNT);
+
+		modelMapper = new ModelMapper();
+
 		changeLogService = new ChangeLogServiceImpl(changeLogRepository, modelMapper, em);
 	}
 
