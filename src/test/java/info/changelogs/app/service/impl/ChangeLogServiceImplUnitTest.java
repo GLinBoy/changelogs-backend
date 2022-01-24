@@ -59,6 +59,15 @@ class ChangeLogServiceImplUnitTest {
 	}
 
 
+	private List<ChangeLogDTO> generateChangeLogDTO(Integer counter) {
+		return IntStream.range(0, counter)
+				.mapToObj(i -> ChangeLogDTO.builder().versionNo(String.valueOf(i)).buildVersion(String.valueOf(i))
+						.releaseDate(Instant.now()).publisher(String.format("publisher_%d", i))
+						.contact("email@email.com").forceUpdate(Boolean.FALSE).platform(Platform.API)
+						.projectId(Long.valueOf(i)).contents(generateChangeLogContentDTO()).build())
+				.collect(Collectors.toList());
+	}
+
 	private Set<ChangeLogContentDTO> generateChangeLogContentDTO() {
 		return Set.of(
 				ChangeLogContentDTO.builder().contentType(ContentType.ADDED).content("added many features!!!").build(),
