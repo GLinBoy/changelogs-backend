@@ -122,7 +122,7 @@ class ChangeLogServiceImplUnitTest {
 	}
 
 	@Test
-	void testGetProjectChangeLogStringPageable() {
+	void testGetProjectChangeLogByTitlePageable() {
 		fail("Not yet implemented");
 	}
 
