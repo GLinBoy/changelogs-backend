@@ -75,8 +75,21 @@ class ChangeLogServiceImplUnitTest {
 				.versionNo(String.valueOf(i)).buildVersion(String.valueOf(i)).releaseDate(Instant.now())
 				.publisher(String.format("publisher_%d", i)).contact("email@email.com").forceUpdate(Boolean.FALSE)
 				.platform(Platform.API).project(Project.builder().id(Long.valueOf(i)).build())
-				.contents(Collections.emptySet()).createdBy("admin").createdOn(LocalDateTime.now()).editedBy("admin")
-				.editedOn(LocalDateTime.now()).build()).collect(Collectors.toList());
+				.contents(generateChangeLogContent()).createdBy("admin").createdOn(LocalDateTime.now())
+				.editedBy("admin").editedOn(LocalDateTime.now()).build()).collect(Collectors.toList());
+	}
+
+	private Set<ChangeLogContent> generateChangeLogContent() {
+		return Set.of(
+				ChangeLogContent.builder().id(10001L).contentType(ContentType.ADDED).content("added many features!!!")
+						.createdBy("admin").createdOn(LocalDateTime.now()).editedBy("admin")
+						.editedOn(LocalDateTime.now()).build(),
+				ChangeLogContent.builder().id(10002L).contentType(ContentType.REMOVED).content("removed a few APIs!!!")
+						.createdBy("admin").createdOn(LocalDateTime.now()).editedBy("admin")
+						.editedOn(LocalDateTime.now()).build(),
+				ChangeLogContent.builder().id(10003L).contentType(ContentType.FIXED).content("fixed all bugs ;-)")
+						.createdBy("admin").createdOn(LocalDateTime.now()).editedBy("admin")
+						.editedOn(LocalDateTime.now()).build());
 	}
 
 	private List<ChangeLogDTO> generateChangeLogDTO(Integer counter) {
