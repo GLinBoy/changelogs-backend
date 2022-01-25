@@ -127,7 +127,7 @@ class ChangeLogServiceImplUnitTest {
 	}
 
 	@Test
-	void testGetProjectChangeLogVersionStringStringString() {
+	void testGetProjectChangeLogVersionByUsernameAndProjectTitleAndVersion() {
 		fail("Not yet implemented");
 	}
 
