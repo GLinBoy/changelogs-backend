@@ -139,6 +139,8 @@ class ChangeLogServiceImplUnitTest {
 		Page<ChangeLogDetailedDTO> latest = changeLogService.getLatest(pageable);
 		assertThat(latest.getContent()).isNotEmpty();
 		assertThat(latest.getTotalElements()).isEqualTo(list.size());
+		assertThat(latest.getContent().stream().anyMatch(c -> c.getContents() == null || c.getContents().isEmpty()))
+				.isFalse();
 	}
 
 	@Test
