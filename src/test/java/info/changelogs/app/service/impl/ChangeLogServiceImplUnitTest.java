@@ -117,7 +117,7 @@ class ChangeLogServiceImplUnitTest {
 	}
 
 	@Test
-	void testGetProjectChangeLogStringStringPageable() {
+	void testGetProjectChangeLogByUsernameAndTitleAndPageable() {
 		fail("Not yet implemented");
 	}
 
