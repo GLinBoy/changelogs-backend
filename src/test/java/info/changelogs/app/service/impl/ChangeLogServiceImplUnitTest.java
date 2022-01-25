@@ -56,6 +56,8 @@ class ChangeLogServiceImplUnitTest {
 	private EntityManager em;
 
 	private final Integer DEFAULT_CHANGELOG_COUNT = 3;
+	private final String DEFAULT_USERNAME = "admin";
+	private final String DEFAULT_TITLE = "title";
 
 	private final Pageable pageable = PageRequest.of(0, 1_000);
 
