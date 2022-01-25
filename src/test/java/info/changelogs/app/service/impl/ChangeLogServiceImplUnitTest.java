@@ -134,7 +134,11 @@ class ChangeLogServiceImplUnitTest {
 
 	@Test
 	void testGetLatest() {
-		fail("Not yet implemented");
+		doReturn(new PageImpl<ChangeLog>(list)).when(changeLogRepository).findAllDetailed(pageable);
+
+		Page<ChangeLogDetailedDTO> latest = changeLogService.getLatest(pageable);
+		assertThat(latest.getContent()).isNotEmpty();
+		assertThat(latest.getTotalElements()).isEqualTo(list.size());
 	}
 
 	@Test
