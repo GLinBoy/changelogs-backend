@@ -143,14 +143,22 @@ class ChangeLogServiceImplUnitTest {
 		assertThat(latest.getContent()).isNotEmpty();
 		assertThat(latest.getTotalElements()).isEqualTo(list.size());
 		assertThat(latest.getContent().stream().anyMatch(c -> c.getProject() == null || c.getProject().getId() == null))
-			.isFalse();
+				.isFalse();
 		assertThat(latest.getContent().stream().anyMatch(c -> c.getContents() == null || c.getContents().isEmpty()))
-			.isFalse();
+				.isFalse();
 	}
 
 	@Test
 	void testGetProjectChangeLogByUsernameAndTitleAndPageable() {
-		fail("Not yet implemented");
+		doReturn(new PageImpl<ChangeLog>(list)).when(changeLogRepository)
+				.findAllByUsernameAndProjectTitle(DEFAULT_USERNAME, DEFAULT_TITLE, pageable);
+
+		Page<ChangeLogDTO> page = changeLogService.getProjectChangeLog(DEFAULT_USERNAME, DEFAULT_TITLE, pageable);
+		assertThat(page.getContent()).isNotEmpty();
+		assertThat(page.getTotalElements()).isEqualTo(list.size());
+		assertThat(page.getContent().stream().anyMatch(c -> c.getProjectId() == null)).isFalse();
+		assertThat(page.getContent().stream().anyMatch(c -> c.getContents() == null || c.getContents().isEmpty()))
+				.isFalse();
 	}
 
 	@Test
