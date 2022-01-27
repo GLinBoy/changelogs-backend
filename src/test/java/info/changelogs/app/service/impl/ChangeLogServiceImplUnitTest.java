@@ -163,7 +163,15 @@ class ChangeLogServiceImplUnitTest {
 
 	@Test
 	void testGetProjectChangeLogByTitlePageable() {
-		fail("Not yet implemented");
+		doReturn(new PageImpl<ChangeLog>(list)).when(changeLogRepository).findAllByProjectTitle(DEFAULT_TITLE,
+				pageable);
+
+		Page<ChangeLogDTO> page = changeLogService.getProjectChangeLog(DEFAULT_TITLE, pageable);
+		assertThat(page.getContent()).isNotEmpty();
+		assertThat(page.getTotalElements()).isEqualTo(list.size());
+		assertThat(page.getContent().stream().anyMatch(c -> c.getProjectId() == null)).isFalse();
+		assertThat(page.getContent().stream().anyMatch(c -> c.getContents() == null || c.getContents().isEmpty()))
+				.isFalse();
 	}
 
 	@Test
