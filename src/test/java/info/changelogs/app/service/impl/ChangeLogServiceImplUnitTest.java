@@ -58,6 +58,7 @@ class ChangeLogServiceImplUnitTest {
 	private final Integer DEFAULT_CHANGELOG_COUNT = 3;
 	private final String DEFAULT_USERNAME = "admin";
 	private final String DEFAULT_TITLE = "title";
+	private final String DEFAULT_VERSION = "1.2.3";
 
 	private final Pageable pageable = PageRequest.of(0, 1_000);
 
