@@ -42,6 +42,8 @@ class ProjectServiceImplUnitTest {
 
 	private final String DEFAULT_USERNAME = "admin";
 
+	private final Pageable pageable = PageRequest.of(0, 1_000);
+
 	@BeforeEach
 	void setUp() {
 		projectService = new ProjectServiceImpl(projectRepository, modelMapper);
