@@ -56,7 +56,12 @@ class ProjectServiceImplUnitTest {
 
 	@Test
 	void testGetAllNecessary() {
-		fail("Not yet implemented");
+		doReturn(new PageImpl<ProjectMinimizedDTO>(generateProjectMinimizedDTO(3)))
+			.when(projectRepository).findAllNecessary(DEFAULT_USERNAME, pageable);
+	
+		Page<ProjectMinimizedDTO> page = projectService.getAllNecessary(DEFAULT_USERNAME, pageable);
+		assertThat(page.getTotalElements()).isEqualTo(3);
+	}
 	
 	private List<ProjectMinimizedDTO> generateProjectMinimizedDTO(Integer counter) {
 		return IntStream.range(0, counter).mapToObj(i -> {
