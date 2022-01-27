@@ -176,7 +176,14 @@ class ChangeLogServiceImplUnitTest {
 
 	@Test
 	void testGetProjectChangeLogVersionByUsernameAndProjectTitleAndVersion() {
-		fail("Not yet implemented");
+		doReturn(list).when(changeLogRepository).findAllByUsernameAndProjectTitleAndVersion(DEFAULT_USERNAME,
+				DEFAULT_TITLE, DEFAULT_VERSION);
+
+		List<ChangeLogDTO> changes = changeLogService.getProjectChangeLogVersion(DEFAULT_USERNAME, DEFAULT_TITLE,
+				DEFAULT_VERSION);
+		assertThat(changes).isNotNull().hasSize(list.size());
+		assertThat(changes.stream().anyMatch(c -> c.getProjectId() == null)).isFalse();
+		assertThat(changes.stream().anyMatch(c -> c.getContents() == null || c.getContents().isEmpty())).isFalse();
 	}
 
 	@Test
