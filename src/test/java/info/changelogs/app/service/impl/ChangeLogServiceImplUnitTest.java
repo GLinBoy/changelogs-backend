@@ -49,9 +49,6 @@ class ChangeLogServiceImplUnitTest {
 	private ChangeLogRepository changeLogRepository;
 
 	@Mock
-	private ModelMapper modelMapper;
-
-	@Mock
 	private EntityManager em;
 
 	private final Integer DEFAULT_CHANGELOG_COUNT = 3;
