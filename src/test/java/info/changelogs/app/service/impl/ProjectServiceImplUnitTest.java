@@ -1,10 +1,12 @@
 package info.changelogs.app.service.impl;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.doReturn;
 
+import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -24,7 +26,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.projection.ProjectionFactory;
 import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
 
+import info.changelogs.app.dto.ProjectDetailedDTO;
 import info.changelogs.app.dto.projection.ProjectMinimizedDTO;
+import info.changelogs.app.entity.Organization;
+import info.changelogs.app.entity.Project;
 import info.changelogs.app.repository.ProjectRepository;
 
 @ExtendWith(MockitoExtension.class)
@@ -38,6 +43,7 @@ class ProjectServiceImplUnitTest {
 	private ProjectRepository projectRepository;
 
 	private final String DEFAULT_USERNAME = "admin";
+	private final String DEFAULT_TITLE = "title";
 
 	private final Pageable pageable = PageRequest.of(0, 1_000);
 
