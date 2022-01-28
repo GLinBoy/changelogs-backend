@@ -42,9 +42,6 @@ class GenericServiceImplUnitTest {
 	@Mock
 	private OrganizationRepository organizationRepository;
 
-	@Mock
-	private ModelMapper modelMapper;
-
 	private final Long DEFAULT_ID = 10001L;
 	private final String DEFAULT_NAME = "name";
 	private final String DEFAULT_TITLE = "title";
