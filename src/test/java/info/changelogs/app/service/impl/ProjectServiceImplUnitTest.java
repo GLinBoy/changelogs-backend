@@ -37,9 +37,6 @@ class ProjectServiceImplUnitTest {
 	@Mock
 	private ProjectRepository projectRepository;
 
-	@Mock
-	private ModelMapper modelMapper;
-
 	private final String DEFAULT_USERNAME = "admin";
 
 	private final Pageable pageable = PageRequest.of(0, 1_000);
