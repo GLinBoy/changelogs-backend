@@ -64,9 +64,7 @@ class GenericServiceImplUnitTest {
 	void setUp() {
 		list = generateOrganization(DEFAULT_ORGANIZATION_COUNT);
 
-		modelMapper = new ModelMapper();
-
-		organizationService = new OrganizationServiceImpl(organizationRepository, modelMapper);
+		organizationService = new OrganizationServiceImpl(organizationRepository, new ModelMapper());
 	}
 
 	private List<OrganizationDTO> generateOrganizationDTO(Integer number) {
