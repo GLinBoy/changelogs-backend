@@ -80,7 +80,34 @@ class ProjectServiceImplUnitTest {
 
 	@Test
 	void testGetProjectDetailByTitle() {
-		fail("Not yet implemented");
+		doReturn(Optional.of(Project.builder()
+				.id(1L)
+				.name("name")
+				.title(DEFAULT_TITLE)
+				.about("about project")
+				.logo(null)
+				.owner(DEFAULT_USERNAME)
+				.publicAccess(true)
+				.website(null)
+				.license(null)
+				.licenseLink(null)
+				.organization(Organization.builder().id(1L).build())
+				.metas(Collections.emptySet())
+				.contacts(Collections.emptySet())
+				.changeLogs(Collections.emptySet())
+				.isActive(true)
+				.createdBy(DEFAULT_USERNAME)
+				.createdOn(LocalDateTime.now())
+				.editedBy(DEFAULT_USERNAME)
+				.editedOn(LocalDateTime.now())
+				.version(0)
+				.build()))
+			.when(projectRepository).findOneByTitle(DEFAULT_TITLE);
+		
+		Optional<ProjectDetailedDTO> optional = projectService.getProjectDetailByTitle(DEFAULT_TITLE);
+		assertThat(optional).isPresent();
+		assertThat(optional.get().getOrganization()).isNotNull();
+		assertThat(optional.get().getOrganization().getId()).isEqualTo(1L);
 	}
 
 }
