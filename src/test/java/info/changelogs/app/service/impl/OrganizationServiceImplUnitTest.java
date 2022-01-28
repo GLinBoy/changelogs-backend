@@ -32,9 +32,6 @@ class OrganizationServiceImplUnitTest {
 	@Mock
 	private OrganizationRepository organizationRepository;
 
-	@Mock
-	private ModelMapper modelMapper;
-
 	private final String DEFAULT_USERNAME = "test";
 
 	@BeforeEach
