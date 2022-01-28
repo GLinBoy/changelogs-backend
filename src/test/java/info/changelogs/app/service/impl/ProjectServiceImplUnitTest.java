@@ -43,7 +43,7 @@ class ProjectServiceImplUnitTest {
 
 	@BeforeEach
 	void setUp() {
-		projectService = new ProjectServiceImpl(projectRepository, modelMapper);
+		projectService = new ProjectServiceImpl(projectRepository, new ModelMapper());
 	}
 
 	@Test
