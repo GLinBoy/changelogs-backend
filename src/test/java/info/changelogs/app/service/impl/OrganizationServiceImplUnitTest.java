@@ -36,7 +36,7 @@ class OrganizationServiceImplUnitTest {
 
 	@BeforeEach
 	void setUp() {
-		organizationService = new OrganizationServiceImpl(organizationRepository, modelMapper);
+		organizationService = new OrganizationServiceImpl(organizationRepository, new ModelMapper());
 	}
 
 	@Test
