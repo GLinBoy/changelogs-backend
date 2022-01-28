@@ -64,9 +64,7 @@ class ChangeLogServiceImplUnitTest {
 	void setUp() {
 		list = generateChangeLog(DEFAULT_CHANGELOG_COUNT);
 
-		modelMapper = new ModelMapper();
-
-		changeLogService = new ChangeLogServiceImpl(changeLogRepository, modelMapper, em);
+		changeLogService = new ChangeLogServiceImpl(changeLogRepository, new ModelMapper(), em);
 	}
 
 	private List<ChangeLog> generateChangeLog(Integer counter) {
