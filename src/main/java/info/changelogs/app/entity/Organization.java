@@ -25,12 +25,12 @@ import lombok.experimental.FieldNameConstants;
 		@UniqueConstraint(name = "UNQ_ORGANIZATION_EMAIL", columnNames = { "EMAIL" }) })
 public class Organization extends Auditable {
 
-	Organization() {
+	public Organization() {
 		super();
 	}
 
 	@Builder
-	Organization(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
+	public Organization(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
 			LocalDateTime editedOn, Integer version, String name, String title, String slogan, String website,
 			String email, String location, String logo, Boolean verified, Set<OrganizationMeta> metas,
 			Set<Project> projects) {
