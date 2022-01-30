@@ -1,25 +1,39 @@
 package info.changelogs.app.dto;
 
+import java.time.LocalDateTime;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.experimental.FieldNameConstants;
 
 @Data
-@Builder
-@FieldNameConstants
-@AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class OrganizationDTO extends BaseDTO {
+
+	public OrganizationDTO() {
+		super();
+	}
+
+	@Builder
+	public OrganizationDTO(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
+			LocalDateTime editedOn, Integer version, String name, String title, String slogan, String website,
+			String email, String location, String logo, Boolean verified) {
+		super(id, isActive);
+		this.name = name;
+		this.title = title;
+		this.slogan = slogan;
+		this.website = website;
+		this.email = email;
+		this.location = location;
+		this.logo = logo;
+		this.verified = verified;
+	}
 
 	@Size(min = 4, max = 32)
 	@NotBlank(message = "Name is mandatory")
