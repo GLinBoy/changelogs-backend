@@ -8,6 +8,14 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class BaseDTO {
 
+	BaseDTO() {
+	}
+
+	BaseDTO(Long id, Boolean isActive) {
+		this.id = id;
+		this.isActive = isActive;
+	}
+
 	private Long id;
 	private Boolean isActive;
 
