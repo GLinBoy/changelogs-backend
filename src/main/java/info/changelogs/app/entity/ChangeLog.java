@@ -31,12 +31,12 @@ import lombok.experimental.FieldNameConstants;
 		@UniqueConstraint(name = "UNQ_CHANGELOG_BUILD", columnNames = { "BUILD_VERSION", "PLATFORM", "PROJECT_ID" }) })
 public class ChangeLog extends Auditable {
 
-	ChangeLog() {
+	public ChangeLog() {
 		super();
 	}
 
 	@Builder
-	ChangeLog(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
+	public ChangeLog(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
 			LocalDateTime editedOn, Integer version, String versionNo, String buildVersion, Instant releaseDate,
 			String publisher, String contact, Boolean forceUpdate, Platform platform, Project project,
 			Set<ChangeLogMeta> metas, Set<ChangeLogContent> contents) {
