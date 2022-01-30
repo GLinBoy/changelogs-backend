@@ -25,12 +25,12 @@ import lombok.EqualsAndHashCode;
 		@UniqueConstraint(name = "UNQ_PROJECT_TITLE", columnNames = { "TITLE", "OWNER" }) })
 public class Project extends Auditable {
 
-	Project() {
+	public Project() {
 		super();
 	}
 
 	@Builder
-	Project(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
+	public Project(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
 			LocalDateTime editedOn, Integer version, String name, String title, String about, String logo, String owner,
 			Boolean publicAccess, String website, String license, String licenseLink, Organization organization,
 			Set<ProjectMeta> metas, Set<Contact> contacts, Set<ChangeLog> changeLogs) {
