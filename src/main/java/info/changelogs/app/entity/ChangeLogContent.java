@@ -21,12 +21,12 @@ import lombok.experimental.FieldNameConstants;
 @EqualsAndHashCode(callSuper = true, exclude = "changeLog")
 public class ChangeLogContent extends Auditable {
 
-	ChangeLogContent() {
+	public ChangeLogContent() {
 		super();
 	}
 
 	@Builder
-	ChangeLogContent(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
+	public ChangeLogContent(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
 			LocalDateTime editedOn, Integer version, ContentType contentType, String content, ChangeLog changeLog) {
 		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
 		this.contentType = contentType;
