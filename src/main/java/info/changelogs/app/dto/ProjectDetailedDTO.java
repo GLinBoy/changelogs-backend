@@ -1,19 +1,35 @@
 package info.changelogs.app.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.experimental.FieldNameConstants;
 
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@FieldNameConstants
 @EqualsAndHashCode(callSuper = true)
 public class ProjectDetailedDTO extends BaseDTO {
+
+	public ProjectDetailedDTO() {
+		super();
+	}
+
+	@Builder
+	public ProjectDetailedDTO(Long id, Boolean isActive, String name, String title, String about, String logo,
+			String owner, Boolean publicAccess, String website, String readmeLink, String license, String licenseLink,
+			OrganizationDTO organization) {
+		super(id, isActive);
+		this.name = name;
+		this.title = title;
+		this.about = about;
+		this.logo = logo;
+		this.owner = owner;
+		this.publicAccess = publicAccess;
+		this.website = website;
+		this.readmeLink = readmeLink;
+		this.license = license;
+		this.licenseLink = licenseLink;
+		this.organization = organization;
+	}
+
 	private String name;
 	private String title;
 	private String about;
@@ -24,6 +40,6 @@ public class ProjectDetailedDTO extends BaseDTO {
 	private String readmeLink;
 	private String license;
 	private String licenseLink;
-	
+
 	private OrganizationDTO organization;
 }
