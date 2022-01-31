@@ -1,19 +1,22 @@
 package info.changelogs.app.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.experimental.FieldNameConstants;
 
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@FieldNameConstants
 @EqualsAndHashCode(callSuper = true)
 public class OrganizationMetaDTO extends MetaDataDTO {
+
+	public OrganizationMetaDTO() {
+		super();
+	}
+
+	@Builder
+	public OrganizationMetaDTO(Long id, Boolean isActive, String key, String value, Long organizationId) {
+		super(id, isActive, key, value);
+		this.organizationId = organizationId;
+	}
 
 	private Long organizationId;
 
