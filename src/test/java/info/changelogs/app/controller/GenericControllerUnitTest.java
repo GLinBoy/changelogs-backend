@@ -48,6 +48,20 @@ class GenericControllerUnitTest {
 
 	private List<OrganizationDTO> list;
 
+	private List<OrganizationDTO> generateOrganizationDTO(Integer number) {
+		return IntStream.range(0, number)
+				.mapToObj(i -> OrganizationDTO.builder()
+						.id(DEFAULT_ID + Long.valueOf(i))
+						.isActive(true)
+						.name(String.format("%s_%d", DEFAULT_NAME, i))
+						.title(String.format("%s_%d", DEFAULT_TITLE, i))
+						.slogan(String.format("%s_%d", DEFAULT_SLOGAN, i))
+						.website(String.format("https://%s-%d.com", DEFAULT_WEBSITE_DOMAIN, i))
+						.email(String.format("info@%s-%d.com", DEFAULT_WEBSITE_DOMAIN, i)).location(DEFAULT_LOCATION)
+						.logo(null).verified(Boolean.TRUE).build())
+				.collect(Collectors.toList());
+	}
+
 	@Test
 	void testGetAll() {
 		fail("Not yet implemented");
