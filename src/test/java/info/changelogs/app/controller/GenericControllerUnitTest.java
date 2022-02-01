@@ -75,9 +75,9 @@ class GenericControllerUnitTest {
 
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		request.setRequestURI("/api/test");
-		ResponseEntity<List<OrganizationDTO>> entity = organizationController.getAll(pageable, request);
-		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
-		assertThat(entity.getHeaders().getAccessControlExposeHeaders())
+		ResponseEntity<List<OrganizationDTO>> responseEntity = organizationController.getAll(pageable, request);
+		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(responseEntity.getHeaders().getAccessControlExposeHeaders())
 			.containsAll(List.of(HttpHeaders.LINK, "X-Total-Count"));
 	}
 
