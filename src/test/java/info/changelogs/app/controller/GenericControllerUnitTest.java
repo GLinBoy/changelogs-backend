@@ -31,6 +31,11 @@ import info.changelogs.app.service.OrganizationServiceApi;
 @MockitoSettings(strictness = Strictness.LENIENT)
 class GenericControllerUnitTest {
 
+	@InjectMocks
+	private OrganizationController organizationController;
+
+	@Mock
+	private OrganizationServiceApi organizationService;
 	@Test
 	void testGetAll() {
 		fail("Not yet implemented");
