@@ -36,6 +36,14 @@ class GenericControllerUnitTest {
 
 	@Mock
 	private OrganizationServiceApi organizationService;
+
+	private final Long DEFAULT_ID = 10000L;
+	private final String DEFAULT_NAME = "name";
+	private final String DEFAULT_TITLE = "title";
+	private final String DEFAULT_SLOGAN = "slogan";
+	private final String DEFAULT_WEBSITE_DOMAIN = "website";
+	private final String DEFAULT_LOCATION = "Tallin, Estonia";
+	private final Integer DEFAULT_ORGANIZATION_COUNT = 3;
 	@Test
 	void testGetAll() {
 		fail("Not yet implemented");
