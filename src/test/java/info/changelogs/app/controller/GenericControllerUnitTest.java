@@ -71,7 +71,14 @@ class GenericControllerUnitTest {
 
 	@Test
 	void testGetAll() {
-		fail("Not yet implemented");
+		doReturn(new PageImpl<OrganizationDTO>(list)).when(organizationService).getAll(pageable);
+
+		MockHttpServletRequest request = new MockHttpServletRequest();
+		request.setRequestURI("/api/test");
+		ResponseEntity<List<OrganizationDTO>> entity = organizationController.getAll(pageable, request);
+		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(entity.getHeaders().getAccessControlExposeHeaders())
+			.containsAll(List.of(HttpHeaders.LINK, "X-Total-Count"));
 	}
 
 	@Test
