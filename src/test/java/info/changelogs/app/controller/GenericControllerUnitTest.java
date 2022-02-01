@@ -48,6 +48,13 @@ class GenericControllerUnitTest {
 
 	private List<OrganizationDTO> list;
 
+	@BeforeEach
+	void setUp() {
+		list = generateOrganizationDTO(DEFAULT_ORGANIZATION_COUNT);
+
+		organizationController = new OrganizationController(organizationService);
+	}
+
 	private List<OrganizationDTO> generateOrganizationDTO(Integer number) {
 		return IntStream.range(0, number)
 				.mapToObj(i -> OrganizationDTO.builder()
