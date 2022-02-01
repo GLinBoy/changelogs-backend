@@ -44,6 +44,8 @@ class GenericControllerUnitTest {
 	private final String DEFAULT_WEBSITE_DOMAIN = "website";
 	private final String DEFAULT_LOCATION = "Tallin, Estonia";
 	private final Integer DEFAULT_ORGANIZATION_COUNT = 3;
+	private final Pageable pageable = PageRequest.of(0, 1_000);
+
 	@Test
 	void testGetAll() {
 		fail("Not yet implemented");
