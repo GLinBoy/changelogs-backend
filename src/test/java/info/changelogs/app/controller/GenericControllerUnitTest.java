@@ -2,6 +2,7 @@ package info.changelogs.app.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.fail;
+import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doReturn;
 
 import java.util.List;
@@ -83,7 +84,14 @@ class GenericControllerUnitTest {
 
 	@Test
 	void testGetById() {
-		fail("Not yet implemented");
+		doAnswer(i -> {
+			Long id = (Long) i.getArguments()[0];
+			return list.stream().filter(o -> o.getId().equals(id)).findAny().orElseThrow();
+		}).when(organizationService).getSingleById(DEFAULT_ID);
+
+		ResponseEntity<OrganizationDTO> responseEntity = organizationController.getById(DEFAULT_ID);
+		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(responseEntity.getBody().getId()).isEqualTo(DEFAULT_ID);
 	}
 
 	@Test
