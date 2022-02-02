@@ -48,6 +48,8 @@ class ChangeLogControllerUnitTest {
 
 	private final Pageable pageable = PageRequest.of(0, 1_000);
 
+	private List<ChangeLogDTO> list;
+
 	@Test
 	void contextLoads() {
 		assertThat(changeLogController).isNotNull();
