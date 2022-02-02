@@ -103,7 +103,24 @@ class GenericControllerUnitTest {
 
 	@Test
 	void testSave() {
-		fail("Not yet implemented");
+		doAnswer(i -> {
+			OrganizationDTO organizationDTO = (OrganizationDTO) i.getArguments()[0];
+			Long lastId = list.stream().mapToLong(OrganizationDTO::getId).max().orElse(0L);
+			organizationDTO.setId(lastId + 1);
+			list.add(organizationDTO);
+			return organizationDTO;
+		}).when(organizationService).save(Mockito.any(OrganizationDTO.class));
+
+		OrganizationDTO organizationDTO = generateOrganizationDTO(1).get(0);
+		
+		MockHttpServletRequest request = new MockHttpServletRequest();
+		request.setRequestURI("/api/test");
+		
+		ResponseEntity<OrganizationDTO> responseEntity = organizationController.save(organizationDTO, request);
+		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+		assertThat(responseEntity.getBody().getId()).isPositive();
+		assertThat(responseEntity.getBody().getId())
+				.isEqualByComparingTo(list.stream().mapToLong(OrganizationDTO::getId).max().orElse(0L));
 	}
 
 	@Test
