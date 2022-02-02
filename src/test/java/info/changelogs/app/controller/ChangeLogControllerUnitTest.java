@@ -46,6 +46,8 @@ class ChangeLogControllerUnitTest {
 	private final String DEFAULT_TITLE = "title";
 	private final String DEFAULT_VERSION = "1.2.3";
 
+	private final Pageable pageable = PageRequest.of(0, 1_000);
+
 	@Test
 	void contextLoads() {
 		assertThat(changeLogController).isNotNull();
