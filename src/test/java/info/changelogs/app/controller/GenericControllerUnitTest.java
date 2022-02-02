@@ -156,6 +156,17 @@ class GenericControllerUnitTest {
 
 	@Test
 	void testDeleteById() {
-	}
+		doAnswer(i -> {
+			Long id = (Long) i.getArguments()[0];
+			list.removeIf(o -> o.getId().equals(id));
+			return null;
+		}).when(organizationService).deleteSingleById(Mockito.any(Long.class));
 
+		int sizeBeforeDelete = list.size();
+		organizationService.deleteSingleById(DEFAULT_ID);
+		ResponseEntity<Void> responseEntity = organizationController.deleteById(DEFAULT_ID);
+		assertThat(list.size()).isEqualTo( sizeBeforeDelete - 1);
+		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+		assertThat(responseEntity.getBody()).isNull();
+	}
 }
