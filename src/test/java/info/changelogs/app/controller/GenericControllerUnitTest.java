@@ -106,12 +106,6 @@ class GenericControllerUnitTest {
 
 	@Test
 	void testDeleteById() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGenericController() {
-		fail("Not yet implemented");
 	}
 
 }
