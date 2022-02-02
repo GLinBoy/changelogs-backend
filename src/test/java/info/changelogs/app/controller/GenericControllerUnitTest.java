@@ -125,7 +125,33 @@ class GenericControllerUnitTest {
 
 	@Test
 	void testUpdate() {
-		fail("Not yet implemented");
+		doAnswer(i -> {
+			OrganizationDTO organization = (OrganizationDTO) i.getArguments()[0];
+			list.removeIf(o -> o.getId().equals(organization.getId()));
+			list.add(organization);
+			return organization;
+		}).when(organizationService).update(Mockito.any(OrganizationDTO.class));
+
+		OrganizationDTO organizationDTO = list.parallelStream()
+				.filter(o -> o.getId().equals(DEFAULT_ID))
+				.findFirst().orElseThrow();
+		organizationDTO.setName(DEFAULT_EDITED_NAME);
+		organizationDTO.setTitle(DEFAULT_EDITED_TITLE);
+		organizationDTO.setSlogan(DEFAULT_EDITED_SLOGAN);
+		organizationDTO.setWebsite(String.format("https://%s.com", DEFAULT_EDITED_WEBSITE_DOMAIN));
+		organizationDTO.setEmail(String.format("info@%s.com", DEFAULT_EDITED_WEBSITE_DOMAIN));
+		organizationDTO.setLocation(DEFAULT_EDITED_LOCATION);
+		
+		ResponseEntity<OrganizationDTO> responseEntity = organizationController.update(organizationDTO);
+		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(responseEntity.getBody().getName()).isEqualTo(DEFAULT_EDITED_NAME);
+		assertThat(responseEntity.getBody().getTitle()).isEqualTo(DEFAULT_EDITED_TITLE);
+		assertThat(responseEntity.getBody().getSlogan()).isEqualTo(DEFAULT_EDITED_SLOGAN);
+		assertThat(responseEntity.getBody().getWebsite())
+				.isEqualTo(String.format("https://%s.com", DEFAULT_EDITED_WEBSITE_DOMAIN));
+		assertThat(responseEntity.getBody().getEmail())
+				.isEqualTo(String.format("info@%s.com", DEFAULT_EDITED_WEBSITE_DOMAIN));
+		assertThat(responseEntity.getBody().getLocation()).isEqualTo(DEFAULT_EDITED_LOCATION);
 	}
 
 	@Test
