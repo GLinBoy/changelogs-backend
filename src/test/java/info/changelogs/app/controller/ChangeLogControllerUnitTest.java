@@ -108,7 +108,7 @@ class ChangeLogControllerUnitTest {
 		ResponseEntity<List<ChangeLogDetailedDTO>> responseEntity = changeLogController.getLatest(pageable, request);
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 		assertThat(latest.getContent()).isNotEmpty();
-		assertThat(latest.getTotalElements()).isEqualTo(list.size());
+		assertThat(latest.getTotalElements()).isEqualTo(DEFAULT_CHANGELOG_COUNT.intValue());
 		assertThat(latest.getContent().stream().anyMatch(c -> c.getProject() == null || c.getProject().getId() == null))
 				.isFalse();
 		assertThat(latest.getContent().stream().anyMatch(c -> c.getContents() == null || c.getContents().isEmpty()))
