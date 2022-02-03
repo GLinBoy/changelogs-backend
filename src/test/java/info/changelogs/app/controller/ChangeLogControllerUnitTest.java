@@ -131,7 +131,15 @@ class ChangeLogControllerUnitTest {
 
 	@Test
 	void testGetProjectChangeLogVersion() {
-		fail("Not yet implemented");
+		doReturn(list).when(changeLogService).getProjectChangeLogVersion(DEFAULT_TITLE, DEFAULT_VERSION);
+
+		MockHttpServletRequest request = new MockHttpServletRequest();
+		request.setRequestURI(String.format("/api/changelog/project/%s/%s", DEFAULT_TITLE, DEFAULT_VERSION));
+
+		ResponseEntity<List<ChangeLogDTO>> responseEntity = changeLogController.getProjectChangeLogVersion(DEFAULT_TITLE, DEFAULT_VERSION, request);
+		assertThat(responseEntity.getBody()).isNotNull().hasSize(list.size());
+		assertThat(responseEntity.getBody().stream().anyMatch(c -> c.getProjectId() == null)).isFalse();
+		assertThat(responseEntity.getBody().stream().anyMatch(c -> c.getContents() == null || c.getContents().isEmpty())).isFalse();
 	}
 
 }
