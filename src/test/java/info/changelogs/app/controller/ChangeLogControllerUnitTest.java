@@ -80,7 +80,21 @@ class ChangeLogControllerUnitTest {
 
 	@Test
 	void testGetLatest() {
-		fail("Not yet implemented");
+		doReturn(new PageImpl<ChangeLogDTO>(list)).when(changeLogService).getLatest(pageable);
+
+		Page<ChangeLogDetailedDTO> latest = changeLogService.getLatest(pageable);
+		
+		MockHttpServletRequest request = new MockHttpServletRequest();
+		request.setRequestURI("/api/changelog");
+		
+		ResponseEntity<List<ChangeLogDetailedDTO>> responseEntity = changeLogController.getLatest(pageable, request);
+		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+		assertThat(latest.getContent()).isNotEmpty();
+		assertThat(latest.getTotalElements()).isEqualTo(list.size());
+		assertThat(latest.getContent().stream().anyMatch(c -> c.getProject() == null || c.getProject().getId() == null))
+				.isFalse();
+		assertThat(latest.getContent().stream().anyMatch(c -> c.getContents() == null || c.getContents().isEmpty()))
+				.isFalse();
 	}
 
 	@Test
