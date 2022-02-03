@@ -2,7 +2,6 @@ package info.changelogs.app.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.doReturn;
 
 import java.time.Instant;
@@ -43,7 +42,6 @@ class ChangeLogControllerUnitTest {
 	private ChangeLogServiceApi changeLogService;
 
 	private final Integer DEFAULT_CHANGELOG_COUNT = 3;
-	private final String DEFAULT_USERNAME = "admin";
 	private final String DEFAULT_TITLE = "title";
 	private final String DEFAULT_VERSION = "1.2.3";
 
