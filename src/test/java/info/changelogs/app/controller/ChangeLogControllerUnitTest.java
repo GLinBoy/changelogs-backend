@@ -115,7 +115,18 @@ class ChangeLogControllerUnitTest {
 
 	@Test
 	void testGetProjectChangeLog() {
-		fail("Not yet implemented");
+		doReturn(new PageImpl<ChangeLogDTO>(list)).when(changeLogService).getProjectChangeLog(DEFAULT_TITLE,
+				pageable);
+
+		MockHttpServletRequest request = new MockHttpServletRequest();
+		request.setRequestURI("/api/changelog/project/" + DEFAULT_TITLE);
+
+		ResponseEntity<List<ChangeLogDTO>> responseEntity = changeLogController.getProjectChangeLog(DEFAULT_TITLE, pageable, request);
+		assertThat(responseEntity.getBody()).isNotEmpty();
+		assertThat(responseEntity.getBody().size()).isEqualTo(list.size());
+		assertThat(responseEntity.getBody().stream().anyMatch(c -> c.getProjectId() == null)).isFalse();
+		assertThat(responseEntity.getBody().stream().anyMatch(c -> c.getContents() == null || c.getContents().isEmpty()))
+				.isFalse();
 	}
 
 	@Test
