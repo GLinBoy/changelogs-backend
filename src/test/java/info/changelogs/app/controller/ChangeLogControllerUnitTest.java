@@ -28,6 +28,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import info.changelogs.app.dto.ChangeLogContentDTO;
 import info.changelogs.app.dto.ChangeLogDTO;
 import info.changelogs.app.dto.ChangeLogDetailedDTO;
+import info.changelogs.app.dto.ProjectDetailedDTO;
 import info.changelogs.app.entity.ContentType;
 import info.changelogs.app.entity.Platform;
 import info.changelogs.app.service.ChangeLogServiceApi;
@@ -63,6 +64,22 @@ class ChangeLogControllerUnitTest {
 						.releaseDate(Instant.now()).publisher(String.format("publisher_%d", i))
 						.contact("email@email.com").forceUpdate(Boolean.FALSE).platform(Platform.API)
 						.projectId(Long.valueOf(i)).contents(generateChangeLogContentDTO()).build())
+				.collect(Collectors.toList());
+	}
+
+	private List<ChangeLogDetailedDTO> generateChangeLogDetailedDTO(Integer counter) {
+		return IntStream.range(0, counter)
+				.mapToObj(i -> ChangeLogDetailedDTO.builder()
+						.versionNo(String.valueOf(i))
+						.buildVersion(String.valueOf(i))
+						.releaseDate(Instant.now())
+						.publisher(String.format("publisher_%d", i))
+						.contact("email@email.com")
+						.forceUpdate(Boolean.FALSE)
+						.platform(Platform.API)
+						.project(ProjectDetailedDTO.builder().id(Long.valueOf(i)).build())
+						.contents(generateChangeLogContentDTO())
+						.build())
 				.collect(Collectors.toList());
 	}
 
