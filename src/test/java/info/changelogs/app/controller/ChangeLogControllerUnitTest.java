@@ -50,6 +50,12 @@ class ChangeLogControllerUnitTest {
 
 	private List<ChangeLogDTO> list;
 
+	@BeforeEach
+	void setUp() {
+		list = generateChangeLogDTO(DEFAULT_CHANGELOG_COUNT);
+
+		changeLogController = new ChangeLogController(changeLogService);
+	}
 
 	private List<ChangeLogDTO> generateChangeLogDTO(Integer counter) {
 		return IntStream.range(0, counter)
