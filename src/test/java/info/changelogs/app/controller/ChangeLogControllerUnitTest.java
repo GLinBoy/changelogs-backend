@@ -97,7 +97,8 @@ class ChangeLogControllerUnitTest {
 
 	@Test
 	void testGetLatest() {
-		doReturn(new PageImpl<ChangeLogDTO>(list)).when(changeLogService).getLatest(pageable);
+		doReturn(new PageImpl<ChangeLogDetailedDTO>(generateChangeLogDetailedDTO(DEFAULT_CHANGELOG_COUNT)))
+			.when(changeLogService).getLatest(pageable);
 
 		Page<ChangeLogDetailedDTO> latest = changeLogService.getLatest(pageable);
 		
