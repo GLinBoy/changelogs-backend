@@ -48,7 +48,18 @@ class ProjectControllerUnitTest {
 
 	@Test
 	void testGetUserProjectList() {
-		fail("Not yet implemented");
+		doReturn(new PageImpl<ProjectMinimizedDTO>(generateProjectMinimizedDTO(DEFAULT_SIZE)))
+			.when(projectService).getAllNecessary(Mockito.any(String.class), Mockito.any(Pageable.class));
+
+		MockHttpServletRequest request = new MockHttpServletRequest();
+		request.setRequestURI("/api/project/minimized");
+		
+		ResponseEntity<List<ProjectMinimizedDTO>> responseEntity = projectController.getUserProjectList(pageable, request);
+		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+		assertEquals(DEFAULT_SIZE, responseEntity.getBody().size());
+		assertThat(responseEntity.getHeaders().getAccessControlExposeHeaders())
+			.containsAll(List.of(HttpHeaders.LINK, "X-Total-Count"));
+	}
 
 	private List<ProjectMinimizedDTO> generateProjectMinimizedDTO(Integer counter) {
 		return IntStream.range(0, counter).mapToObj(i -> {
