@@ -49,6 +49,17 @@ class ProjectControllerUnitTest {
 	@Test
 	void testGetUserProjectList() {
 		fail("Not yet implemented");
+
+	private List<ProjectMinimizedDTO> generateProjectMinimizedDTO(Integer counter) {
+		return IntStream.range(0, counter).mapToObj(i -> {
+			ProjectionFactory factory = new SpelAwareProxyProjectionFactory();
+			ProjectMinimizedDTO projection = factory.createProjection(ProjectMinimizedDTO.class);
+			projection.setId(Long.valueOf(i));
+			projection.setName(String.format("name %d", i));
+			projection.setTitle(String.format("title %d", i));
+			projection.setOwner(String.format("owner %d", i));
+			return projection;
+		}).collect(Collectors.toList());
 	}
 
 	@Test
