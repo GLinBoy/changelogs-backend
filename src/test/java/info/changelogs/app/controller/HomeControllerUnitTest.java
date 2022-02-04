@@ -1,7 +1,6 @@
 package info.changelogs.app.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
@@ -38,8 +37,12 @@ class HomeControllerUnitTest {
 	}
 
 	@Test
-	void testRedirect() {
-		fail("Not yet implemented");
+	void testRedirect() throws IOException {
+		ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+
+		homeController.redirect(response);
+		verify(response).sendRedirect(captor.capture());
+		assertEquals("/api/v1/swagger-ui.html", captor.getValue());
 	}
 
 }
