@@ -40,7 +40,12 @@ class OrganizationControllerUnitTest {
 
 	@Test
 	void testGetOwnerList() {
-		fail("Not yet implemented");
+		doReturn(generateOwnerDTO(DEFAULT_SIZE)).when(organizationService).getOwners(Mockito.any(String.class));
+
+		ResponseEntity<List<OwnerDTO>> responseEntity = organizationController.getOwnerList();
+		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+		assertEquals(DEFAULT_SIZE, responseEntity.getBody().size());
+	}
 
 	private List<OwnerDTO> generateOwnerDTO(Integer count) {
 		return IntStream.range(0, count).mapToObj(i -> {
