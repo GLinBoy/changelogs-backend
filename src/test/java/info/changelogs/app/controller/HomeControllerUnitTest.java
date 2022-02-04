@@ -26,11 +26,17 @@ class HomeControllerUnitTest {
 	@Mock
 	private MockHttpServletResponse response;
 
+	@BeforeEach
+	void setup() throws IllegalAccessException {
+		homeController = new HomeController();
+		FieldUtils.writeField(homeController, "contextPath", "/api/v1", true);
+	}
+
 	@Test
 	void contextLoads() {
 		assertThat(homeController).isNotNull();
 	}
-	
+
 	@Test
 	void testRedirect() {
 		fail("Not yet implemented");
