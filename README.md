@@ -24,7 +24,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-ChangeLogs needs only Java 15 and Maven to run or build; The project also include Maven wrapper but you can use local Maven too;
+ChangeLogs needs only Java 17 and Maven to run or build; The project also include Maven wrapper but you can use local Maven too;
 
 #### Running from the source
 
@@ -64,7 +64,7 @@ It's like any Spring Boot application If you been familiar with them, creating a
 
 ## Built With
 
-  - [Java](https://adoptopenjdk.net/) - Main Development language, used version 15
+  - [Java](https://adoptopenjdk.net/) - Main Development language, used version 17
   - [Spring Boot](https://spring.io/projects/spring-boot) - For IOC and loose coupling
   - [Maven](https://maven.org/) - for dependency management and build tools
 
