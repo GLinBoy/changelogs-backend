@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class OrganizationDTO extends BaseDTO {
+public class OrganizationDTO extends AuditableDTO {
 
 	public OrganizationDTO() {
 		super();
@@ -24,7 +24,7 @@ public class OrganizationDTO extends BaseDTO {
 	public OrganizationDTO(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
 			LocalDateTime editedOn, Integer version, String name, String title, String slogan, String website,
 			String email, String location, String logo, Boolean verified) {
-		super(id, isActive);
+		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
 		this.name = name;
 		this.title = title;
 		this.slogan = slogan;
