@@ -1,6 +1,7 @@
 package info.changelogs.app.dto;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -15,17 +16,18 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ChangeLogDetailedDTO extends BaseDTO {
+public class ChangeLogDetailedDTO extends AuditableDTO {
 
 	public ChangeLogDetailedDTO() {
 		super();
 	}
 
 	@Builder
-	public ChangeLogDetailedDTO(Long id, Boolean isActive, String versionNo, String buildVersion, Instant releaseDate,
+	public ChangeLogDetailedDTO(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
+			LocalDateTime editedOn, Integer version, String versionNo, String buildVersion, Instant releaseDate,
 			String publisher, String contact, Boolean forceUpdate, Platform platform, ProjectDetailedDTO project,
 			Set<ChangeLogContentDTO> contents) {
-		super(id, isActive);
+		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
 		this.versionNo = versionNo;
 		this.buildVersion = buildVersion;
 		this.releaseDate = releaseDate;
