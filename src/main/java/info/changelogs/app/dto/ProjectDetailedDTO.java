@@ -1,22 +1,25 @@
 package info.changelogs.app.dto;
 
+import java.time.LocalDateTime;
+
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ProjectDetailedDTO extends BaseDTO {
+public class ProjectDetailedDTO extends AuditableDTO {
 
 	public ProjectDetailedDTO() {
 		super();
 	}
 
 	@Builder
-	public ProjectDetailedDTO(Long id, Boolean isActive, String name, String title, String about, String logo,
+	public ProjectDetailedDTO(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
+			LocalDateTime editedOn, Integer version, String name, String title, String about, String logo,
 			String owner, Boolean publicAccess, String website, String readmeLink, String license, String licenseLink,
 			OrganizationDTO organization) {
-		super(id, isActive);
+		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
 		this.name = name;
 		this.title = title;
 		this.about = about;
