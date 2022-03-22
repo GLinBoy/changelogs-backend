@@ -1,6 +1,6 @@
 package info.changelogs.app.entity;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
@@ -26,8 +26,8 @@ public abstract class Auditable extends BaseEntity {
 		super();
 	}
 
-	Auditable(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
-			LocalDateTime editedOn, Integer version) {
+	Auditable(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
+			Instant editedOn, Integer version) {
 		super(id, isActive);
 		this.createdBy = createdBy;
 		this.editedBy = editedBy;
@@ -46,11 +46,11 @@ public abstract class Auditable extends BaseEntity {
 
 	@CreatedDate
 	@Column(name = "CREATED_ON", updatable = false, nullable = false)
-	private LocalDateTime createdOn;
+	private Instant createdOn;
 
 	@LastModifiedDate
 	@Column(name = "EDITED_ON", nullable = false)
-	private LocalDateTime editedOn;
+	private Instant editedOn;
 
 	@Version
 	@Column(name = "VERSION", nullable = false)
