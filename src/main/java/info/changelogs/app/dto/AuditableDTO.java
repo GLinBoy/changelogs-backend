@@ -1,11 +1,16 @@
 package info.changelogs.app.dto;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.InstantDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.InstantSerializer;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,8 +24,8 @@ public abstract class AuditableDTO extends BaseDTO {
 		super();
 	}
 
-	AuditableDTO(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
-			LocalDateTime editedOn, Integer version) {
+	AuditableDTO(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
+			Instant editedOn, Integer version) {
 		super(id, isActive);
 		this.createdBy = createdBy;
 		this.editedBy = editedBy;
@@ -33,9 +38,13 @@ public abstract class AuditableDTO extends BaseDTO {
 
 	private String editedBy;
 
-	private LocalDateTime createdOn;
+	@JsonDeserialize(using = InstantDeserializer.class)
+	@JsonSerialize(using = InstantSerializer.class)
+	private Instant createdOn;
 
-	private LocalDateTime editedOn;
+	@JsonDeserialize(using = InstantDeserializer.class)
+	@JsonSerialize(using = InstantSerializer.class)
+	private Instant editedOn;
 
 	private Integer version;
 }
