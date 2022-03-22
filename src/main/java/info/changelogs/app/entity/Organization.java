@@ -1,6 +1,6 @@
 package info.changelogs.app.entity;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -30,8 +30,8 @@ public class Organization extends Auditable {
 	}
 
 	@Builder
-	public Organization(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
-			LocalDateTime editedOn, Integer version, String name, String title, String slogan, String website,
+	public Organization(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
+			Instant editedOn, Integer version, String name, String title, String slogan, String website,
 			String email, String location, String logo, Boolean verified, Set<OrganizationMeta> metas,
 			Set<Project> projects) {
 		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
