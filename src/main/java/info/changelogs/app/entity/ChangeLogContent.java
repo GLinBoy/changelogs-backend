@@ -1,6 +1,6 @@
 package info.changelogs.app.entity;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,8 +26,8 @@ public class ChangeLogContent extends Auditable {
 	}
 
 	@Builder
-	public ChangeLogContent(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
-			LocalDateTime editedOn, Integer version, ContentType contentType, String content, ChangeLog changeLog) {
+	public ChangeLogContent(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
+			Instant editedOn, Integer version, ContentType contentType, String content, ChangeLog changeLog) {
 		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
 		this.contentType = contentType;
 		this.content = content;
