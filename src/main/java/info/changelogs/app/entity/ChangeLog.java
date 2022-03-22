@@ -1,7 +1,6 @@
 package info.changelogs.app.entity;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -36,8 +35,8 @@ public class ChangeLog extends Auditable {
 	}
 
 	@Builder
-	public ChangeLog(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
-			LocalDateTime editedOn, Integer version, String versionNo, String buildVersion, Instant releaseDate,
+	public ChangeLog(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
+			Instant editedOn, Integer version, String versionNo, String buildVersion, Instant releaseDate,
 			String publisher, String contact, Boolean forceUpdate, Platform platform, Project project,
 			Set<ChangeLogMeta> metas, Set<ChangeLogContent> contents) {
 		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
