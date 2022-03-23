@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doReturn;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -85,8 +85,8 @@ class GenericServiceImplUnitTest {
 						.slogan(String.format("%s_%d", DEFAULT_SLOGAN, i))
 						.website(String.format("https://%s-%d.com", DEFAULT_WEBSITE_DOMAIN, i))
 						.email(String.format("info@%s-%d.com", DEFAULT_WEBSITE_DOMAIN, i)).location(DEFAULT_LOCATION)
-						.logo(null).verified(Boolean.TRUE).createdBy("test_user").createdOn(LocalDateTime.now())
-						.editedBy("test_user").editedOn(LocalDateTime.now()).build())
+						.logo(null).verified(Boolean.TRUE).createdBy("test_user").createdOn(Instant.now())
+						.editedBy("test_user").editedOn(Instant.now()).build())
 				.collect(Collectors.toList());
 	}
 
