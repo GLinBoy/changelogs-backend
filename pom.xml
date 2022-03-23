@@ -101,6 +101,10 @@
 			<artifactId>problem-spring-web</artifactId>
 			<version>${problem.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
