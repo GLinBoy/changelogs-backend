@@ -1,6 +1,6 @@
 package info.changelogs.app.dto;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -21,8 +21,8 @@ public class OrganizationDTO extends AuditableDTO {
 	}
 
 	@Builder
-	public OrganizationDTO(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
-			LocalDateTime editedOn, Integer version, String name, String title, String slogan, String website,
+	public OrganizationDTO(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
+			Instant editedOn, Integer version, String name, String title, String slogan, String website,
 			String email, String location, String logo, Boolean verified) {
 		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
 		this.name = name;
