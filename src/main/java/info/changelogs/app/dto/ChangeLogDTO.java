@@ -1,7 +1,6 @@
 package info.changelogs.app.dto;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.Set;
 
 import javax.validation.constraints.Email;
@@ -28,8 +27,8 @@ public class ChangeLogDTO extends AuditableDTO {
 	}
 
 	@Builder
-	public ChangeLogDTO(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
-			LocalDateTime editedOn, Integer version,
+	public ChangeLogDTO(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
+			Instant editedOn, Integer version,
 			@Size(max = 32) @NotBlank(message = "Version number is mandatory") String versionNo,
 			@Size(max = 32) String buildVersion, @NotNull(message = "Release date is mandatory") Instant releaseDate,
 			@Size(max = 128) @NotBlank(message = "Publisher is mandatory") String publisher,
