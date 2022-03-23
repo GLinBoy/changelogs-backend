@@ -1,6 +1,6 @@
 package info.changelogs.app.dto;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import lombok.Builder;
 import lombok.Data;
@@ -15,8 +15,8 @@ public class ProjectDetailedDTO extends AuditableDTO {
 	}
 
 	@Builder
-	public ProjectDetailedDTO(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
-			LocalDateTime editedOn, Integer version, String name, String title, String about, String logo,
+	public ProjectDetailedDTO(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
+			Instant editedOn, Integer version, String name, String title, String about, String logo,
 			String owner, Boolean publicAccess, String website, String readmeLink, String license, String licenseLink,
 			OrganizationDTO organization) {
 		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
