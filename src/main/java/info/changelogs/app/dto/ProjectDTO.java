@@ -1,6 +1,6 @@
 package info.changelogs.app.dto;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -20,8 +20,8 @@ public class ProjectDTO extends AuditableDTO {
 	}
 
 	@Builder
-	public ProjectDTO(Long id, Boolean isActive, String createdBy, String editedBy, LocalDateTime createdOn,
-			LocalDateTime editedOn, Integer version,
+	public ProjectDTO(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
+			Instant editedOn, Integer version,
 			@Size(min = 4, max = 128) @NotBlank(message = "Name is mandatory") String name,
 			@Size(min = 4, max = 128) @NotBlank(message = "Title is mandatory") String title, String about, String logo,
 			@Size(max = 128) @NotBlank(message = "Owner is mandatory") String owner, Boolean publicAccess,
