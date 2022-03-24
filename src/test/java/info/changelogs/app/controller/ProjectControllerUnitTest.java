@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doReturn;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -100,9 +100,9 @@ class ProjectControllerUnitTest {
 				.changeLogs(Collections.emptySet())
 				.isActive(true)
 				.createdBy(DEFAULT_USERNAME)
-				.createdOn(LocalDateTime.now())
+				.createdOn(Instant.now())
 				.editedBy(DEFAULT_USERNAME)
-				.editedOn(LocalDateTime.now())
+				.editedOn(Instant.now())
 				.version(0)
 				.build()))
 			.when(projectService).getProjectDetailByTitle(DEFAULT_TITLE);
