@@ -51,8 +51,12 @@ class GenericControllerIntegrationTest {
 	}
 
 	@Test
-	void testGetById() {
-		fail("Not yet implemented");
+	void testGetById() throws Exception {
+		this.mockMvc.perform(get(baseUrl + "/{id}", getId))
+		.andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(jsonPath("$.id").value(getId));
 	}
 
 	@Test
