@@ -93,8 +93,14 @@ class GenericControllerIntegrationTest {
 	}
 
 	@Test
-	void testDeleteById() {
-		fail("Not yet implemented");
+	void testDeleteById() throws Exception {
+		this.mockMvc.perform(delete(baseUrl + "/{id}", deleteId))
+		.andDo(print())
+		.andExpect(status().isNoContent());
+		
+		this.mockMvc.perform(get(baseUrl + "/{id}", deleteId))
+		.andDo(print())
+		.andExpect(status().isNotFound());
 	}
 
 }
