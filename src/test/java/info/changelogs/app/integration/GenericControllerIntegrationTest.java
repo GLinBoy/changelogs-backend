@@ -60,8 +60,31 @@ class GenericControllerIntegrationTest {
 	}
 
 	@Test
-	void testSave() {
-		fail("Not yet implemented");
+	void testSave() throws Exception {
+		this.mockMvc.perform(post(baseUrl)
+			.content(asJsonString(OrganizationDTO.builder()
+					.name("ITEST NAME")
+					.title("ITEST TITLE")
+					.slogan("ITEST SLOGAN")
+					.website("https://itest-website.com")
+					.email("info@itest-website.com")
+					.location("ITEST LOCATION")
+					.logo(null)
+					.verified(Boolean.TRUE)
+					.build()))
+			.contentType(MediaType.APPLICATION_JSON)
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isCreated())
+			.andExpect(jsonPath("$.id").exists())
+			.andExpect(jsonPath("$.isActive").value(Boolean.TRUE));
+	}
+	
+	public static String asJsonString(final Object obj) {
+	    try {
+	        return new ObjectMapper().writeValueAsString(obj);
+	    } catch (Exception e) {
+	        throw new RuntimeException(e);
+	    }
 	}
 
 	@Test
