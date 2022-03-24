@@ -28,6 +28,13 @@ class GenericControllerIntegrationTest {
 	@Autowired
 	private OrganizationController organizationController;
 
+	@Autowired
+	private MockMvc mockMvc;
+
+	private final String baseUrl = "/organization";
+	private final Long getId  = 1001L;
+	private final Long deleteId  = 1025L;
+	
 	@Test
 	void contextLoads() {
 		assertThat(organizationController).isNotNull();
