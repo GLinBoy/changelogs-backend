@@ -16,7 +16,7 @@
 	<description>An application for manage change logs </description>
 
 	<properties>
-		<java.version>17</java.version>
+		<java.version>18</java.version>
 		<modelmapper.version>3.1.0</modelmapper.version>
 		<springdoc.version>1.6.6</springdoc.version>
 		<problem.version>0.27.0</problem.version>
