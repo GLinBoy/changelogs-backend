@@ -7,11 +7,6 @@ import javax.persistence.MappedSuperclass;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.InstantDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.InstantSerializer;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -38,12 +33,8 @@ public abstract class AuditableDTO extends BaseDTO {
 
 	private String editedBy;
 
-	@JsonDeserialize(using = InstantDeserializer.class)
-	@JsonSerialize(using = InstantSerializer.class)
 	private Instant createdOn;
 
-	@JsonDeserialize(using = InstantDeserializer.class)
-	@JsonSerialize(using = InstantSerializer.class)
 	private Instant editedOn;
 
 	private Integer version;
