@@ -23,7 +23,7 @@ import info.changelogs.app.util.PaginationUtil;
 import io.swagger.v3.oas.annotations.Parameter;
 
 @RestController
-@RequestMapping(path = "/changelog")
+@RequestMapping(path = "${application.api-path}/changelog")
 public class ChangeLogController extends GenericController<ChangeLogDTO, ChangeLogServiceApi> {
 
 	public ChangeLogController(ChangeLogServiceApi service) {
