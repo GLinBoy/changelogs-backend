@@ -71,7 +71,7 @@ public class Organization extends Auditable {
 	@Column(name = "VERIFIED", columnDefinition = "boolean default false")
 	private Boolean verified;
 
-	@OneToMany(mappedBy = "organization", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "organization", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	Set<OrganizationMeta> metas;
 
 	@OneToMany(mappedBy = "organization", fetch = FetchType.LAZY)
