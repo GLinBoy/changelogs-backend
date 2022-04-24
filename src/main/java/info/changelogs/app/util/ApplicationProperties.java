@@ -9,4 +9,5 @@ import lombok.Setter;
 @Setter
 @ConfigurationProperties(prefix = "application", ignoreUnknownFields = false)
 public final class ApplicationProperties {
+	private String apiPath;
 }
