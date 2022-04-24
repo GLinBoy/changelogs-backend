@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 	
-	@Value("${server.servlet.context-path}")
-	private String contextPath;
+	@Value("${application.api-path}")
+	private String apiPath;
 	
 	@GetMapping(value = "/")
 	public void redirect(HttpServletResponse response) throws IOException {
-		response.sendRedirect(contextPath.concat("/swagger-ui.html"));
+		response.sendRedirect(apiPath.concat("/swagger-ui.html"));
 	}
 
 }
