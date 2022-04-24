@@ -12,7 +12,7 @@ import info.changelogs.app.dto.projection.OwnerDTO;
 import info.changelogs.app.service.OrganizationServiceApi;
 
 @RestController
-@RequestMapping(path = "/organization")
+@RequestMapping(path = "${application.api-path}/organization")
 public class OrganizationController extends GenericController<OrganizationDTO, OrganizationServiceApi>{
 
 	public OrganizationController(OrganizationServiceApi service) {
