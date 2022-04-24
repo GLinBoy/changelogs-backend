@@ -25,3 +25,6 @@ info:
 springdoc:
   swagger-ui:
     docExpansion: none
+
+application:
+  api-path: /api/v1
