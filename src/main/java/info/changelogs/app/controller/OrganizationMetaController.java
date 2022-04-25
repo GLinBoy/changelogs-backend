@@ -7,7 +7,7 @@ import info.changelogs.app.dto.OrganizationMetaDTO;
 import info.changelogs.app.service.OrganizationMetaServiceApi;
 
 @RestController
-@RequestMapping(path = "/organization-meta")
+@RequestMapping(path = "${application.api-path}/organization-meta")
 public class OrganizationMetaController extends GenericController<OrganizationMetaDTO, OrganizationMetaServiceApi> {
 
 	public OrganizationMetaController(OrganizationMetaServiceApi service) {
