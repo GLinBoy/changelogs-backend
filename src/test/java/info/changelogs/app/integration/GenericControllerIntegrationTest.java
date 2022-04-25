@@ -11,8 +11,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.time.Instant;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -31,7 +34,8 @@ class GenericControllerIntegrationTest {
 	@Autowired
 	private MockMvc mockMvc;
 
-	private final String baseUrl = "/organization";
+	@Value("${application.api-path}/organization")
+	private String baseUrl;
 	private final Long getId  = 1001L;
 	private final Long deleteId  = 1025L;
 	
