@@ -92,8 +92,35 @@ class GenericControllerIntegrationTest {
 	}
 
 	@Test
-	void testUpdate() {
-		fail("Not yet implemented");
+	void testUpdate() throws Exception {
+		this.mockMvc.perform(put(baseUrl)
+				.content(asJsonString(OrganizationDTO.builder()
+						.id(getId)
+						.name("ITEST UPDATE NAME")
+						.title("ITEST TITLE")
+						.slogan("ITEST SLOGAN")
+						.website("https://itest-website.com")
+						.email("info@itest-website.com")
+						.location("ITEST LOCATION")
+						.verified(Boolean.TRUE)
+						.isActive(Boolean.TRUE)
+						.createdBy("rwoodworth0")
+						.editedBy("bolennane0")
+						.createdOn(Instant.ofEpochSecond(1611560243))
+						.editedOn(Instant.ofEpochSecond(1590520987))
+						.version(12)
+						.build()))
+					.contentType(MediaType.APPLICATION_JSON)
+					.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.id").value(getId))
+				.andExpect(jsonPath("$.name").value("ITEST UPDATE NAME"))
+				.andExpect(jsonPath("$.title").value("ITEST TITLE"))
+				.andExpect(jsonPath("$.slogan").value("ITEST SLOGAN"))
+				.andExpect(jsonPath("$.website").value("https://itest-website.com"))
+				.andExpect(jsonPath("$.email").value("info@itest-website.com"))
+				.andExpect(jsonPath("$.verified").value(Boolean.TRUE))
+				.andExpect(jsonPath("$.isActive").value(Boolean.TRUE));
 	}
 
 	@Test
