@@ -24,7 +24,7 @@ import info.changelogs.app.service.ProjectServiceApi;
 import info.changelogs.app.util.PaginationUtil;
 
 @RestController
-@RequestMapping(path = "project")
+@RequestMapping(path = "${application.api-path}/project")
 public class ProjectController extends GenericController<ProjectDTO, ProjectServiceApi> {
 
 	public ProjectController(ProjectServiceApi service) {
