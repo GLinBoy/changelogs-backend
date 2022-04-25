@@ -72,8 +72,8 @@ class GenericControllerIntegrationTest {
 					.logo(null)
 					.verified(Boolean.TRUE)
 					.build()))
-			.contentType(MediaType.APPLICATION_JSON)
-			.accept(MediaType.APPLICATION_JSON))
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().isCreated())
 			.andExpect(jsonPath("$.id").exists())
 			.andExpect(jsonPath("$.isActive").value(Boolean.TRUE));
