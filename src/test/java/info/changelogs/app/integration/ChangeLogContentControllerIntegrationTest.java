@@ -15,8 +15,6 @@ class ChangeLogContentControllerIntegrationTest {
 	private ChangeLogContentController changeLogContentController;
 
 	@Test
-	void testChangeLogContentController() {
-		fail("Not yet implemented");
 	}
 
 }
