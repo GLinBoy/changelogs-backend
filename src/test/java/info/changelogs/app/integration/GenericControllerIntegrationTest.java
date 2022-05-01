@@ -19,10 +19,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import info.changelogs.app.ChangeLogIntegrationTest;
 import info.changelogs.app.controller.OrganizationController;
 import info.changelogs.app.dto.OrganizationDTO;
-import info.changelogs.app.util.ObjectMapperUtil;
 
 @ChangeLogIntegrationTest
 class GenericControllerIntegrationTest {
@@ -32,6 +33,9 @@ class GenericControllerIntegrationTest {
 
 	@Autowired
 	private MockMvc mockMvc;
+	
+	@Autowired
+	private ObjectMapper objectMapper;
 
 	@Value("${application.api-path}/organization")
 	private String baseUrl;
