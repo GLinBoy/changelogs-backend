@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import info.changelogs.app.ChangeLogIntegrationTest;
+
+@ChangeLogIntegrationTest
 class ChangeLogControllerIntegrationTest {
 
 	@Test
