@@ -15,6 +15,8 @@ class ChangeLogContentControllerIntegrationTest {
 	private ChangeLogContentController changeLogContentController;
 
 	@Test
+	void contextLoads() {
+		assertThat(changeLogContentController).isNotNull();
 	}
 
 }
