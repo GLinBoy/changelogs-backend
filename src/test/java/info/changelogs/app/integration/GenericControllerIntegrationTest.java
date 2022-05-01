@@ -89,7 +89,7 @@ class GenericControllerIntegrationTest {
 	@Test
 	void testUpdate() throws Exception {
 		this.mockMvc.perform(put(baseUrl)
-				.content(ObjectMapperUtil.toJsonString(OrganizationDTO.builder()
+				.content(objectMapper.writeValueAsString(OrganizationDTO.builder()
 						.id(getId)
 						.name("ITEST UPDATE NAME")
 						.title("ITEST TITLE")
