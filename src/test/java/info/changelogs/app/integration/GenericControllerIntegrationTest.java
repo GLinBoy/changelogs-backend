@@ -69,7 +69,7 @@ class GenericControllerIntegrationTest {
 	@Test
 	void testSave() throws Exception {
 		this.mockMvc.perform(post(baseUrl)
-			.content(ObjectMapperUtil.toJsonString(OrganizationDTO.builder()
+			.content(objectMapper.writeValueAsString(OrganizationDTO.builder()
 					.name("ITEST NAME")
 					.title("ITEST TITLE")
 					.slogan("ITEST SLOGAN")
