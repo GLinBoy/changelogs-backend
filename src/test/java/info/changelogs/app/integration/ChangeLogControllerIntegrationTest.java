@@ -30,6 +30,8 @@ class ChangeLogControllerIntegrationTest {
 	private MockMvc mockMvc;
 
 	@Test
+	void contextLoads() {
+		assertThat(changeLogController).isNotNull();
 	}
 
 	@Test
