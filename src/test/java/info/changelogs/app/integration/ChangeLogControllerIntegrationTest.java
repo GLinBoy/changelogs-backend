@@ -51,8 +51,14 @@ class ChangeLogControllerIntegrationTest {
 	}
 
 	@Test
-	void testGetProjectChangeLog() {
-		fail("Not yet implemented");
+	void testGetProjectChangeLog() throws Exception {
+		this.mockMvc.perform(get(baseUrl + "/project/{project_title}", projectTitle))
+		.andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(jsonPath("$.*", hasSize(6)))
+		.andExpect(jsonPath("$.*.id").isNotEmpty())
+		.andExpect(jsonPath("$.*.projectId", Every.everyItem(is(projectId))));
 	}
 
 	@Test
