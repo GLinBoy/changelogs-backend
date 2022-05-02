@@ -29,6 +29,12 @@ class ChangeLogControllerIntegrationTest {
 	@Autowired
 	private MockMvc mockMvc;
 
+	@Value("${application.api-path}/changelog")
+	private String baseUrl;
+	private final Integer projectId = 1002;
+	private final String projectTitle = "Sonsing";
+	private final String version = "3.2";
+
 	@Test
 	void contextLoads() {
 		assertThat(changeLogController).isNotNull();
