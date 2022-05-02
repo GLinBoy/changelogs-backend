@@ -41,8 +41,13 @@ class ChangeLogControllerIntegrationTest {
 	}
 
 	@Test
-	void testGetLatest() {
-		fail("Not yet implemented");
+	void testGetLatest() throws Exception {
+		this.mockMvc.perform(get(baseUrl))
+		.andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(jsonPath("$.*", hasSize(20)))
+		.andExpect(jsonPath("$.*.id").isNotEmpty());
 	}
 
 	@Test
