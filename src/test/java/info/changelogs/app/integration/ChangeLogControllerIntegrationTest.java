@@ -30,8 +30,6 @@ class ChangeLogControllerIntegrationTest {
 	private MockMvc mockMvc;
 
 	@Test
-	void testChangeLogController() {
-		fail("Not yet implemented");
 	}
 
 	@Test
