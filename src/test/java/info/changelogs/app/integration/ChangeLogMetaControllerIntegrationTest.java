@@ -12,8 +12,6 @@ import info.changelogs.app.controller.ChangeLogMetaController;
 class ChangeLogMetaControllerIntegrationTest {
 
 	@Test
-	void testChangeLogMetaController() {
-		fail("Not yet implemented");
 	}
 
 }
