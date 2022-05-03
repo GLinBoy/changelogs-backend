@@ -10,8 +10,13 @@ import info.changelogs.app.controller.ContactController;
 
 @ChangeLogIntegrationTest
 class ContactControllerIntegrationTest {
+	
+	@Autowired
+	private ContactController contactController;
 
 	@Test
+	void contextLoads() {
+		assertThat(contactController).isNotNull();
 	}
 
 }
