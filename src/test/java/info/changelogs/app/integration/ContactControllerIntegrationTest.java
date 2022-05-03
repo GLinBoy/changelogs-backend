@@ -12,8 +12,6 @@ import info.changelogs.app.controller.ContactController;
 class ContactControllerIntegrationTest {
 
 	@Test
-	void testContactController() {
-		fail("Not yet implemented");
 	}
 
 }
