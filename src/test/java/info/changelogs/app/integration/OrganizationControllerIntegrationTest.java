@@ -23,8 +23,6 @@ import info.changelogs.app.controller.OrganizationController;
 class OrganizationControllerIntegrationTest {
 
 	@Test
-	void testOrganizationController() {
-		fail("Not yet implemented");
 	}
 
 	@Test
