@@ -17,6 +17,14 @@ import info.changelogs.app.controller.HomeController;
 @ChangeLogIntegrationTest
 class HomeControllerIntegrationTest {
 
+	@Autowired
+	private HomeController homeController;
+
+	@Test
+	void contextLoads() {
+		assertThat(homeController).isNotNull();
+	}
+
 	@Test
 	}
 
