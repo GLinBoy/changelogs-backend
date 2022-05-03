@@ -20,12 +20,24 @@ class HomeControllerIntegrationTest {
 	@Autowired
 	private HomeController homeController;
 
+	@Autowired
+	private MockMvc mockMvc;
+
+	@Value("${application.api-path}/swagger-ui.html")
+	private String redirectUrl;
+	private final String baseUrl = "/";
+
 	@Test
 	void contextLoads() {
 		assertThat(homeController).isNotNull();
 	}
 
 	@Test
+	void testRedirect() throws Exception {
+		this.mockMvc.perform(get(baseUrl))
+		.andDo(print())
+		.andExpect(status().isFound())
+		.andExpect(redirectedUrl(redirectUrl));
 	}
 
 }
