@@ -18,8 +18,6 @@ import info.changelogs.app.controller.HomeController;
 class HomeControllerIntegrationTest {
 
 	@Test
-	void testRedirect() {
-		fail("Not yet implemented");
 	}
 
 }
