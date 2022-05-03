@@ -22,7 +22,12 @@ import info.changelogs.app.controller.OrganizationController;
 @ChangeLogIntegrationTest
 class OrganizationControllerIntegrationTest {
 
+	@Autowired
+	private OrganizationController organizationController;
+
 	@Test
+	void contextLoads() {
+		assertThat(organizationController).isNotNull();
 	}
 
 	@Test
