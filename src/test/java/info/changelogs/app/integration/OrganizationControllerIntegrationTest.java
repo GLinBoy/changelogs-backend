@@ -37,8 +37,13 @@ class OrganizationControllerIntegrationTest {
 	}
 
 	@Test
-	void testGetOwnerList() {
-		fail("Not yet implemented");
+	void testGetOwnerList() throws Exception {
+		this.mockMvc.perform(get(baseUrl + "/owner"))
+		.andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(jsonPath("$.*", hasSize(3)))
+		.andExpect(jsonPath("$.*.id", everyItem(Matchers.notNullValue())));
 	}
 
 }
