@@ -13,8 +13,6 @@ import info.changelogs.app.controller.ProjectController;
 class ProjectControllerIntegrationTest {
 
 	@Test
-	void testProjectController() {
-		fail("Not yet implemented");
 	}
 
 	@Test
