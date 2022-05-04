@@ -25,6 +25,12 @@ class OrganizationControllerIntegrationTest {
 	@Autowired
 	private OrganizationController organizationController;
 
+	@Autowired
+	private MockMvc mockMvc;
+
+	@Value("${application.api-path}/organization")
+	private String baseUrl;
+
 	@Test
 	void contextLoads() {
 		assertThat(organizationController).isNotNull();
