@@ -12,8 +12,6 @@ import info.changelogs.app.controller.OrganizationMetaController;
 class OrganizationMetaControllerIntegrationTest {
 
 	@Test
-	void testOrganizationMetaController() {
-		fail("Not yet implemented");
 	}
 
 }
