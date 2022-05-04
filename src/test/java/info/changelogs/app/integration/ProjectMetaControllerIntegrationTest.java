@@ -12,8 +12,6 @@ import info.changelogs.app.controller.ProjectMetaController;
 class ProjectMetaControllerIntegrationTest {
 
 	@Test
-	void testProjectMetaController() {
-		fail("Not yet implemented");
 	}
 
 }
