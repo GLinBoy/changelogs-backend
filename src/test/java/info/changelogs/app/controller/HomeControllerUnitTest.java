@@ -28,7 +28,7 @@ class HomeControllerUnitTest {
 	@BeforeEach
 	void setup() throws IllegalAccessException {
 		homeController = new HomeController();
-		FieldUtils.writeField(homeController, "contextPath", "/api/v1", true);
+		FieldUtils.writeField(homeController, "apiPath", "/api/v1", true);
 	}
 
 	@Test
