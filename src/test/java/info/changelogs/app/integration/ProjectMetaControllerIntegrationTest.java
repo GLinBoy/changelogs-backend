@@ -11,7 +11,12 @@ import info.changelogs.app.controller.ProjectMetaController;
 @ChangeLogIntegrationTest
 class ProjectMetaControllerIntegrationTest {
 
+	@Autowired
+	private ProjectMetaController projectMetaController;
+
 	@Test
+	void contextLoads() {
+		assertThat(projectMetaController).isNotNull();
 	}
 
 }
