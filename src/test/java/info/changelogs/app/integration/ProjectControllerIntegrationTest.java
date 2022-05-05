@@ -38,8 +38,13 @@ class ProjectControllerIntegrationTest {
 	}
 
 	@Test
-	void testGetUserProjectList() {
-		fail("Not yet implemented");
+	void testGetUserProjectList() throws Exception {
+		this.mockMvc.perform(get(baseUrl + "/minimized"))
+		.andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(jsonPath("$.*", hasSize(5)))
+		.andExpect(jsonPath("$.*.id", everyItem(Matchers.notNullValue())));
 	}
 
 	@Test
