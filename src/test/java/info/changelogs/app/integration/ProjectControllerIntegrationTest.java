@@ -48,8 +48,13 @@ class ProjectControllerIntegrationTest {
 	}
 
 	@Test
-	void testGetProjectDetailByTitle() {
-		fail("Not yet implemented");
+	void testGetProjectDetailByTitle() throws Exception {
+		this.mockMvc.perform(get(baseUrl + "/title/{title}", TITLE))
+		.andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(jsonPath("$.title").value(TITLE))
+		.andExpect(jsonPath("$.id").value(1001));
 	}
 
 }
