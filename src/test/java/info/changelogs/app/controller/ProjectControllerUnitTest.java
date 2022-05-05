@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doReturn;
 
 import java.time.Instant;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,10 +26,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
 
+import info.changelogs.app.dto.OrganizationDTO;
 import info.changelogs.app.dto.ProjectDetailedDTO;
 import info.changelogs.app.dto.projection.ProjectMinimizedDTO;
-import info.changelogs.app.entity.Organization;
-import info.changelogs.app.entity.Project;
 import info.changelogs.app.service.ProjectServiceApi;
 
 @ExtendWith(MockitoExtension.class)
@@ -83,7 +81,7 @@ class ProjectControllerUnitTest {
 
 	@Test
 	void testGetProjectDetailByTitle() {
-		doReturn(Optional.of(Project.builder()
+		doReturn(Optional.of(ProjectDetailedDTO.builder()
 				.id(1L)
 				.name("name")
 				.title(DEFAULT_TITLE)
@@ -94,10 +92,7 @@ class ProjectControllerUnitTest {
 				.website(null)
 				.license(null)
 				.licenseLink(null)
-				.organization(Organization.builder().id(1L).build())
-				.metas(Collections.emptySet())
-				.contacts(Collections.emptySet())
-				.changeLogs(Collections.emptySet())
+				.organization(OrganizationDTO.builder().id(1L).build())
 				.isActive(true)
 				.createdBy(DEFAULT_USERNAME)
 				.createdOn(Instant.now())
