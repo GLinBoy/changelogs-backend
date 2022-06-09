@@ -17,7 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
-import info.changelogs.app.controller.OrganizationController;
+import info.changelogs.app.web.rest.OrganizationController;
 
 @ChangeLogIntegrationTest
 class OrganizationControllerIntegrationTest {

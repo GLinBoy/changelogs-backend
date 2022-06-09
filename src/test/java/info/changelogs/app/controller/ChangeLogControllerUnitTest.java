@@ -31,6 +31,7 @@ import info.changelogs.app.dto.ProjectDetailedDTO;
 import info.changelogs.app.entity.ContentType;
 import info.changelogs.app.entity.Platform;
 import info.changelogs.app.service.ChangeLogServiceApi;
+import info.changelogs.app.web.rest.ChangeLogController;
 
 @ExtendWith(MockitoExtension.class)
 class ChangeLogControllerUnitTest {

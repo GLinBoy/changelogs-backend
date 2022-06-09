@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
-import info.changelogs.app.controller.ChangeLogContentController;
+import info.changelogs.app.web.rest.ChangeLogContentController;
 
 @ChangeLogIntegrationTest
 class ChangeLogContentControllerIntegrationTest {

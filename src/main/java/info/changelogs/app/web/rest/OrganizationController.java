@@ -1,4 +1,4 @@
-package info.changelogs.app.controller;
+package info.changelogs.app.web.rest;
 
 import java.util.List;
 

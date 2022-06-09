@@ -22,8 +22,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
-import info.changelogs.app.controller.OrganizationController;
 import info.changelogs.app.dto.OrganizationDTO;
+import info.changelogs.app.web.rest.OrganizationController;
 
 @ChangeLogIntegrationTest
 class GenericControllerIntegrationTest {

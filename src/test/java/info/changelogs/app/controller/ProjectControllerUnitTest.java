@@ -30,6 +30,7 @@ import info.changelogs.app.dto.OrganizationDTO;
 import info.changelogs.app.dto.ProjectDetailedDTO;
 import info.changelogs.app.dto.projection.ProjectMinimizedDTO;
 import info.changelogs.app.service.ProjectServiceApi;
+import info.changelogs.app.web.rest.ProjectController;
 
 @ExtendWith(MockitoExtension.class)
 class ProjectControllerUnitTest {

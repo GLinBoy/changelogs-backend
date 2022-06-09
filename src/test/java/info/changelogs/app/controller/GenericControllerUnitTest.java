@@ -27,6 +27,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 
 import info.changelogs.app.dto.OrganizationDTO;
 import info.changelogs.app.service.OrganizationServiceApi;
+import info.changelogs.app.web.rest.OrganizationController;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)

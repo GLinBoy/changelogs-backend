@@ -21,6 +21,7 @@ import org.springframework.http.ResponseEntity;
 
 import info.changelogs.app.dto.projection.OwnerDTO;
 import info.changelogs.app.service.OrganizationServiceApi;
+import info.changelogs.app.web.rest.OrganizationController;
 
 @ExtendWith(MockitoExtension.class)
 class OrganizationControllerUnitTest {
