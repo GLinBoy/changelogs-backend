@@ -25,7 +25,7 @@ import info.changelogs.app.util.PaginationUtil;
 
 @RestController
 @RequestMapping(path = "${application.api-path}/project")
-public class ProjectResource extends GenericController<ProjectDTO, ProjectServiceApi> {
+public class ProjectResource extends GenericResource<ProjectDTO, ProjectServiceApi> {
 
 	public ProjectResource(ProjectServiceApi service) {
 		super(service);

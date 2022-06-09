@@ -13,7 +13,7 @@ import info.changelogs.app.service.OrganizationServiceApi;
 
 @RestController
 @RequestMapping(path = "${application.api-path}/organization")
-public class OrganizationResource extends GenericController<OrganizationDTO, OrganizationServiceApi>{
+public class OrganizationResource extends GenericResource<OrganizationDTO, OrganizationServiceApi>{
 
 	public OrganizationResource(OrganizationServiceApi service) {
 		super(service);

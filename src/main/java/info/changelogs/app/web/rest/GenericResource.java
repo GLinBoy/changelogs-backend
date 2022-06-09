@@ -31,7 +31,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public abstract class GenericController<T extends BaseDTO, S extends GenericServiceApi<T>> {
+public abstract class GenericResource<T extends BaseDTO, S extends GenericServiceApi<T>> {
 
 	protected final ResourceBundle messages = PropertyResourceBundle.getBundle("i18n/messages");
 
