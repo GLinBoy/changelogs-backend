@@ -17,13 +17,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
-import info.changelogs.app.web.rest.ProjectController;
+import info.changelogs.app.web.rest.ProjectResource;
 
 @ChangeLogIntegrationTest
 class ProjectControllerIntegrationTest {
 
 	@Autowired
-	private ProjectController projectController;
+	private ProjectResource projectController;
 
 	@Autowired
 	private MockMvc mockMvc;

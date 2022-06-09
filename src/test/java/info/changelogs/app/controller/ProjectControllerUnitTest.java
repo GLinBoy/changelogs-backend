@@ -30,13 +30,13 @@ import info.changelogs.app.dto.OrganizationDTO;
 import info.changelogs.app.dto.ProjectDetailedDTO;
 import info.changelogs.app.dto.projection.ProjectMinimizedDTO;
 import info.changelogs.app.service.ProjectServiceApi;
-import info.changelogs.app.web.rest.ProjectController;
+import info.changelogs.app.web.rest.ProjectResource;
 
 @ExtendWith(MockitoExtension.class)
 class ProjectControllerUnitTest {
 	
 	@InjectMocks
-	private ProjectController projectController;
+	private ProjectResource projectController;
 	
 	@Mock
 	private ProjectServiceApi projectService;
