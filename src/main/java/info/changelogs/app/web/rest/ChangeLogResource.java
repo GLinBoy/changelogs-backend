@@ -24,9 +24,9 @@ import io.swagger.v3.oas.annotations.Parameter;
 
 @RestController
 @RequestMapping(path = "${application.api-path}/changelog")
-public class ChangeLogController extends GenericController<ChangeLogDTO, ChangeLogServiceApi> {
+public class ChangeLogResource extends GenericController<ChangeLogDTO, ChangeLogServiceApi> {
 
-	public ChangeLogController(ChangeLogServiceApi service) {
+	public ChangeLogResource(ChangeLogServiceApi service) {
 		super(service);
 	}
 	

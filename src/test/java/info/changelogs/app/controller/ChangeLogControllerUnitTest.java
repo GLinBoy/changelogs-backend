@@ -31,13 +31,13 @@ import info.changelogs.app.dto.ProjectDetailedDTO;
 import info.changelogs.app.entity.ContentType;
 import info.changelogs.app.entity.Platform;
 import info.changelogs.app.service.ChangeLogServiceApi;
-import info.changelogs.app.web.rest.ChangeLogController;
+import info.changelogs.app.web.rest.ChangeLogResource;
 
 @ExtendWith(MockitoExtension.class)
 class ChangeLogControllerUnitTest {
 
 	@InjectMocks
-	private ChangeLogController changeLogController;
+	private ChangeLogResource changeLogController;
 
 	@Mock
 	private ChangeLogServiceApi changeLogService;
@@ -54,7 +54,7 @@ class ChangeLogControllerUnitTest {
 	void setUp() {
 		list = generateChangeLogDTO(DEFAULT_CHANGELOG_COUNT);
 
-		changeLogController = new ChangeLogController(changeLogService);
+		changeLogController = new ChangeLogResource(changeLogService);
 	}
 
 	private List<ChangeLogDTO> generateChangeLogDTO(Integer counter) {

@@ -18,13 +18,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
-import info.changelogs.app.web.rest.ChangeLogController;
+import info.changelogs.app.web.rest.ChangeLogResource;
 
 @ChangeLogIntegrationTest
 class ChangeLogControllerIntegrationTest {
 
 	@Autowired
-	private ChangeLogController changeLogController;
+	private ChangeLogResource changeLogController;
 
 	@Autowired
 	private MockMvc mockMvc;
