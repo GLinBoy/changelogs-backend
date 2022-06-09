@@ -23,13 +23,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
 import info.changelogs.app.dto.OrganizationDTO;
-import info.changelogs.app.web.rest.OrganizationController;
+import info.changelogs.app.web.rest.OrganizationResource;
 
 @ChangeLogIntegrationTest
 class GenericControllerIntegrationTest {
 
 	@Autowired
-	private OrganizationController organizationController;
+	private OrganizationResource organizationController;
 
 	@Autowired
 	private MockMvc mockMvc;

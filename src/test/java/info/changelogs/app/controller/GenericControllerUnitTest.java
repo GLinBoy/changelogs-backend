@@ -27,14 +27,14 @@ import org.springframework.mock.web.MockHttpServletRequest;
 
 import info.changelogs.app.dto.OrganizationDTO;
 import info.changelogs.app.service.OrganizationServiceApi;
-import info.changelogs.app.web.rest.OrganizationController;
+import info.changelogs.app.web.rest.OrganizationResource;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 class GenericControllerUnitTest {
 
 	@InjectMocks
-	private OrganizationController organizationController;
+	private OrganizationResource organizationController;
 
 	@Mock
 	private OrganizationServiceApi organizationService;
@@ -61,7 +61,7 @@ class GenericControllerUnitTest {
 	void setUp() {
 		list = generateOrganizationDTO(DEFAULT_ORGANIZATION_COUNT);
 
-		organizationController = new OrganizationController(organizationService);
+		organizationController = new OrganizationResource(organizationService);
 	}
 
 	private List<OrganizationDTO> generateOrganizationDTO(Integer number) {

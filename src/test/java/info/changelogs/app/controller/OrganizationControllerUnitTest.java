@@ -21,13 +21,13 @@ import org.springframework.http.ResponseEntity;
 
 import info.changelogs.app.dto.projection.OwnerDTO;
 import info.changelogs.app.service.OrganizationServiceApi;
-import info.changelogs.app.web.rest.OrganizationController;
+import info.changelogs.app.web.rest.OrganizationResource;
 
 @ExtendWith(MockitoExtension.class)
 class OrganizationControllerUnitTest {
 
 	@InjectMocks
-	private OrganizationController organizationController;
+	private OrganizationResource organizationController;
 
 	@Mock
 	private OrganizationServiceApi organizationService;

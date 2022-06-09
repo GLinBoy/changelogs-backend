@@ -13,9 +13,9 @@ import info.changelogs.app.service.OrganizationServiceApi;
 
 @RestController
 @RequestMapping(path = "${application.api-path}/organization")
-public class OrganizationController extends GenericController<OrganizationDTO, OrganizationServiceApi>{
+public class OrganizationResource extends GenericController<OrganizationDTO, OrganizationServiceApi>{
 
-	public OrganizationController(OrganizationServiceApi service) {
+	public OrganizationResource(OrganizationServiceApi service) {
 		super(service);
 	}
 
