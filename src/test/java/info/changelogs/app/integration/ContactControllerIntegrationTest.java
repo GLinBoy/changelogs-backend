@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
-import info.changelogs.app.web.rest.ContactController;
+import info.changelogs.app.web.rest.ContactResource;
 
 @ChangeLogIntegrationTest
 class ContactControllerIntegrationTest {
 	
 	@Autowired
-	private ContactController contactController;
+	private ContactResource contactController;
 
 	@Test
 	void contextLoads() {

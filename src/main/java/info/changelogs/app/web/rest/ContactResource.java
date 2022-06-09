@@ -8,9 +8,9 @@ import info.changelogs.app.service.ContactServiceApi;
 
 @RestController
 @RequestMapping(path = "${application.api-path}/contact")
-public class ContactController extends GenericController<ContactDTO, ContactServiceApi> {
+public class ContactResource extends GenericController<ContactDTO, ContactServiceApi> {
 
-	public ContactController(ContactServiceApi service) {
+	public ContactResource(ContactServiceApi service) {
 		super(service);
 	}
 
