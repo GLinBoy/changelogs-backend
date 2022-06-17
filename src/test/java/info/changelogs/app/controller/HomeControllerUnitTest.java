@@ -6,7 +6,6 @@ import static org.mockito.Mockito.verify;
 
 import java.io.IOException;
 
-import org.apache.commons.lang3.reflect.FieldUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,7 +29,6 @@ class HomeControllerUnitTest {
 	@BeforeEach
 	void setup() throws IllegalAccessException {
 		homeController = new HomeController();
-		FieldUtils.writeField(homeController, "apiPath", "/api/v1", true);
 	}
 
 	@Test
