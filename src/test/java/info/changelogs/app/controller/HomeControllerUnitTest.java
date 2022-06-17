@@ -42,7 +42,7 @@ class HomeControllerUnitTest {
 
 		homeController.redirect(response);
 		verify(response).sendRedirect(captor.capture());
-		assertEquals("/api/v1/swagger-ui.html", captor.getValue());
+		assertEquals("/swagger-ui.html", captor.getValue());
 	}
 
 }
