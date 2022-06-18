@@ -23,7 +23,7 @@ class HomeControllerIntegrationTest {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Value("${application.api-path}/swagger-ui.html")
+	@Value("/swagger-ui.html")
 	private String redirectUrl;
 	private final String baseUrl = "/";
 
