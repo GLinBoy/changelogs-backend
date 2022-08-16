@@ -24,9 +24,9 @@ public abstract class MetaData extends BaseEntity {
 		this.value = value;
 	}
 
-	@Column(name = "KEY", length = 128, nullable = false)
+	@Column(name = "META_KEY", length = 128, nullable = false)
 	private String key;
 	
-	@Column(name = "VALUE", length = 128, nullable = false)
+	@Column(name = "META_VALUE", length = 128, nullable = false)
 	private String value;
 }
