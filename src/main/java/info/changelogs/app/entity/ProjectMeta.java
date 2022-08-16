@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Table(uniqueConstraints = {
-		@UniqueConstraint(name = "UNQ_PROJECT_META", columnNames ={"KEY", "PROJECT_ID"})
+		@UniqueConstraint(name = "UNQ_PROJECT_META", columnNames ={"META_KEY", "PROJECT_ID"})
 })
 public class ProjectMeta extends MetaData {
 
