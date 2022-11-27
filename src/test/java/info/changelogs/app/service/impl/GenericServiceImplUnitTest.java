@@ -26,6 +26,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import info.changelogs.app.dto.OrganizationDTO;
@@ -198,7 +199,7 @@ class GenericServiceImplUnitTest {
 		assertThat(list.size()).isEqualTo( sizeBeforeDelete - 1);
 		ResponseStatusException thrown = assertThrows(ResponseStatusException.class,
 				() -> organizationService.getSingleById(DEFAULT_ID));
-		assertEquals(404, thrown.getRawStatusCode());
+		assertEquals(HttpStatus.NOT_FOUND, thrown.getStatusCode());
 	}
 
 	@Test
@@ -220,7 +221,7 @@ class GenericServiceImplUnitTest {
 		assertThat(list.size()).isEqualTo(sizeBeforeDelete - 1);
 		ResponseStatusException thrown = assertThrows(ResponseStatusException.class,
 				() -> organizationService.getSingleById(DEFAULT_ID));
-		assertEquals(404, thrown.getRawStatusCode());
+		assertEquals(HttpStatus.NOT_FOUND, thrown.getStatusCode());
 	}
 
 	@Test
