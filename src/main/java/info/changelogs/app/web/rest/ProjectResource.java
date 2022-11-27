@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +20,7 @@ import info.changelogs.app.dto.ProjectDetailedDTO;
 import info.changelogs.app.dto.projection.ProjectMinimizedDTO;
 import info.changelogs.app.service.ProjectServiceApi;
 import info.changelogs.app.util.PaginationUtil;
+import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping(path = "${application.api-path}/project")

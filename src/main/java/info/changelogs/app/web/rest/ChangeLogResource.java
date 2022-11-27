@@ -3,8 +3,6 @@ package info.changelogs.app.web.rest;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springdoc.core.converters.models.PageableAsQueryParam;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +19,7 @@ import info.changelogs.app.dto.ChangeLogDetailedDTO;
 import info.changelogs.app.service.ChangeLogServiceApi;
 import info.changelogs.app.util.PaginationUtil;
 import io.swagger.v3.oas.annotations.Parameter;
+import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping(path = "${application.api-path}/changelog")
