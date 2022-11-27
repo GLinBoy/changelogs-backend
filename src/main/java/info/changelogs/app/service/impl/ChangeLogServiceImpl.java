@@ -3,8 +3,6 @@ package info.changelogs.app.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.persistence.EntityManager;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +15,7 @@ import info.changelogs.app.entity.ChangeLog;
 import info.changelogs.app.entity.Project;
 import info.changelogs.app.repository.ChangeLogRepository;
 import info.changelogs.app.service.ChangeLogServiceApi;
+import jakarta.persistence.EntityManager;
 
 @Service
 public class ChangeLogServiceImpl extends GenericServiceImpl<ChangeLogDTO, ChangeLog, ChangeLogRepository>

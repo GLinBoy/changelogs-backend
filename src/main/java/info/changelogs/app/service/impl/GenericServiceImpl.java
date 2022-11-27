@@ -5,8 +5,6 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-import javax.transaction.Transactional;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 import info.changelogs.app.dto.BaseDTO;
 import info.changelogs.app.entity.BaseEntity;
 import info.changelogs.app.service.GenericServiceApi;
+import jakarta.transaction.Transactional;
 
 public abstract class GenericServiceImpl<T extends BaseDTO, E extends BaseEntity, S extends JpaRepository<E, Long>>
 		implements GenericServiceApi<T> {
