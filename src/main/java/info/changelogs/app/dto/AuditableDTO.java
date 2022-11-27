@@ -2,17 +2,10 @@ package info.changelogs.app.dto;
 
 import java.time.Instant;
 
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
-
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
 @EqualsAndHashCode(callSuper = false)
 public abstract class AuditableDTO extends BaseDTO {
 	AuditableDTO() {
