@@ -16,7 +16,7 @@ public class OpenApiConfig {
 	private final ApplicationInformation info;
 
 	@Bean
-	public OpenAPI springShopOpenAPI() {
+	OpenAPI springShopOpenAPI() {
 		return new OpenAPI()
 				.info(new Info().title(info.getName())
 						.description(info.getDescription())

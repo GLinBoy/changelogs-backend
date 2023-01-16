@@ -13,7 +13,7 @@ public class ObjectMapperConfig {
 
 	@Bean
 	@Primary
-	public ObjectMapper objectMapper() {
+	ObjectMapper objectMapper() {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper = mapper.findAndRegisterModules();
 		
