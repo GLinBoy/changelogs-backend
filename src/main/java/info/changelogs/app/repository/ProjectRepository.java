@@ -13,6 +13,11 @@ import info.changelogs.app.entity.Project;
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {
 
+	@Override
+	@Query(value = "SELECT p FROM Project p LEFT JOIN FETCH p.organization ",
+			countQuery = " SELECT count(p.id) FROM Project p ")
+	Page<Project> findAll(Pageable pageable);
+
 	@Query(value = " SELECT p.id AS id, "
 			+ " p.name as name, "
 			+ " p.title AS title, "
