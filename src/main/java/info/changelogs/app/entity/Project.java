@@ -75,7 +75,7 @@ public class Project extends Auditable {
 	@Column(length = 128)
 	private String licenseLink;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ORGANIZATION_ID", foreignKey = @ForeignKey(name = "FK_ORGANIZATION_PROJECT"))
 	private Organization organization;
 
