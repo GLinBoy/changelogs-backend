@@ -20,7 +20,7 @@ import info.changelogs.app.ChangeLogIntegrationTest;
 import info.changelogs.app.web.rest.ProjectResource;
 
 @ChangeLogIntegrationTest
-class ProjectControllerIT {
+class ProjectResourceIT {
 
 	@Autowired
 	private ProjectResource projectController;

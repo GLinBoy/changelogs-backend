@@ -20,7 +20,7 @@ import info.changelogs.app.ChangeLogIntegrationTest;
 import info.changelogs.app.web.rest.ChangeLogResource;
 
 @ChangeLogIntegrationTest
-class ChangeLogControllerIT {
+class ChangeLogResourceIT {
 
 	@Autowired
 	private ChangeLogResource changeLogController;

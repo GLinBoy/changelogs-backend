@@ -9,7 +9,7 @@ import info.changelogs.app.ChangeLogIntegrationTest;
 import info.changelogs.app.web.rest.ProjectMetaResource;
 
 @ChangeLogIntegrationTest
-class ProjectMetaControllerIT {
+class ProjectMetaResourceIT {
 
 	@Autowired
 	private ProjectMetaResource projectMetaController;
