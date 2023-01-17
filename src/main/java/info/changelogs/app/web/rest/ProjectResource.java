@@ -20,6 +20,7 @@ import info.changelogs.app.dto.ProjectDetailedDTO;
 import info.changelogs.app.dto.projection.ProjectMinimizedDTO;
 import info.changelogs.app.service.ProjectServiceApi;
 import info.changelogs.app.util.PaginationUtil;
+import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
@@ -31,7 +32,8 @@ public class ProjectResource extends GenericResource<ProjectDTO, ProjectServiceA
 	}
 	
 	@GetMapping("minimized")
-	public ResponseEntity<List<ProjectMinimizedDTO>> getUserProjectList(Pageable pageable, HttpServletRequest request) {
+	public ResponseEntity<List<ProjectMinimizedDTO>> getUserProjectList(
+			@Parameter(hidden = true) Pageable pageable, HttpServletRequest request) {
 		// FIXME Get user from Security
 		// https://github.com/GLinBoy/changelogs-backend/issues/22
 		Page<ProjectMinimizedDTO> page = service.getAllNecessary("anonymouse", pageable);
