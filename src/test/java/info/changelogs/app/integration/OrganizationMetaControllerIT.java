@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
-import info.changelogs.app.web.rest.OrganizationMetaController;
+import info.changelogs.app.web.rest.OrganizationMetaResource;
 
 @ChangeLogIntegrationTest
 class OrganizationMetaControllerIT {
 
 	@Autowired
-	private OrganizationMetaController organizationMetaController;
+	private OrganizationMetaResource organizationMetaController;
 
 	@Test
 	void contextLoads() {
