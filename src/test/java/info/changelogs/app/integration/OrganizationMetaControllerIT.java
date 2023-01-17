@@ -9,7 +9,7 @@ import info.changelogs.app.ChangeLogIntegrationTest;
 import info.changelogs.app.web.rest.OrganizationMetaController;
 
 @ChangeLogIntegrationTest
-class OrganizationMetaControllerIntegrationTest {
+class OrganizationMetaControllerIT {
 
 	@Autowired
 	private OrganizationMetaController organizationMetaController;
