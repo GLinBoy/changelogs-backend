@@ -15,7 +15,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mock.web.MockHttpServletResponse;
 
-import info.changelogs.app.web.rest.HomeController;
+import info.changelogs.app.web.controller.HomeController;
 
 @ExtendWith(MockitoExtension.class)
 class HomeControllerUnitTest {
