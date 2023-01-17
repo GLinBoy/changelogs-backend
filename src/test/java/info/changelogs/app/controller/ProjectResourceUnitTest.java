@@ -33,7 +33,7 @@ import info.changelogs.app.service.ProjectServiceApi;
 import info.changelogs.app.web.rest.ProjectResource;
 
 @ExtendWith(MockitoExtension.class)
-class ProjectControllerUnitTest {
+class ProjectResourceUnitTest {
 	
 	@InjectMocks
 	private ProjectResource projectController;

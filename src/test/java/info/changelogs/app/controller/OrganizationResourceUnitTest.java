@@ -24,7 +24,7 @@ import info.changelogs.app.service.OrganizationServiceApi;
 import info.changelogs.app.web.rest.OrganizationResource;
 
 @ExtendWith(MockitoExtension.class)
-class OrganizationControllerUnitTest {
+class OrganizationResourceUnitTest {
 
 	@InjectMocks
 	private OrganizationResource organizationController;
