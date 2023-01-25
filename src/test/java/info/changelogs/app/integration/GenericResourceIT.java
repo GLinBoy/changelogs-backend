@@ -26,7 +26,7 @@ import info.changelogs.app.dto.OrganizationDTO;
 import info.changelogs.app.web.rest.OrganizationResource;
 
 @ChangeLogIntegrationTest
-class GenericControllerIntegrationTest {
+class GenericResourceIT {
 
 	@Autowired
 	private OrganizationResource organizationController;

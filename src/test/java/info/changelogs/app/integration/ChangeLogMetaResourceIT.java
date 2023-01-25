@@ -6,17 +6,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
-import info.changelogs.app.web.rest.OrganizationMetaController;
+import info.changelogs.app.web.rest.ChangeLogMetaResource;
 
 @ChangeLogIntegrationTest
-class OrganizationMetaControllerIntegrationTest {
+class ChangeLogMetaResourceIT {
 
 	@Autowired
-	private OrganizationMetaController organizationMetaController;
+	private ChangeLogMetaResource changeLogMetaController;
 
 	@Test
 	void contextLoads() {
-		assertThat(organizationMetaController).isNotNull();
+		assertThat(changeLogMetaController).isNotNull();
 	}
 
 }

@@ -31,7 +31,7 @@ import info.changelogs.app.web.rest.OrganizationResource;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-class GenericControllerUnitTest {
+class GenericResourceUnitTest {
 
 	@InjectMocks
 	private OrganizationResource organizationController;

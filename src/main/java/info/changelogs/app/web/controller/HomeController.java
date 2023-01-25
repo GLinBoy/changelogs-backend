@@ -1,4 +1,4 @@
-package info.changelogs.app.web.rest;
+package info.changelogs.app.web.controller;
 
 import java.io.IOException;
 

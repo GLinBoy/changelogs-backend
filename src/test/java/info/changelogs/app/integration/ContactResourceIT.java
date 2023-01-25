@@ -9,7 +9,7 @@ import info.changelogs.app.ChangeLogIntegrationTest;
 import info.changelogs.app.web.rest.ContactResource;
 
 @ChangeLogIntegrationTest
-class ContactControllerIntegrationTest {
+class ContactResourceIT {
 	
 	@Autowired
 	private ContactResource contactController;

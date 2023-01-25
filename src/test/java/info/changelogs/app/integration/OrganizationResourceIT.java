@@ -20,7 +20,7 @@ import info.changelogs.app.ChangeLogIntegrationTest;
 import info.changelogs.app.web.rest.OrganizationResource;
 
 @ChangeLogIntegrationTest
-class OrganizationControllerIntegrationTest {
+class OrganizationResourceIT {
 
 	@Autowired
 	private OrganizationResource organizationController;

@@ -72,7 +72,7 @@ public class ChangeLog extends Auditable {
 	@Column(name = "PLATFORM", length = 8, nullable = false)
 	private Platform platform;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "PROJECT_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_PROJECT_CHANGELOG"))
 	private Project project;
 

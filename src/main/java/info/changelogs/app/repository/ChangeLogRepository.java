@@ -11,6 +11,11 @@ import info.changelogs.app.entity.ChangeLog;
 
 public interface ChangeLogRepository extends JpaRepository<ChangeLog, Long> {
 
+	@Override
+	@Query(value = "SELECT cl FROM ChangeLog cl LEFT JOIN FETCH cl.contents",
+			countQuery = "SELECT COUNT(cl.id) FROM ChangeLog cl")
+	Page<ChangeLog> findAll(Pageable pageable);
+
 	@Query(value = " SELECT cl from ChangeLog cl "
 			+ " LEFT JOIN FETCH cl.contents "
 			+ " LEFT JOIN FETCH cl.project p "

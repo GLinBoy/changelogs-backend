@@ -8,9 +8,9 @@ import info.changelogs.app.service.OrganizationMetaServiceApi;
 
 @RestController
 @RequestMapping(path = "${application.api-path}/organization-meta")
-public class OrganizationMetaController extends GenericResource<OrganizationMetaDTO, OrganizationMetaServiceApi> {
+public class OrganizationMetaResource extends GenericResource<OrganizationMetaDTO, OrganizationMetaServiceApi> {
 
-	public OrganizationMetaController(OrganizationMetaServiceApi service) {
+	public OrganizationMetaResource(OrganizationMetaServiceApi service) {
 		super(service);
 	}
 

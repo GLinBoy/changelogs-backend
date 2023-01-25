@@ -12,10 +12,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.web.servlet.MockMvc;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
-import info.changelogs.app.web.rest.HomeController;
+import info.changelogs.app.web.controller.HomeController;
 
 @ChangeLogIntegrationTest
-class HomeControllerIntegrationTest {
+class HomeControllerIT {
 
 	@Autowired
 	private HomeController homeController;

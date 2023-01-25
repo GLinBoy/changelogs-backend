@@ -1,15 +1,15 @@
 package info.changelogs.app.integration;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.everyItem;
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.hamcrest.Matchers;
+import org.hamcrest.core.Every;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,44 +17,57 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import info.changelogs.app.ChangeLogIntegrationTest;
-import info.changelogs.app.web.rest.ProjectResource;
+import info.changelogs.app.web.rest.ChangeLogResource;
 
 @ChangeLogIntegrationTest
-class ProjectControllerIntegrationTest {
+class ChangeLogResourceIT {
 
 	@Autowired
-	private ProjectResource projectController;
+	private ChangeLogResource changeLogController;
 
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Value("${application.api-path}/project")
+	@Value("${application.api-path}/changelog")
 	private String baseUrl;
-	private final String TITLE = "Flexidy";
+	private final Integer projectId = 1002;
+	private final String projectTitle = "Sonsing";
+	private final String version = "3.2";
 
 	@Test
 	void contextLoads() {
-		assertThat(projectController).isNotNull();
+		assertThat(changeLogController).isNotNull();
 	}
 
 	@Test
-	void testGetUserProjectList() throws Exception {
-		this.mockMvc.perform(get(baseUrl + "/minimized"))
+	void testGetLatest() throws Exception {
+		this.mockMvc.perform(get(baseUrl))
 		.andDo(print())
 		.andExpect(status().isOk())
 		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-		.andExpect(jsonPath("$.*", hasSize(5)))
-		.andExpect(jsonPath("$.*.id", everyItem(Matchers.notNullValue())));
+		.andExpect(jsonPath("$.*", hasSize(20)))
+		.andExpect(jsonPath("$.*.id").isNotEmpty());
 	}
 
 	@Test
-	void testGetProjectDetailByTitle() throws Exception {
-		this.mockMvc.perform(get(baseUrl + "/title/{title}", TITLE))
+	void testGetProjectChangeLog() throws Exception {
+		this.mockMvc.perform(get(baseUrl + "/project/{project_title}", projectTitle))
 		.andDo(print())
 		.andExpect(status().isOk())
 		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-		.andExpect(jsonPath("$.title").value(TITLE))
-		.andExpect(jsonPath("$.id").value(1001));
+		.andExpect(jsonPath("$.*", hasSize(6)))
+		.andExpect(jsonPath("$.*.id").isNotEmpty())
+		.andExpect(jsonPath("$.*.projectId", Every.everyItem(is(projectId))));
+	}
+
+	@Test
+	void testGetProjectChangeLogVersion() throws Exception {
+		this.mockMvc.perform(get(baseUrl + "/project/{project_title}/{version}", projectTitle, version))
+		.andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(jsonPath("$.*", hasSize(1)))
+		.andExpect(jsonPath("$.*.id").isNotEmpty());
 	}
 
 }

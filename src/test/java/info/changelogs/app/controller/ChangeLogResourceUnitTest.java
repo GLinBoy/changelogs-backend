@@ -34,7 +34,7 @@ import info.changelogs.app.service.ChangeLogServiceApi;
 import info.changelogs.app.web.rest.ChangeLogResource;
 
 @ExtendWith(MockitoExtension.class)
-class ChangeLogControllerUnitTest {
+class ChangeLogResourceUnitTest {
 
 	@InjectMocks
 	private ChangeLogResource changeLogController;
