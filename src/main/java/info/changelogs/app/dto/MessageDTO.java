@@ -8,14 +8,14 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ContactDTO extends AuditableDTO {
+public class MessageDTO extends AuditableDTO {
 
-	public ContactDTO() {
+	public MessageDTO() {
 		super();
 	}
 
 	@Builder
-	public ContactDTO(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
+	public MessageDTO(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
 			Instant editedOn, Integer version, String name, String email, String subject, String message,
 			Long projectId) {
 		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
