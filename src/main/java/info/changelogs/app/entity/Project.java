@@ -32,7 +32,7 @@ public class Project extends Auditable {
 	public Project(Long id, Boolean isActive, String createdBy, String editedBy, Instant createdOn,
 			Instant editedOn, Integer version, String name, String title, String about, String logo, String owner,
 			Boolean publicAccess, String website, String license, String licenseLink, Organization organization,
-			Set<ProjectMeta> metas, Set<Contact> contacts, Set<ChangeLog> changeLogs) {
+			Set<ProjectMeta> metas, Set<Message> messages, Set<ChangeLog> changeLogs) {
 		super(id, isActive, createdBy, editedBy, createdOn, editedOn, version);
 		this.name = name;
 		this.title = title;
@@ -45,7 +45,7 @@ public class Project extends Auditable {
 		this.licenseLink = licenseLink;
 		this.organization = organization;
 		this.metas = metas;
-		this.contacts = contacts;
+		this.messages = messages;
 		this.changeLogs = changeLogs;
 	}
 
@@ -83,7 +83,7 @@ public class Project extends Auditable {
 	Set<ProjectMeta> metas;
 
 	@OneToMany(mappedBy = "project", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	Set<Contact> contacts;
+	Set<Message> messages;
 
 	@OneToMany(mappedBy = "project", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	Set<ChangeLog> changeLogs;
