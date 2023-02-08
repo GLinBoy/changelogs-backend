@@ -1,7 +1,7 @@
 package info.changelogs.app.service;
 
-import info.changelogs.app.dto.ContactDTO;
+import info.changelogs.app.dto.MessageDTO;
 
-public interface ContactServiceApi extends GenericServiceApi<ContactDTO> {
+public interface MessageServiceApi extends GenericServiceApi<MessageDTO> {
 
 }
