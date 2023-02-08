@@ -12,14 +12,14 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Contact extends BaseEntity {
+public class Message extends BaseEntity {
 
-	public Contact() {
+	public Message() {
 		super();
 	}
 
 	@Builder
-	public Contact(Long id, Boolean isActive, String name, String email, String subject, String message,
+	public Message(Long id, Boolean isActive, String name, String email, String subject, String message,
 			Project project) {
 		super(id, isActive);
 		this.name = name;
@@ -42,6 +42,6 @@ public class Contact extends BaseEntity {
 	private String message;
 
 	@ManyToOne
-	@JoinColumn(name = "PROJECT_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_PROJECT_CONTACT"))
+	@JoinColumn(name = "PROJECT_ID", nullable = false, foreignKey = @ForeignKey(name = "FK_PROJECT_MESSAGE"))
 	private Project project;
 }
