@@ -7,7 +7,7 @@ import info.changelogs.app.dto.ProjectMetaDTO;
 import info.changelogs.app.service.ProjectMetaServiceApi;
 
 @RestController
-@RequestMapping(path = "${application.api-path}/project-meta")
+@RequestMapping(path = "${application.api-path}/project-metas")
 public class ProjectMetaResource extends GenericResource<ProjectMetaDTO, ProjectMetaServiceApi> {
 
 	public ProjectMetaResource(ProjectMetaServiceApi service) {
