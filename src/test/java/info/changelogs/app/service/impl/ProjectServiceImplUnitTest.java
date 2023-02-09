@@ -93,7 +93,7 @@ class ProjectServiceImplUnitTest {
 				.licenseLink(null)
 				.organization(Organization.builder().id(1L).build())
 				.metas(Collections.emptySet())
-				.contacts(Collections.emptySet())
+				.messages(Collections.emptySet())
 				.changeLogs(Collections.emptySet())
 				.isActive(true)
 				.createdBy(DEFAULT_USERNAME)
