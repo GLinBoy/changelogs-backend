@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping(path = "${application.api-path}/project")
+@RequestMapping(path = "${application.api-path}/projects")
 public class ProjectResource extends GenericResource<ProjectDTO, ProjectServiceApi> {
 
 	public ProjectResource(ProjectServiceApi service) {
