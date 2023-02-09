@@ -7,7 +7,7 @@ import info.changelogs.app.dto.ChangeLogMetaDTO;
 import info.changelogs.app.service.ChangeLogMetaServiceApi;
 
 @RestController
-@RequestMapping(path = "${application.api-path}/changelog-meta")
+@RequestMapping(path = "${application.api-path}/changelog-metas")
 public class ChangeLogMetaResource extends GenericResource<ChangeLogMetaDTO, ChangeLogMetaServiceApi> {
 
 	public ChangeLogMetaResource(ChangeLogMetaServiceApi service) {
