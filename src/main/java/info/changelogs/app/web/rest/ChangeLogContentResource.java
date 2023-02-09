@@ -7,7 +7,7 @@ import info.changelogs.app.dto.ChangeLogContentDTO;
 import info.changelogs.app.service.ChangeLogContentServiceApi;
 
 @RestController
-@RequestMapping(path = "${application.api-path}/changelog-content")
+@RequestMapping(path = "${application.api-path}/changelog-contents")
 public class ChangeLogContentResource extends GenericResource<ChangeLogContentDTO, ChangeLogContentServiceApi> {
 
 	public ChangeLogContentResource(ChangeLogContentServiceApi service) {
