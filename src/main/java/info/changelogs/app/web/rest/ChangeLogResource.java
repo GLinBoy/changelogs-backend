@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping(path = "${application.api-path}/changelog")
+@RequestMapping(path = "${application.api-path}/changelogs")
 public class ChangeLogResource extends GenericResource<ChangeLogDTO, ChangeLogServiceApi> {
 
 	public ChangeLogResource(ChangeLogServiceApi service) {
