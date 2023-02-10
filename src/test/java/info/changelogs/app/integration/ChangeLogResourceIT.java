@@ -28,7 +28,7 @@ class ChangeLogResourceIT {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Value("${application.api-path}/changelog")
+	@Value("${application.api-path}/changelogs")
 	private String baseUrl;
 	private final Integer projectId = 1002;
 	private final String projectTitle = "Sonsing";
