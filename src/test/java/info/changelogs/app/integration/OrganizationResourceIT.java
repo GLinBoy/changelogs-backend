@@ -28,7 +28,7 @@ class OrganizationResourceIT {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Value("${application.api-path}/organization")
+	@Value("${application.api-path}/organizations")
 	private String baseUrl;
 
 	@Test
