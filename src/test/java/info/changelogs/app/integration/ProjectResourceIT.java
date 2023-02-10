@@ -28,7 +28,7 @@ class ProjectResourceIT {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Value("${application.api-path}/project")
+	@Value("${application.api-path}/projects")
 	private String baseUrl;
 	private final String TITLE = "Flexidy";
 
