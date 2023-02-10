@@ -37,7 +37,7 @@ class GenericResourceIT {
 	@Autowired
 	private ObjectMapper objectMapper;
 
-	@Value("${application.api-path}/organization")
+	@Value("${application.api-path}/organizations")
 	private String baseUrl;
 	private final Long getId  = 1001L;
 	private final Long deleteId  = 1025L;
