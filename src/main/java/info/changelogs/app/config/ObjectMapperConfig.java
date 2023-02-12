@@ -8,15 +8,15 @@ import org.zalando.problem.violations.ConstraintViolationProblemModule;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Configuration
+//@Configuration
 public class ObjectMapperConfig {
 
-	@Bean
-	@Primary
+//	@Bean
+//	@Primary
 	ObjectMapper objectMapper() {
 		ObjectMapper mapper = new ObjectMapper();
-		mapper = mapper.findAndRegisterModules();
-		
+//		mapper = mapper.findAndRegisterModules();
+
 		// Registered Problem Module
 		mapper.registerModules(new ProblemModule(),
 				new ConstraintViolationProblemModule());
