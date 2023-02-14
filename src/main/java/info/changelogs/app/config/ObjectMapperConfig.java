@@ -1,25 +1,21 @@
 package info.changelogs.app.config;
 
+import java.util.TimeZone;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.zalando.problem.jackson.ProblemModule;
-import org.zalando.problem.violations.ConstraintViolationProblemModule;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
-//@Configuration
+@Configuration
 public class ObjectMapperConfig {
 
-//	@Bean
-//	@Primary
+	@Bean
 	ObjectMapper objectMapper() {
-		ObjectMapper mapper = new ObjectMapper();
-//		mapper = mapper.findAndRegisterModules();
-
-		// Registered Problem Module
-		mapper.registerModules(new ProblemModule(),
-				new ConstraintViolationProblemModule());
-		return mapper;
+		return new ObjectMapper()
+				.findAndRegisterModules()
+				.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
+				.setTimeZone(TimeZone.getTimeZone("UTC"));
 	}
 }
