@@ -2,11 +2,10 @@ package info.changelogs.app.dto;
 
 import java.time.Instant;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.URL;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
