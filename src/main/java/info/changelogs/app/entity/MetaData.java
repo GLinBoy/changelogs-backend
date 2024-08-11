@@ -9,7 +9,6 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @MappedSuperclass
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @EqualsAndHashCode(callSuper = true)
 public abstract class MetaData extends BaseEntity {
 	
