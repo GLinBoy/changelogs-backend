@@ -42,7 +42,7 @@ class ProjectResourceIT {
 		this.mockMvc.perform(get(baseUrl + "/minimized"))
 		.andDo(print())
 		.andExpect(status().isOk())
-		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 		.andExpect(jsonPath("$.*", hasSize(5)))
 		.andExpect(jsonPath("$.*.id", everyItem(Matchers.notNullValue())));
 	}
@@ -52,7 +52,7 @@ class ProjectResourceIT {
 		this.mockMvc.perform(get(baseUrl + "/title/{title}", TITLE))
 		.andDo(print())
 		.andExpect(status().isOk())
-		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 		.andExpect(jsonPath("$.title").value(TITLE))
 		.andExpect(jsonPath("$.id").value(1001));
 	}

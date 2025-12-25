@@ -44,7 +44,7 @@ class ChangeLogResourceIT {
 		this.mockMvc.perform(get(baseUrl))
 		.andDo(print())
 		.andExpect(status().isOk())
-		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 		.andExpect(jsonPath("$.*", hasSize(20)))
 		.andExpect(jsonPath("$.*.id").isNotEmpty());
 	}
@@ -54,7 +54,7 @@ class ChangeLogResourceIT {
 		this.mockMvc.perform(get(baseUrl + "/project/{project_title}", projectTitle))
 		.andDo(print())
 		.andExpect(status().isOk())
-		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 		.andExpect(jsonPath("$.*", hasSize(6)))
 		.andExpect(jsonPath("$.*.id").isNotEmpty())
 		.andExpect(jsonPath("$.*.projectId", Every.everyItem(is(projectId))));
@@ -65,7 +65,7 @@ class ChangeLogResourceIT {
 		this.mockMvc.perform(get(baseUrl + "/project/{project_title}/{version}", projectTitle, version))
 		.andDo(print())
 		.andExpect(status().isOk())
-		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 		.andExpect(jsonPath("$.*", hasSize(1)))
 		.andExpect(jsonPath("$.*.id").isNotEmpty());
 	}

@@ -52,7 +52,7 @@ class GenericResourceIT {
 		this.mockMvc.perform(get(baseUrl))
 			.andDo(print())
 			.andExpect(status().isOk())
-			.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 			.andExpect(jsonPath("$.*", hasSize(20)))
 			.andExpect(jsonPath("$.*.id").isNotEmpty());
 	}
@@ -62,7 +62,7 @@ class GenericResourceIT {
 		this.mockMvc.perform(get(baseUrl + "/{id}", getId))
 		.andDo(print())
 		.andExpect(status().isOk())
-		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 		.andExpect(jsonPath("$.id").value(getId));
 	}
 

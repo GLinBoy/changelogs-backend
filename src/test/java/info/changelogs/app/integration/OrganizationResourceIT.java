@@ -41,7 +41,7 @@ class OrganizationResourceIT {
 		this.mockMvc.perform(get(baseUrl + "/owner"))
 		.andDo(print())
 		.andExpect(status().isOk())
-		.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 		.andExpect(jsonPath("$.*", hasSize(3)))
 		.andExpect(jsonPath("$.*.id", everyItem(Matchers.notNullValue())));
 	}
