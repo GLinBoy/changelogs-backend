@@ -18,7 +18,7 @@
 		<java.version>26</java.version>
 		<maven.compiler.proc>full</maven.compiler.proc>
 		<modelmapper.version>3.2.6</modelmapper.version>
-		<springdoc.version>3.0.0</springdoc.version>
+		<springdoc.version>3.0.3</springdoc.version>
 		<editorconfig.version>0.2.0</editorconfig.version>
 	</properties>
 	<dependencies>
