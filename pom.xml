@@ -15,7 +15,7 @@
 	<name>ChangeLogs</name>
 	<description>An application for manage change logs </description>
 	<properties>
-		<java.version>25</java.version>
+		<java.version>26</java.version>
 		<maven.compiler.proc>full</maven.compiler.proc>
 		<modelmapper.version>3.2.6</modelmapper.version>
 		<springdoc.version>3.0.0</springdoc.version>
